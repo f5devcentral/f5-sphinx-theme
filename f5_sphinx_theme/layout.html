@@ -1,0 +1,62 @@
+{% extends "classic/layout.html" %}
+
+{% set css_files = css_files + ["_static/css/f5.css", "_static/css/dashboard.css"] %}
+{# set script_files = script_files + ["https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js", "_static/js/bootstrap.min.js"] #}
+
+{%- block doctype %}
+<!DOCTYPE html>
+{%- endblock %}
+
+{%- block extrahead %}
+<link href="https://cdn.f5.com/favicon.ico" rel="icon">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+{%- endblock %}
+
+{# Do not create the standard relbars and sidebars #}
+{%- block relbar1 %}{% endblock %}
+{%- block relbar2 %}{% endblock %}
+{%- block sidebar1 %}{% endblock %}
+{%- block sidebar2 %}{% endblock %}
+
+{%- block header %}
+  {% include "header.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row table-row">
+      <div class="col-sm-3 col-md-3 sidebar">
+        <!-- <h4><a href="{{ url_root }}">{{ project }}</a></h4> -->
+        <h4>{{ release|striptags|e }}</h4>
+        {%- if sidebars != None %}
+          {%- for sidebartemplate in sidebars %}
+            {%- include sidebartemplate %}
+          {%- endfor %}
+        {% endif %}
+      </div>
+      <div class="col-md-offset-3 col-sm-offset-3 main">
+        <h4>
+          <a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
+          <span class="right"><a href="{{ pathto('genindex')}}">Index</a></span>
+        </h4>
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+{%- block footer %}
+  {% include "footer.html" %}
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
+  <script type="text/javascript">
+    jQuery.noConflict(true)
+  </script>
+{%- endblock %}
