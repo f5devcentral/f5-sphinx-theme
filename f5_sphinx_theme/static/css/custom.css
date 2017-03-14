@@ -112,6 +112,97 @@ div.sidebar
   margin-top: 0;
 }
 
+/*
+* Panels for Tip, See also, Note etc
+*/
+
+
+.admonition {
+  border-radius: 4px;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+ul.last {
+  margin-left: 26px;
+}
+
+/* Yellow: Attention, Caution, Warning */
+.attention, .caution, .warning {
+  border: 1px #faebcc solid;
+}
+
+.attention>.admonition-title,
+.caution>.admonition-title,
+.warning>.admonition-title {
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+  padding: 6px;
+}
+
+.attention>.last, .caution>.last, .warning>.last {
+  padding: 6px;
+}
+
+/* Red */
+.danger, .error {
+  border: 1px #ebccd1 solid;
+}
+
+.danger>.admonition-title, .error>.admonition-title {
+  background-color: #f2dede;
+  color: #a94442;
+  padding: 6px;
+}
+
+.danger>.last, .error>.last {
+  padding: 6px;
+}
+
+/* Green */
+.hint {
+  border: 1px #d6e9c6 solid;
+}
+
+.hint>.admonition-title {
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 6px;
+}
+
+.hint>.last {
+  padding: 6px;
+}
+
+/* Lt. Blue */
+.tip, .note {
+  border: 1px #bce8f1 solid;
+}
+
+.tip>.admonition-title, .note>.admonition-title {
+  background-color: #D9EDF8;
+  color: #31708f;
+  padding: 6px;
+}
+
+.tip>.last, .note>.last {
+  padding: 6px;
+}
+
+/* Blue */
+.important, .seealso {
+  border: 1px #337ab7 solid;
+}
+
+.important>.admonition-title, .seealso>.admonition-title {
+  color: #fff;
+  background-color: #337ab7;
+  padding: 6px;
+}
+
+.important>.last, .seealso>.last {
+  padding: 6px;
+}
 
 /*
  * Placeholder dashboard ideas
