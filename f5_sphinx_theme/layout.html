@@ -43,10 +43,9 @@
 
 {% block content %}
   <div class="container-fluid">
-    <div class="row table-row">
+    <div class="row">
       <div class="col-sm-3 col-md-3 sidebar">
-        <!-- <h4><a href="{{ url_root }}">{{ project }}</a></h4> -->
-        <h4>{{ release|striptags|e }}</h4>
+         <h4><a href="{{ url_root }}">{{ project }} {{ release }}</a></h4>
         {%- if sidebars != None %}
           {%- for sidebartemplate in sidebars %}
             {%- include sidebartemplate %}
@@ -55,7 +54,7 @@
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
         <h4>
-          <a href="{{ pathto(master_doc) }}">{{ shorttitle|e }}</a>
+          <a href="/">{{ theme_site_name|striptags|e }}</a> &gt; <a href="{{ pathto(master_doc) }}">{{ project|striptags|e }}</a>
           <span class="right"><a href="{{ pathto('genindex')}}">Index</a></span>
         </h4>
         {% block body %}{% endblock %}

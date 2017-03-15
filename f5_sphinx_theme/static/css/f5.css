@@ -1019,19 +1019,6 @@ navigation on mobile
   border: none;
   background: #8D8F96;
 }
-.sidebar {
-  /* position: absolute; */
-  /* top: 46px; */
-  left: 0;
-  background: rgba(141, 143, 150, 0.97);
-  /* width: 175px; */
-  /* color: #fff; */
-  /* margin-left: -190px; */
-  height: 100%;
-  z-index: 1000;
-  /* border-top: 16px solid #0194D2; */
-}
-
 
 /* navigation */
 .seemore {
@@ -1110,10 +1097,7 @@ span.a-mm-h {
 .search .btn {
   display: inline;
 }
-.search .btn-primary {
-  padding: 8px 22px !important;
-  border-radius: 0 4px 4px 0;
-}
+
 form.search input.support-guided {
   width: 77%;
   height: 38px;
@@ -4602,6 +4586,7 @@ media styles
     width: 68%;
   }
 }
+/*
 @media (min-width: 1001px) {
   .sidebar-toggle,
   .sidebar {
@@ -4612,6 +4597,7 @@ media styles
     line-height: 20px;
   }
 }
+*/
 @media (min-width: 992px) {
   .col-md-10.middlecontent {
     width: 80%;
