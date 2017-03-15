@@ -3,7 +3,12 @@ F5 Sphinx Theme
 
 Introduction
 ------------
-This repo contains a F5 Networks branded `sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_ theme to assist with documentation production and delivery for projects already using Sphinx documentation.
+This repo contains the `sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_
+theme that is used for project documentation that is hosted on the
+`clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
+
+This theme should not be used without modification for project documentation
+that is not hosted on the `clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
 
 Setup and Configuration
 -----------------------
@@ -22,6 +27,10 @@ Setup and Configuration
 6. (Optional) Configure the ``html_sidebars`` option. See the `sphinx documentation <http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars>`_ for more information. ::
 
     html_sidebars = {'**': ['searchbox.html', 'localtoc.html']}
+
+7. (Optional) Configure the ``html_theme_options{}`` dictionary. Currently only the ``site_name`` option is supported. ::
+
+    html_theme_options = {'site_name': 'My Site Name'}
 
 Depending on your publication / deployment process you may have to re-build your documentation for the changes to take effect.
 
