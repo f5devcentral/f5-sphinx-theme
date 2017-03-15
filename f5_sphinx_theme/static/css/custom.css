@@ -44,9 +44,18 @@ body {
  * Sidebar
  */
 
+form.search {
+  margin-left: 0px;
+}
+
 .sidebar {
   background-color: #EBEBEB;
+  font-size: 14px;
   z-index: 0;
+}
+
+.sidebar ul {
+  padding: 15px;
 }
 
 /* Hide for mobile, show later */
