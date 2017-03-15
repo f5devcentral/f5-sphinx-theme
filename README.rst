@@ -3,19 +3,16 @@ F5 Sphinx Theme
 
 Introduction
 ------------
-This repo contains the `sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_
-theme that is used for project documentation that is hosted on the
-`clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
+This repo contains the `sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_ theme used for project documentation hosted on the `clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
 
-This theme should not be used without modification for project documentation
-that is not hosted on the `clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
+This theme should not be used without modification for project documentation that is not hosted on `clouddocs.f5.com <http://clouddocs.f5.com>`_.
 
 Setup and Configuration
 -----------------------
 1. Download or ``git clone`` the f5-sphinx-theme.
-2. ``pip install .`` from the base directory just created.
+2. ``pip install .`` from the f5-sphinx-theme base directory.
 3. ``pip install -r requirements.txt`` to ensure dependencies are present.
-4. Add ``f5-sphinx-theme`` to the "import" section of your project's ``conf.py`` the theme import. ::
+4. Add ``f5-sphinx-theme`` to the "import" section of your project's ``conf.py`` (replace any existing theme import). ::
 
     import f5_sphinx_theme
 
@@ -26,13 +23,13 @@ Setup and Configuration
 
 6. (Optional) Configure the ``html_sidebars`` option. See the `sphinx documentation <http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars>`_ for more information. ::
 
-    html_sidebars = {'**': ['searchbox.html', 'localtoc.html']}
+    html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
 
-7. (Optional) Configure the ``html_theme_options{}`` dictionary. Currently only the ``site_name`` option is supported. ::
+7. (Optional) Configure the ``html_theme_options{}`` dictionary. Currently, only the ``site_name`` option is supported. ::
 
     html_theme_options = {'site_name': 'My Site Name'}
 
-Depending on your publication / deployment process you may have to re-build your documentation for the changes to take effect.
+Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
 
 Customizing CSS and Assets
 --------------------------
