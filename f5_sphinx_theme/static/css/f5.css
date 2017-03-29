@@ -5447,3 +5447,7 @@ body {
     background-color: #FFF;
     position: relative
 }
+
+tbody tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
