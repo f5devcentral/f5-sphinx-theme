@@ -58,6 +58,17 @@
           <span class="right"><a href="{{ pathto('genindex')}}">Index</a></span>
         </h4>
         {% block body %}{% endblock %}
+        {% if (next or prev) %}
+           <table width=60% border=0 align="left"><tr>
+           {% if prev %}
+              <td align="left"><a href="{{ prev.link|e }}" title="{{ prev.title|striptags|e }}" accesskey="p"><< Previous</a></td>
+           {% endif %}
+           {% if next %}
+              <td align="right"><a href="{{ next.link|e }}" title="{{ next.title|striptags|e }}" accesskey="n">Next >></a></td>
+           {% endif %}
+           </table>
+           <br>
+         {% endif %}        
       </div>
     </div>
   </div>
