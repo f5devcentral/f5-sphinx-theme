@@ -25,9 +25,12 @@ Setup and Configuration
 
     html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
 
-7. (Optional) Configure the ``html_theme_options{}`` dictionary. Currently, only the ``site_name`` option is supported. ::
+7. (Optional) Configure the ``html_theme_options{}`` dictionary. The ``site_name`` and ``next_prev_link`` options are supported. ::
 
-    html_theme_options = {'site_name': 'My Site Name'}
+    html_theme_options = {
+                            'site_name': 'My Site Name',
+                            'next_prev_link': False
+                         }
 
 Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
 
