@@ -60,7 +60,7 @@
         {% block body %}{% endblock %}
         {% if (next or prev) and theme_next_prev_link%}
 		     <div class="row">
-           <div class="col-lg-15">
+           <div class="col-lg-12">
            {% if prev %}
 		        <a href="{{ prev.link|e }}" title="{{ prev.title|striptags|e }}" accesskey="p" class="btn btn-primary pull-left">&lt;&lt; Previous</a>
            {% endif %}
