@@ -48,6 +48,20 @@ After customizing the ``custom.css`` file, you'll have to uninstall the theme an
     pip uninstall f5-sphinx-theme
     pip install .
 
+Integrated Styling Tools
+------------------------
+The ``f5-sphinx-theme`` is set up to use the Font Awesome integration provided in the `sphinxjp.theme.basicstrap <https://github.com/tell-k/sphinxjp.themes.basicstrap>`_ Sphinx theme/extension. [#sphinxjp]_
+
+To use this extension in your project:
+
+#. Add ``sphinxjp.themes.basicstrap`` to the ``extensions`` section of your project's ``conf.py``.
+#. Add ``sphinxjp.themes.basicstrap`` to your project's ``requirements.txt`` file.
+
+To add a Font Awesome icon to your docs: ::
+
+   :fonticon:`fa fa-<icon_name>`
+
+.. [#sphinxjp] ``sphinxjp.themes.basicstrap`` is licensed under the `MIT license <https://opensource.org/licenses/mit-license.php>`_.
 
 Copyright
 ---------
