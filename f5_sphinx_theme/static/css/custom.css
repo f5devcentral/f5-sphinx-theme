@@ -222,6 +222,45 @@ ul.last {
   padding: 6px;
 }
 
+/* Admonition icons */
+
+.admonition-title:before {
+  font-family: "FontAwesome";
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.attention>.admonition-title:before,
+.caution>.admonition-title:before,
+.warning>.admonition-title:before {
+  content: "\f06a";
+}
+
+.important>.admonition-title:before,
+.note>.admonition-title:before,
+.tip>.admonition-title:before,
+.hint>.admonition-title:before {
+  content: "\f05a";
+}
+
+.danger>.admonition-title:before,
+.error>.admonition-title:before {
+  content: "\f071";
+}
+
+
+.attention>.admonition-title,
+.caution>.admonition-title,
+.warning>.admonition-title {
+  background-color: #fcf8e3;
+  color: #8a6d3b;
+  padding: 6px;
+}
+
 /*
  * Tables
  */
