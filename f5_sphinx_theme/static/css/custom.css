@@ -259,9 +259,37 @@ ul.last {
 }
 
 /*
+ * Fix margins when .last element is not p in
+ * admonition
+ */
+
+.admonition p.first {
+  margin-left: 0px;
+}
+
+.admonition p {
+  margin-left: 6px;
+  padding: 6px;
+}
+/* End fix */
+
+/*
  * Tables
  */
 
 th, td {
   padding: 4px;
+}
+
+th.stub {
+  background: white;
+  border-right: solid 3px grey;
+}
+
+thead {
+  border-bottom: solid 3px grey;
+}
+
+.next-prev-btn-row {
+  margin-top: 12px;
 }
