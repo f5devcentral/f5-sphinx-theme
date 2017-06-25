@@ -252,15 +252,6 @@ ul.last {
   content: "\f071";
 }
 
-
-.attention>.admonition-title,
-.caution>.admonition-title,
-.warning>.admonition-title {
-  background-color: #fcf8e3;
-  color: #8a6d3b;
-  padding: 6px;
-}
-
 /*
  * Tables
  */
