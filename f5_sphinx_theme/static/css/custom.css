@@ -147,14 +147,15 @@ ul.last {
 
 /* Yellow: Attention, Caution, Warning */
 .attention, .caution, .warning {
-  border: 1px #faebcc solid;
+  border: 1px #8a6d3b solid;
+  background-color: #fcf8e3;
 }
 
 .attention>.admonition-title,
 .caution>.admonition-title,
 .warning>.admonition-title {
-  background-color: #fcf8e3;
-  color: #8a6d3b;
+  background-color: #8a6d3b;
+  color: white;
   padding: 6px;
 }
 
@@ -162,14 +163,16 @@ ul.last {
   padding: 6px;
 }
 
+
 /* Red */
 .danger, .error {
-  border: 1px #ebccd1 solid;
+  border: 1px #a94442 solid;
+  background-color: #f2dede;
 }
 
 .danger>.admonition-title, .error>.admonition-title {
-  background-color: #f2dede;
-  color: #a94442;
+  background-color: #a94442;
+  color: white;
   padding: 6px;
 }
 
@@ -179,12 +182,13 @@ ul.last {
 
 /* Green */
 .hint {
-  border: 1px #d6e9c6 solid;
+  border: 1px #3c763d solid;
+  background-color: #dff0d8;
 }
 
 .hint>.admonition-title {
-  background-color: #dff0d8;
-  color: #3c763d;
+  background-color: #3c763d;
+  color: white;
   padding: 6px;
 }
 
@@ -194,12 +198,13 @@ ul.last {
 
 /* Lt. Blue */
 .tip, .note {
-  border: 1px #bce8f1 solid;
+  border: 1px #31708f solid;
+  background-color: #D9EDF8;
 }
 
 .tip>.admonition-title, .note>.admonition-title {
-  background-color: #D9EDF8;
-  color: #31708f;
+  background-color: #31708f;
+  color: white;
   padding: 6px;
 }
 
@@ -210,6 +215,7 @@ ul.last {
 /* Blue */
 .important, .seealso {
   border: 1px #337ab7 solid;
+  background-color: #D9EDF8;
 }
 
 .important>.admonition-title, .seealso>.admonition-title {
@@ -222,6 +228,51 @@ ul.last {
   padding: 6px;
 }
 
+/* Admonition icons */
+
+.admonition-title:before {
+  font-family: "FontAwesome";
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.attention>.admonition-title:before,
+.caution>.admonition-title:before,
+.warning>.admonition-title:before {
+  content: "\f06a";
+}
+
+.important>.admonition-title:before,
+.note>.admonition-title:before,
+.tip>.admonition-title:before,
+.hint>.admonition-title:before {
+  content: "\f05a";
+}
+
+.danger>.admonition-title:before,
+.error>.admonition-title:before {
+  content: "\f071";
+}
+
+/*
+ * Fix margins when .last element is not p in
+ * admonition
+ */
+
+.admonition p.first {
+  margin-left: 0px;
+}
+
+.admonition p {
+  margin-left: 6px;
+  padding: 6px;
+}
+/* End fix */
+
 /*
  * Tables
  */
@@ -230,3 +281,15 @@ th, td {
   padding: 4px;
 }
 
+th.stub {
+  background: white;
+  border-right: solid 3px grey;
+}
+
+thead {
+  border-bottom: solid 3px grey;
+}
+
+.next-prev-btn-row {
+  margin-top: 12px;
+}
