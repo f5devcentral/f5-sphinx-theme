@@ -181,12 +181,14 @@ ul.last {
 }
 
 /* Green */
-.hint {
+.hint,
+.admonition-tmsh {
   border: 1px #3c763d solid;
   background-color: #dff0d8;
 }
 
-.hint>.admonition-title {
+.hint>.admonition-title,
+.admonition-tmsh>.admonition-title {
   background-color: #3c763d;
   color: white;
   padding: 6px;
@@ -218,7 +220,8 @@ ul.last {
   background-color: #D9EDF8;
 }
 
-.important>.admonition-title, .seealso>.admonition-title {
+.important>.admonition-title,
+.seealso>.admonition-title {
   color: #fff;
   background-color: #337ab7;
   padding: 6px;
@@ -247,6 +250,7 @@ ul.last {
 }
 
 .important>.admonition-title:before,
+.admonition-tmsh>.admonition-title:before,
 .note>.admonition-title:before,
 .tip>.admonition-title:before,
 .hint>.admonition-title:before {
@@ -256,6 +260,40 @@ ul.last {
 .danger>.admonition-title:before,
 .error>.admonition-title:before {
   content: "\f071";
+}
+
+.admonition-tmsh>.admonition-title:after {
+  content: " Command";
+}
+
+.admonition-tmsh p.last {
+    display: block;
+    padding: 10.5px;
+    margin: 6px 6px 11px;
+    font-size: 15px;
+    line-height: 1.375;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #4d4f53;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+}
+
+.admonition-todo>.admonition-title:before {
+  content: "\f046";
+}
+
+.admonition-todo>.admonition-title {
+  background-color: #ff3030;
+  color: white;
+  padding: 6px;
+}
+
+.admonition-todo {
+  border: solid 1px red;
+  background-color: #ffa0a0;
 }
 
 /*
@@ -272,6 +310,11 @@ ul.last {
   padding: 6px;
 }
 /* End fix */
+
+.admonition>ol,
+.admonition>ul {
+  margin-left: 30px;
+}
 
 /*
  * Tables
