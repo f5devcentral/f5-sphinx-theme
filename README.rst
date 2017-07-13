@@ -70,7 +70,7 @@ To add a Font Awesome icon to your docs: ::
 TMSH/TMOS code blocks
 `````````````````````
 
-The ``f5-sphinx-theme`` has special CSS styling for TMSH/TMOS code blocks. To use: ::
+The ``f5-sphinx-theme`` has special CSS styling for TMSH/TMOS code blocks. To use: 
 
 .. parsed-literal::
 
