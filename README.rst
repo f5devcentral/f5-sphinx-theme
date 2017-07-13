@@ -50,7 +50,11 @@ After customizing the ``custom.css`` file, you'll have to uninstall the theme an
 
 Integrated Styling Tools
 ------------------------
-The ``f5-sphinx-theme`` is set up to use the Font Awesome integration provided in the `sphinxjp.theme.basicstrap <https://github.com/tell-k/sphinxjp.themes.basicstrap>`_ Sphinx theme/extension. [#sphinxjp]_
+
+Font Awesome
+````````````
+
+The ``f5-sphinx-theme`` uses the Font Awesome integration provided in the `sphinxjp.theme.basicstrap <https://github.com/tell-k/sphinxjp.themes.basicstrap>`_ Sphinx theme/extension. [#sphinxjp]_
 
 To use this extension in your project:
 
@@ -63,9 +67,42 @@ To add a Font Awesome icon to your docs: ::
 
 .. [#sphinxjp] ``sphinxjp.themes.basicstrap`` is licensed under the `MIT license <https://opensource.org/licenses/mit-license.php>`_.
 
+TMSH/TMOS code blocks
+`````````````````````
+
+The ``f5-sphinx-theme`` has special CSS styling for TMSH/TMOS code blocks. To use: ::
+
+.. parsed-literal::
+
+   .. admonition:: TMSH
+
+      tmsh show sys hardware
+
+If you're including a multi-line print-out, format it as code as shown below:
+
+.. parsed-literal::
+
+   .. admonition:: TMSH
+
+      ::
+
+         admin@(bigip)(cfg-sync Standalone)(Active)(/mesos)# tmsh show ltm virtual
+         ------------------------------------------------------------------
+         Ltm::Virtual Server: basic-0_8080
+         ------------------------------------------------------------------
+         Status
+           Availability     : unknown
+           State            : enabled
+           Reason           : The children pool member(s) either don't have service checking enabled, or service check results are not available yet
+           CMP              : enabled
+           CMP Mode         : all-cpus
+           Destination      : 10.190.25.70:8080
+         ...
+
+
 Copyright
 ---------
-Copyright 2017 F5 Networks, Inc.
+Copyright 2017 F5 Networks Inc.
 
 License
 -------
