@@ -51,10 +51,9 @@
         {% endif %}
       </div>
       <div class="col-md-offset-3 col-sm-offset-3 main">
-        <h4>
-          <a href="/">{{ theme_site_name|striptags|e }}</a> &gt; <a href="{{ pathto(master_doc) }}">{{ project|striptags|e }}</a>
-          <span class="right"><a href="{{ pathto('genindex')}}">Index</a></span>
-        </h4>
+        {%- block breadcrumb %}
+          {% include "breadcrumb.html" %}
+        {% endblock %}
         {% block body %}{% endblock %}
         {% if (next or prev) and theme_next_prev_link%}
 		     <div class="row next-prev-btn-row">
