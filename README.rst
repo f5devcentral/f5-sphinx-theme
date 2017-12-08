@@ -1,6 +1,9 @@
 F5 Sphinx Theme
 ===============
 
+.. image:: https://travis-ci.org/f5devcentral/f5-sphinx-theme.svg?branch=master
+   :target: https://travis-ci.org/f5devcentral/f5-sphinx-theme
+
 Introduction
 ------------
 This repo contains the `sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_ theme used for project documentation hosted on the `clouddocs.f5.com <http://clouddocs.f5.com>`_ site.
