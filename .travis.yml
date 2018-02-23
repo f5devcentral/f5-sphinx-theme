@@ -12,9 +12,11 @@ before_install:
 - git config --global user.name "Travis F5 Openstack"
 install:
 - gem install html-proofer
+- npm install -g css-validator
 - pip install ./
 script:
 - htmlproofer --check_html --checks-to-ignore "LinkCheck,ImageCheck,ScriptCheck" --report_invalid_tags --report-script-embeds f5_sphinx_theme/
+- css-validator f5_sphinx_theme/static/css/custom.css
 deploy:
 - provider: pypi
   user: $PYPI_USER

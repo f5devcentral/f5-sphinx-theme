@@ -488,7 +488,7 @@ h6,
 
 caption {
   display: table-caption;
-  text-align: -webkit-center;
+  text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   font-style: italic;
@@ -504,10 +504,10 @@ formatting for sphinx pullquote directive
 */
 blockquote.pull-quote {
   padding: 11px !important;
-  border-color: #0bc9e482;
+  border-color: grey;
   border-width: 4px;
   font-size: 95%;
-  background-color: #e3e3e3d4;
+  background-color: #E3E3E3;
 }
 
 /*
@@ -530,7 +530,8 @@ table {
 
 img {
   object-fit: scale-down;
-  max-width: -webkit-fill-available;
+  max-width: 100%;
+  height: auto;
 }
 
 ul.simple {
