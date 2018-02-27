@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 F5 Networks
+ * Copyright 2018 F5 Networks
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,20 @@
 
 body {
   padding-top: 0px;
+  padding-right: 10px;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: inherit;
+  padding-right: inherit;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 100%;
+  }
 }
 
 /* Header paragraph links */
@@ -130,120 +144,147 @@ form.search {
   margin-top: 0;
 }
 
+/* Content sidebar
+*/
+.sidebar {
+  /*position: fixed;
+  right: 0; */
+  width: 35%;
+  float: right;
+  display: block;
+  margin-left: 25px;
+  background-color: #dee4ee;
+  padding: 10px;
+}
+
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.sidebar>p,.sidebar>ul,.sidebar>li {
+  font-size: 90%;
+}
+
+.sidebar>ul,.sidebar>li {
+  margin: 11px;
+  padding-left: 5px;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  font-size: 100%;
+}
+
 /*
 * Panels for Tip, See also, Note etc
 */
-
 
 .admonition {
   border-radius: 4px;
   background-color: white;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-ul.last {
-  margin-left: 26px;
+/* F5 Yellow: Caution */
+.caution {
+  border: 1px #FFF200 solid;
+  background-color: #FFF;
 }
 
-/* Yellow: Caution, Warning */
-.caution, .warning {
-  border: 1px #8a6d3b solid;
-  background-color: #fcf8e3;
+.caution>.admonition-title {
+  background-color: #FFF200;
+  color: black;
+  padding: 6px;
 }
 
-.caution>.admonition-title,
+/* F5 Orange: Attention, Warning */
+.attention, .warning {
+  border: 1px #f66e41 solid;
+  background-color: #FFF;
+}
+
+.attention>.admonition-title,
 .warning>.admonition-title {
-  background-color: #8a6d3b;
+  background-color: #f66e41;
   color: white;
   padding: 6px;
 }
 
-.caution>.last, .warning>.last {
-  padding: 6px;
-}
-
-
-/* Red */
+/* F5 Red */
 .danger, .error {
-  border: 1px #a94442 solid;
-  background-color: #f2dede;
+  border: 1px #e4002b solid;
+  background-color: #FFF;
 }
 
 .danger>.admonition-title, .error>.admonition-title {
-  background-color: #a94442;
+  background-color: #e4002b;
   color: white;
-  padding: 6px;
-}
-
-.danger>.last, .error>.last {
-  padding: 6px;
-}
-
-/* Orange: attention */
-
-.attention {
-  border: 1px #d39017 solid;
-  background-color: #fcf8e3;
-}
-
-.attention>.admonition-title {
-  background-color: #d39017;
-  color: white;
-  padding: 6px;
-}
-
-.attention>.last {
   padding: 6px;
 }
 
 /* Green */
 .hint,
 .admonition-tmsh {
-  border: 1px #3c763d solid;
-  background-color: #dff0d8;
+  border: 1px #51af4a solid;
+  background-color: #FFF;
+}
+
+.attention>.last {
+  padding: 6px;
 }
 
 .hint>.admonition-title,
 .admonition-tmsh>.admonition-title {
-  background-color: #3c763d;
+  background-color: #51af4a;
   color: white;
   padding: 6px;
 }
 
-.hint>.last {
-  padding: 6px;
-}
-
-/* Lt. Blue */
-.tip, .note {
-  border: 1px #31708f solid;
-  background-color: #D9EDF8;
+/* F5 Purple */
+.tip,
+.note {
+  border: 1px #8547AD solid;
+  background-color: #FFF;
 }
 
 .tip>.admonition-title, .note>.admonition-title {
-  background-color: #31708f;
+  background-color: #8547AD;
   color: white;
   padding: 6px;
 }
 
-.tip>.last, .note>.last {
-  padding: 6px;
-}
 
-/* Blue */
-.important, .seealso {
-  border: 1px #337ab7 solid;
-  background-color: #D9EDF8;
+/* F5 Blue */
+.important,
+.seealso {
+  border: 1px #00A1E4 solid;
+  background-color: #FFF;
 }
 
 .important>.admonition-title,
 .seealso>.admonition-title {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #00A1E4;
   padding: 6px;
 }
 
-.important>.last, .seealso>.last {
+.attention>.last,
+.caution>.last,
+.warning>.last,
+.danger>.last,
+.error>.last,
+.hint>.last,
+.tip>.last,
+.note>.last,
+.important>.last,
+.seealso>.last {
   padding: 6px;
 }
 
@@ -282,7 +323,8 @@ ul.last {
   content: " Command";
 }
 
-.admonition-tmsh p.last {
+.admonition-tmsh p.last,
+.admonition-tmsh p {
     display: block;
     padding: 10.5px;
     margin: 6px 6px 11px;
@@ -351,6 +393,7 @@ thead {
 
 .next-prev-btn-row {
   margin-top: 12px;
+  margin-bottom: 20px;
 }
 
 /*
@@ -358,6 +401,15 @@ thead {
 */
 .literal-block-wrapper:after {
     content: none;
+}
+
+.literal-block-wrapper + .docutils + .container {
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+.code-block-caption {
+  font-weight: bold;
 }
 
 /*
@@ -384,33 +436,155 @@ thead {
     margin:auto 2px
 }
 
-/* Content sidebar
-*/
-.sidebar {
-  /*position: fixed;
-  right: 0; */
-  width: 35%;
-  float: right;
-  display: block;
-  margin-left: 25px;
-  background-color: #dee4ee;
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-
-.sidebar>.p,.sidebar>.ul,.sidebar>.li {
-  font-size: 90%;
-  padding-left: 5px;
-}
-
-.sidebar-title {
-  font-weight: bold;
-  font-size: 100%;
-}
+/*end elements from sphinx-rtd-theme*/
 
 /* footnote citations */
 .footnote-reference, .citation-reference {
     vertical-align: super;
     font-size: 85%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'TabletGothicSemiBold', 'Colaborate', Arial, sans-serif;
+  font-weight: normal !important;
+  color: #333;
+}
+h4 {
+  font-family: Arial, sans-serif;
+  font-weight: normal !important;
+  color: #000;
+}
+h1 {
+  font-size: 25px;
+}
+h2 {
+  font-size: 22px;
+  line-height: 26px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 18px;
+  margin: 18px 0 10px 0;
+  width: 100%;
+}
+h5,
+.h5,
+p.first.sidebar-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+h6,
+.h6 {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+caption {
+  display: table-caption;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  font-style: italic;
+  color: #000;
+}
+
+ol.arabic {
+  padding-left: 20px;
+}
+
+/*
+formatting for sphinx pullquote directive
+*/
+blockquote.pull-quote {
+  padding: 11px !important;
+  border-color: grey;
+  border-width: 4px;
+  font-size: 95%;
+  background-color: #E3E3E3;
+}
+
+/*
+formatting for using sidebar class with admonitions
+ */
+.sidebar.admonition {
+  padding: 0 !important;
+}
+
+@media (max-width: 768px) {
+.sidebar.admonition {
+    padding: 0 !important;
+  }
+}
+
+table {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+img {
+  object-fit: scale-down;
+  max-width: 100%;
+  height: auto;
+}
+
+ul.simple {
+  padding-left: 20px;
+}
+
+/*
+override bootstrap pre settings in sphinx literal blocks
+ */
+div[class^='highlight'] pre {
+  white-space: pre;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Menlo,Monaco,Consolas,Courier New,monospace;
+  font-size: 85%;
+  line-height: 1.5;
+  display: block;
+  overflow: auto;
+  color: #404040;
+  border-radius: 0;
+}
+
+/*
+override table borders and spacing in literal blocks using line numbers
+ */
+.highlight,
+table[class^='highlight'] tbody tr,
+table[class^='highlight'] tbody tr:nth-child(odd),
+table[class^='highlight'] th,
+table[class^='highlight'] td {
+  background: rgba(0,0,0,0) !important;
+  padding: 0;
+}
+
+pre {
+  padding-right: 0;
+  border: 0;
+}
+
+/*div[class~='.docutils'] .literal {
+}
+*/
+
+code {
+    padding: 2px;
+    font-size: 85%;
+    color: #FFFFFF;
+    background-color: #757677;
+    border-radius: 2px;
+}
+
+code.xref.download.docutils.literal,
+span.icon.fa.fa-download {
+  color: #0083c0;
+  background-color: transparent;
 }
