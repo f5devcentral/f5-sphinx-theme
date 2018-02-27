@@ -1,4 +1,4 @@
-# Copyright 2017 F5 Networks
+# Copyright 2017-18 F5 Networks
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 import os
 
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 
 def get_html_theme_path():
