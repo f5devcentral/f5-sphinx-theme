@@ -1,0 +1,59 @@
+<head>
+  
+  {%- block analytics %}
+  {# GoogleAnalytics #}
+  <!--STAGING:-->
+  <script src="//assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3-staging.js"></script>
+  <!--Production:-->
+  <script src="//assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
+  {%- endblock %}
+  
+  {%- block metadata %}
+  {# METADATA #}
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="kb_doc_type" content="Manual"/>
+  <meta name="kb_doc_type" content="User Guide"/>
+  <meta name="title" content="{{ title|striptags|e }}"/>
+  <meta name="product" content="{{ project|striptags|e }}"/>
+  <meta name="version" content="{{ release|striptags|e }}"/>
+  <meta name="updated_date"  content="{{ last_updated|e }}"/>
+
+  {{ metatags }}
+  
+  {%- endblock %}
+  
+  {%- block htmltitle %}
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
+  {%- endblock %}
+  
+  {# FAVICON #}
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+  
+  {%- block extrahead %}
+  
+    {%- block css %}
+    {# CSS #}
+    <link rel="stylesheet" href="{{ pathto('_static/css/f5-theme.css', 1) }}" type="text/css" >
+    <link rel="stylesheet" href="{{ pathto('_static/css/custom.css', 1) }}" type="text/css" >
+    <link rel="stylesheet" href="{{ pathto('_static/css/boostrap.min.css', 1) }}" type="text/css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" media="all" >
+    {%- endblock %}
+    
+    {%- block scripts %}
+    {# SCRIPTS #}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/21fb8a09c3.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {%- endblock %}
+  
+  {%- endblock %}
+
+</head>
