@@ -17,6 +17,11 @@ install:
 script:
 - htmlproofer --check_html --checks-to-ignore "LinkCheck,ImageCheck,ScriptCheck" --report_invalid_tags --report-script-embeds f5_sphinx_theme/
 - css-validator f5_sphinx_theme/static/css/custom.css
+
+addons:
+  artifacts:
+    paths:
+    - $HOME/
 deploy:
 - provider: pypi
   user: $PYPI_USER
