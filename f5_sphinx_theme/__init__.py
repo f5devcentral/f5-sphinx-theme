@@ -1,4 +1,4 @@
-# Copyright 2017-18 F5 Networks
+# Copyright 2017-2018 F5 Networks
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,10 +13,9 @@
 # limitations under the License.
 
 import os
+from os import path
 
-
-__version__ = "1.0.0"
-
+__version__ = "1.0-beta"
 
 def get_html_theme_path():
     """Return the html theme path for this template library.
@@ -25,3 +24,11 @@ def get_html_theme_path():
     """
     curdir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
     return [curdir]
+
+def setup(app):
+    """Set up the theme for distribution as a python package
+    
+    :return: Adds f5-sphinx-theme to the html_themes path in Sphinx
+    """
+    app.add_html_theme('f5_sphinx_theme', path.abspath(path.dirname(__file__)))
+    

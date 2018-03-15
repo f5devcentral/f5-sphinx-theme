@@ -19,45 +19,53 @@ Setup and Configuration
 
     import f5_sphinx_theme
 
-5. Configure the ``html_theme`` and ``html_theme_theme_path()`` as shown below. ::
+5. Configure the ``html_theme`` as shown below. ::
 
     html_theme = 'f5_sphinx_theme'
-    html_theme_path = f5_sphinx_theme.get_html_theme_path()
 
-6. (Optional) Configure the ``html_sidebars`` option. See the `sphinx documentation <http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars>`_ for more information. ::
+6. Configure the ``html_sidebars`` option.
+
+   See the `sphinx documentation <http://www.sphinx-doc.org/en/stable/config.html#confval-html_sidebars>`_ for more information. ::
 
     html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html']}
 
-7. (Optional) Configure the ``html_theme_options{}`` dictionary. The ``site_name`` and ``next_prev_link`` options are supported. ::
+7. (Optional) Configure the ``html_theme_options{}`` dictionary. Supported options are shown below. ::
 
     html_theme_options = {
-                            'site_name': 'My Site Name',
-                            'next_prev_link': False
+                            'site_name': '<desired site name>',
+                            'next_prev_link': True or False
                          }
 
 Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
 
-Customizing CSS and Assets
---------------------------
-The css styling for the project uses two css files: 
+Customizing CSS and Theme Assets
+--------------------------------
+The css styling for the project uses three css files:
 
-- ``f5.css`` contains F5's core bootstrap customizations and fonts. 
-- ``custom.css`` can be used for any modifications you'd like to make for your documentation to make content easier to navigate and reference. Bear in mind that all mods must still comply with the F5 Corporate Branding strategy and requirements.
+- ``f5.css`` contains F5's core Bootstrap customizations and fonts.
+- ``f5-theme.css`` contains the core styles for the f5-sphinx-theme.
+- ``custom.css`` can be added to your project for any modifications you'd like to make for your documentation to make content easier to navigate and reference. Bear in mind that all mods must still comply with the F5 Corporate Branding strategy and requirements.
+
+NOTE: The theme relies on Bootstrap 4 and FontAwesome 4. Changing either version may have unintended consequences.
 
 After customizing the ``custom.css`` file, you'll have to uninstall the theme and reinstall it to apply your changes.
 
 ::
 
-    pip uninstall f5-sphinx-theme
-    pip install .
+   pip uninstall f5-sphinx-theme
+   pip install .
 
-Integrated Styling Tools
-------------------------
+You can also use the ``extralinks.html`` file to add an extra links section to the bottom of the Table of Contents sidebar. To use it, add the file to the ``docs/_templates`` directory in your project.
+
+Finally, the theme's layout is separated into a number of content blocks (``content``, ``f5sidebar``, and ``main``). Any of these blocks can be customized for individual projects. See the `Sphinx Templating guide <http://www.sphinx-doc.org/en/stable/templating.html>`_ for instructions.
+
+Styling Tools
+-------------
 
 Font Awesome
 ````````````
 
-The ``f5-sphinx-theme`` uses the Font Awesome integration provided in the `sphinxjp.theme.basicstrap <https://github.com/tell-k/sphinxjp.themes.basicstrap>`_ Sphinx theme/extension. [#sphinxjp]_
+The ``f5-sphinx-theme`` uses the Font Awesome integration (v4.7.0) provided in the `sphinxjp.theme.basicstrap <https://github.com/tell-k/sphinxjp.themes.basicstrap>`_ Sphinx theme/extension. [#sphinxjp]_
 
 To use this extension in your project:
 
@@ -70,8 +78,19 @@ To add a Font Awesome icon to your docs: ::
 
 .. [#sphinxjp] ``sphinxjp.themes.basicstrap`` is licensed under the `MIT license <https://opensource.org/licenses/mit-license.php>`_.
 
-TMSH/TMOS code blocks
-`````````````````````
+Table Styling
+`````````````
+
+The ``f5-sphinx-theme`` supports use of the `Cloud Sphinx theme table styling extension <https://cloud-sptheme.readthedocs.io/en/latest/lib/cloud_sptheme.ext.table_styling.html>`_.
+
+To use this extension:
+
+#. Add ``cloud_sptheme.ext.table_styling`` to the ``extensions`` section of your project's ``conf.py``.
+#. Add ``cloud_sptheme`` to your project's ``requirements.txt`` file.
+
+
+Using specially-formatted TMSH/TMOS code blocks
+```````````````````````````````````````````````
 
 The ``f5-sphinx-theme`` has special CSS styling for TMSH/TMOS code blocks. To use: 
 
@@ -81,7 +100,7 @@ The ``f5-sphinx-theme`` has special CSS styling for TMSH/TMOS code blocks. To us
 
       tmsh show sys hardware
 
-If you're including a multi-line print-out, format it as code as shown below:
+If you're including a multi-line print-out, format it as code, as shown below:
 
 .. parsed-literal::
 
@@ -103,9 +122,18 @@ If you're including a multi-line print-out, format it as code as shown below:
          ...
 
 
+
+
+Testing
+-------
+
+This project uses Travis-CI for CI/CD.
+
+
 Copyright
 ---------
-Copyright 2017 F5 Networks Inc.
+
+Copyright 2017-18 F5 Networks Inc.
 
 License
 -------

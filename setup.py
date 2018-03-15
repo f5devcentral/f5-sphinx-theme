@@ -1,4 +1,4 @@
-# Copyright 2017 F5 Networks
+# Copyright 2017-2018 F5 Networks
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ with open(path.join(here, 'README.rst')) as f:
 
 
 setup(
-    name='f5-sphinx-theme',
+    name='f5_sphinx_theme',
     version=__version__,
     url='https://github.com/F5DevCentral/f5-sphinx-theme',
     license='Apache2',
     author='F5 Networks',
-    author_email='shawn@f5.com',
+    author_email='f5-sphinx-theme@f5.com',
     description='Sphinx theme for F5 documentation',
     long_description=long_description,
     zip_safe=False,
@@ -39,10 +39,16 @@ setup(
         'static/js/*.js',
         'static/fonts/*.*'
     ]},
-    install_requires=['Sphinx>=1.4'],
+    entry_points = {
+        'sphinx.html_themes': [
+            'f5_sphinx_theme = f5_sphinx_theme'
+        ]
+    },
     include_package_data=True,
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Framework :: Sphinx',
+        'Framework :: Sphinx :: Theme',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: Apache Software License',
         'Environment :: Console',
         'Environment :: Web Environment',
