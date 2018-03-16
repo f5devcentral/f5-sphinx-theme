@@ -1,3 +1,6 @@
+sudo: required
+services:
+  - docker
 env:
   global:
   - DIST_REPO="f5-sphinx-theme"
@@ -14,6 +17,7 @@ before_install:
 install:
 - gem install html-proofer
 - npm install -g css-validator
+- npm install -g broken-link-checker
 - pip install -r requirements_test.txt
 
 script:
@@ -34,10 +38,13 @@ deploy:
   upload-dir: ${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BUILD_NUMBER}
   on:
     all_branches: true
+    tags: false
 - provider: pypi
   user: $PYPI_USER
   password: $PYPI_PASSWORD
   server: https://pypi.python.org.pypi
   on:
+    repo: f5devcentral/f5-sphinx-theme
     tags: true
-  skip_cleanup: true
+    condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+.*
+
