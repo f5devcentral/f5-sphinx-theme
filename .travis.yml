@@ -42,7 +42,6 @@ deploy:
 - provider: pypi
   user: $PYPI_USER
   password: $PYPI_PASSWORD
-  server: https://pypi.python.org.pypi
   on:
     repo: f5devcentral/f5-sphinx-theme
     tags: true
