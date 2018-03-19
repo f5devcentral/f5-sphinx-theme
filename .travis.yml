@@ -19,10 +19,11 @@ install:
 - npm install -g css-validator
 - npm install -g broken-link-checker
 - pip install -r requirements_test.txt
+- pip install twine
 
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
-- ./test/theme-test.sh
+- ./scripts/theme-test.sh
 # Set to allow failure, htmlproofer doesn't support HTML5 tags
 - htmlproofer --check_html --checks-to-ignore "LinkCheck,ImageCheck,ScriptCheck" --report_invalid_tags --report-script-embeds $TRAVIS_BUILD_DIR/html || true
 
@@ -39,11 +40,11 @@ deploy:
   on:
     all_branches: true
     tags: false
-- provider: pypi
-  user: $PYPI_USER
-  password: $PYPI_PASSWORD
+- provider: script
   on:
     repo: f5devcentral/f5-sphinx-theme
     tags: true
     condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+.*
-
+  script:
+  - ./scripts/deploy.sh
+    
