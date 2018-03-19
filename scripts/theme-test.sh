@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Clone a dummy repo and generate some test documentation
+
 set -x
 set -e
 

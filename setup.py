@@ -12,14 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from os import path
-from setuptools import setup
+import os
+import sys
+from setuptools import find_packages, setup
 from f5_sphinx_theme import __version__
 
-here = path.abspath(path.dirname(__file__))
-with open(path.join(here, 'README.rst')) as f:
-    long_description = f.read()
+import f5_sphinx_theme
 
+with open('README.rst') as f:
+    long_desc = f.read()
 
 setup(
     name='f5_sphinx_theme',
@@ -28,8 +29,8 @@ setup(
     license='Apache2',
     author='F5 Networks',
     author_email='f5-sphinx-theme@f5.com',
-    description='Sphinx theme for F5 documentation',
-    long_description=long_description,
+    description='Sphinx theme for F5 Networks',
+    long_description= long_desc,
     zip_safe=False,
     packages=['f5_sphinx_theme'],
     package_data={'f5_sphinx_theme': [
@@ -45,10 +46,11 @@ setup(
         ]
     },
     include_package_data=True,
+    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
     classifiers=[
         'Framework :: Sphinx',
         'Framework :: Sphinx :: Theme',
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: Apache Software License',
         'Environment :: Console',
         'Environment :: Web Environment',
