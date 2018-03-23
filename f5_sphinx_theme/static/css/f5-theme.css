@@ -110,10 +110,6 @@ a.headerlink:hover {
  * Sidebar with ToC and search
  */
 
-form.search {
-  margin-left: 0px;
-}
-
 #sidebar, .section-nav {
   min-width: 256px;
   max-width: 256px;
@@ -124,7 +120,7 @@ form.search {
   float: left;
   margin-right: 40px;
   margin-bottom: 256px;
-  margin-top: 24px;
+  /*margin-top: 24px;*/
   overflow-x: scroll;
   overflow-y: scroll;
   padding: 16px 12px 16px 16px;
@@ -155,6 +151,24 @@ form.search {
   .site-hidden {
     display: block;
   }
+}
+
+form.search {
+  padding-bottom: 6px;
+  display: inline;
+}
+
+.search {
+  /* margin: auto !important; */
+  display: inline-table;
+  width: auto !important;
+}
+
+#searchbox > form > button {
+  margin: auto;
+  padding: 0 4px;
+  border-radius: 4px;
+  display: inline-block;
 }
 
 #sidebar ul {
@@ -199,12 +213,7 @@ a[aria-expanded="true"]::before {
   z-index: 10011;
 }
 
-/* Sidebar Search */
-form.search {
-  margin: 6px;
-  padding-bottom: 6px;
-  display: inline;
-}
+
 
 .search .btn-primary {
   border-radius: 4px;
@@ -217,13 +226,13 @@ form.search {
 }
 
 .search-wrapper {
-  margin-right: 40px;
-  padding-right: 60px;
-  margin-left: initial;
+  /* margin-right: 40px; */
+  /* padding-right: 60px; */
+  /* margin-left: initial; */
 }
 
 #search-results {
-  margin-left: -20px;
+  /* margin-left: -20px; */
 }
 
 #search-results > h2,
@@ -231,6 +240,9 @@ form.search {
   margin-left: 0;
 }
 
+#search-results > ul {
+  display: block;
+}
 /*
  * Main content
  */
