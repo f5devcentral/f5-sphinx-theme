@@ -36,7 +36,6 @@ body {
 
 #content.active {
   margin-left: 6px;
-  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -45,16 +44,6 @@ body {
     }
     #content.active {
       margin-left: 256px;
-      padding-right: 20%;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width:1200px) {
-    #content {
-      padding-right: 0%;
-    }
-    #content.active {
-      padding-right: 25%;
     }
 }
 
