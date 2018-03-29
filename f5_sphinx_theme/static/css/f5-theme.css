@@ -36,25 +36,14 @@ body {
 
 #content.active {
   margin-left: 6px;
-  width: 100%;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     #content {
       margin-left: 0;
     }
     #content.active {
       margin-left: 256px;
-      padding-right: 20%;
-    }
-}
-
-@media screen and (min-width: 1024px) and (max-width:1200px) {
-    #content {
-      padding-right: 0%;
-    }
-    #content.active {
-      padding-right: 25%;
     }
 }
 
@@ -141,7 +130,7 @@ a.headerlink:hover {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .site-hidden {
     display: none!important;
   }
