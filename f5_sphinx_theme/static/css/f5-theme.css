@@ -38,7 +38,7 @@ body {
   margin-left: 6px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     #content {
       margin-left: 0;
     }
@@ -130,7 +130,7 @@ a.headerlink:hover {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .site-hidden {
     display: none!important;
   }
