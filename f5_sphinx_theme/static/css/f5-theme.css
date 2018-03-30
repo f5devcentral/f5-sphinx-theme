@@ -43,13 +43,13 @@ body {
       margin-left: 0;
     }
     #content.active {
-      margin-left: 256px;
+      margin-left: 325px;
     }
 }
 
 @media (max-width: 1024px) {
     #content {
-      margin-left: 256px;
+      margin-left: 325px;
     }
     #content.active {
       margin-left: 0;
@@ -101,15 +101,14 @@ a.headerlink:hover {
 
 #sidebar, .section-nav {
   min-width: 256px;
-  max-width: 256px;
-  height: 85vh;
+  max-width: 325px;
   max-height: 100vh;
   transition: all 0.3s;
   background-color: #e8e8e8;
   float: left;
   margin-right: 40px;
   margin-bottom: 256px;
-  /*margin-top: 24px;*/
+  margin-top: 22px;
   overflow-x: scroll;
   overflow-y: scroll;
   padding: 16px 12px 16px 16px;
