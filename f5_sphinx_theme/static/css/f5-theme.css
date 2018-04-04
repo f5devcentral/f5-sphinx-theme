@@ -908,10 +908,12 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     max-width: 100%;
     overflow-x: unset;
   }
+
   #sidebar {
     margin-left: -100%;
     margin-right: 0px;
   }
+
   #content {
     margin-left: 0px;
   }
