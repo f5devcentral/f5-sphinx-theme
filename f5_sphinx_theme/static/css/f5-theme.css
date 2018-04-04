@@ -886,3 +886,40 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     margin-top: 0;
 }
 
+
+/*
+ Mobile phone navbar
+*/
+
+#dismiss {
+    width: 100%;
+    height: 0px;
+    visibility: hidden;
+    line-height: 35px;
+    text-align: right;
+    /* background: #7386D5; */
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #sidebar.active {
+    margin-left: 0;
+    margin-bottom: 30px;
+    min-width: 100vw;
+    max-width: 100%;
+    overflow-x: unset;
+  }
+  #content {
+    margin-left: 0px;
+  }
+  #content.active {
+    margin-left: 0;
+  }
+  #dismiss {
+    height: 35px;
+    visibility: visible;
+  }
+  .docs-container {
+    margin-left: 0px;
+  }
+}
