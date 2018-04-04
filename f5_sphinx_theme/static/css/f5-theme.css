@@ -896,8 +896,7 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     height: 0px;
     visibility: hidden;
     line-height: 35px;
-    text-align: right;
-    /* background: #7386D5; */
+    text-align: center;
     cursor: pointer;
 }
 
@@ -908,6 +907,10 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     min-width: 100vw;
     max-width: 100%;
     overflow-x: unset;
+  }
+  #sidebar {
+    margin-left: -100%;
+    margin-right: 0px,
   }
   #content {
     margin-left: 0px;
@@ -921,5 +924,12 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   }
   .docs-container {
     margin-left: 0px;
+  }
+  #sidebarCollapse {
+    visibility: hidden;
+    display: none;
+  }
+  .site-article-inner {
+    width: 100%;
   }
 }

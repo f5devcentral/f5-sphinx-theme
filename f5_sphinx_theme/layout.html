@@ -41,11 +41,11 @@
 
   {%- if sidebars != None %}
     {%- block f5sidebar %}
+    <div id="dismiss">
+      <button type="button" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>
+    </div>
     <div id="sidebar" class="section-nav">
       <nav class="nav-sidebartoc">
-        <div id="dismiss">
-          <button type="button" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>
-        </div>
         <h5>{{ docstitle }} {{ release }}</h5>
           {%- include "searchbox.html" %}
         <hr>
