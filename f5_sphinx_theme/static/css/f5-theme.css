@@ -939,4 +939,9 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   #sidebar {
     max-width: 300px;
   }
+  .corp-header ul {
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+  }
 }
