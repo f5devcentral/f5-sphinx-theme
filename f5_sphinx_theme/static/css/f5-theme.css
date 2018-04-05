@@ -910,7 +910,7 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   }
   #sidebar {
     margin-left: -100%;
-    margin-right: 0px,
+    margin-right: 0px;
   }
   #content {
     margin-left: 0px;
@@ -931,5 +931,12 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   }
   .site-article-inner {
     width: 100%;
+  }
+}
+
+/* Older mobile phones with 320px screen */
+@media (max-width: 330px) {
+  #sidebar {
+    max-width: 300px;
   }
 }
