@@ -45,6 +45,30 @@
       <button type="button" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>
     </div>
     <div id="sidebar" class="section-nav">
+    {%- if theme_version_selector %}
+    <div id="version_div">
+      <ul>
+        <li id="current_version">
+          This version: <u id="current_version_str"></u>
+        </li>
+        <li id="show_version_btn">
+          <button class="btn-group btn-group-xs collapsed" type="button" data-toggle="collapse"
+            data-target="#other_versions" aria-expanded="false" aria-controls="other_versions">
+            Show All
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse" id="other_versions">
+      <dl class="version_list">
+        <dt>Latest version:</dt>
+        <dd id="latest_version_str"></dd>
+      </dl>
+      <dl id="other_versions_list" class="version_list">
+        <dt>Other versions:</dt>
+      </dl>
+    </div>
+    {%- endif %}
       <nav class="nav-sidebartoc">
         <h5>{{ docstitle }} {{ release }}</h5>
           {%- include "searchbox.html" %}

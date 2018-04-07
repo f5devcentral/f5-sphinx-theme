@@ -111,13 +111,17 @@ a.headerlink:hover {
   margin-top: 22px;
   overflow-x: scroll;
   overflow-y: scroll;
-  padding: 16px 12px 16px 16px;
+  padding: 0;
   font-size: 13px;
   box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }
 
 #sidebar.active {
     margin-left: -35%;
+}
+
+.nav-sidebartoc {
+  padding: 0 15px 15px 15px
 }
 
 @media (max-width: 1024px) {
@@ -945,3 +949,41 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     padding-left: 0;
   }
 }
+
+
+/* Version menu */
+#version_div {
+  height: 30px;
+  background-color: #4c4e52;
+  padding: 5px;
+}
+#version_div ul li {
+  display: inline;
+}
+#version_div ul {
+  padding-left: 30px;
+}
+#version_div #current_version {
+  line-height: 20px;
+  color: white;
+  font-weight: 600;
+}
+#version_div #show_version_btn {
+  float:right;
+}
+#version_div #show_version_btn button {
+  font-size: 12px;
+  height: 20px;
+}
+#other_versions {
+  padding: 10px;
+  background-color: #00b0ed;
+}
+.version_list {
+  margin-bottom: 5px;
+}
+.version_list dd {
+  display: inline;
+  padding: 10px 2px 0 2px
+}
+
