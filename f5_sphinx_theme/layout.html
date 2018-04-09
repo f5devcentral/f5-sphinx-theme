@@ -42,22 +42,19 @@
   {%- if sidebars != None %}
     {%- block f5sidebar %}
     <div id="dismiss">
-      <button type="button" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>
+      <button type="button" class="btn btn-info navbar-btn site-hidden">
+        <i class="fa fa-align-justify"></i>
+      </button>
     </div>
     <div id="sidebar" class="section-nav">
       {% if (theme_version_selector != 'False') %}
-      <div id="version_div">
-        <ul>
-          <li id="current_version">
+      <div id="version_div" data-toggle="collapse" data-target="#other_versions" aria-expanded="false" aria-controls="other_versions">
+          <span id="current_version">
             This version: <u id="current_version_str"></u>
-          </li>
-          <li id="show_version_btn">
-            <button class="btn-group btn-group-xs collapsed" type="button" data-toggle="collapse"
-              data-target="#other_versions" aria-expanded="false" aria-controls="other_versions">
-              Show All
-            </button>
-          </li>
-        </ul>
+          </span>
+          <span id="version_arrow_span">
+              <span id="version_arrow"></i>
+          </span>
       </div>
       <div class="collapse" id="other_versions">
         <dl class="version_list">
@@ -125,11 +122,7 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
-  <script type="text/javascript">
-    jQuery.noConflict(true)
-  </script>
-  <script src="{{ pathto('_static/js/sidebarCollapse.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/f5-theme.js', 1) }}"></script>
 
 {%- endblock %}

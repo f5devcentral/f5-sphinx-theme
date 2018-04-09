@@ -956,24 +956,29 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   height: 30px;
   background-color: #4c4e52;
   padding: 5px;
-}
-#version_div ul li {
-  display: inline;
-}
-#version_div ul {
-  padding-left: 30px;
+  color: white;
+  cursor: pointer;
 }
 #version_div #current_version {
   line-height: 20px;
-  color: white;
   font-weight: 600;
 }
-#version_div #show_version_btn {
+#version_div #version_arrow_span {
   float:right;
 }
-#version_div #show_version_btn button {
-  font-size: 12px;
-  height: 20px;
+#version_arrow {
+  line-height: 0px;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+#version_arrow:before {
+  content: '\f0dd';
+}
+#version_arrow.active:before {
+  content: '\f0de';
+}
+#version_arrow.active {
+  line-height: inherit;
 }
 #other_versions {
   padding: 10px;
