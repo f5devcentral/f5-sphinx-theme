@@ -133,7 +133,7 @@ todo_emit_warnings = True
 # a list of builtin themes.
 #
 html_theme = 'f5_sphinx_theme'
-html_theme_path = [os.getcwd()]
+html_theme_path = ['../../']
 html_theme_options = {
     # 'site_name': project,
     'next_prev_link': True,
