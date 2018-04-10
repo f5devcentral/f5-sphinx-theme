@@ -25,7 +25,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
-node_modules/*
+node_modules
 package-lock.json
 
 # PyInstaller
@@ -139,3 +139,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# ignore webpack bundle, will be built in container image pipeline
+f5_sphinx_theme/static/js/index.js
