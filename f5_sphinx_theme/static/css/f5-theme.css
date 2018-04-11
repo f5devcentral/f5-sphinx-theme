@@ -965,8 +965,6 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
 }
 #version_arrow {
   float:right;
-  /* font-family: FontAwesome; */
-  /* font-size: 2em; */
 }
 #version_arrow.fa-sort-desc {
   line-height: 10px;
@@ -990,7 +988,8 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   display: inline;
 }
 .version_list dd a {
-  padding: 0 2px 0 2px;
-  color: black;
+    padding: 0;
+    padding-right: 8px;
+    color: black;
 }
 
