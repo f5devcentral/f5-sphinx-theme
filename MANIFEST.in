@@ -1,0 +1,6 @@
+recursive-include f5_sphinx_theme \
+        theme.conf \
+        *.html \
+        static/css/*.css \
+        static/js/*.js \
+        static/fonts/*.*

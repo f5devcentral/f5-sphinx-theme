@@ -2,8 +2,26 @@ import React from 'react';
 import axios from 'axios';
 
 class VersionSelectorArrow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { expanded: this.props.expanded };
+    this.handleCollapsibleEventBind = this.handleCollapsibleEvent.bind(this);
+  }
+
+  handleCollapsibleEvent(event){
+    this.setState({expanded: (event.type === 'shown') ? true : false });
+  }
+
+  componentDidMount(){
+    $("#other_versions").on('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+  }
+
+  componentWillUnmount(){
+    $("#other_versions").off('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+  }
+
   render (){
-    if (this.props.expanded)
+    if (this.state.expanded)
       return  <span id="version_arrow" className="fa fa-sort-asc fa-2x"></span>
     else
       return  <span id="version_arrow" className="fa fa-sort-desc fa-2x"></span>
@@ -17,15 +35,21 @@ class VersionSelector extends React.Component {
     this.hasBrowserStorage = Boolean(window.sessionStorage); // Check for web storage support
     this.versionMetaString = 'versionMeta';
     this.versionMetaPath = this.getVersionMetaPathFromDOM();
+    let currentVersion = this.getVersionFromMetaTag();
     this.state = {
       hasError: false,
-      hasCollapsable: false,
-      currentVersion: this.props.version,
+      hasCollapsible: false,
+      currentVersion: currentVersion,
     };
-    if (! this.props.version){
+    if (! currentVersion){
       console.error('Current version not available from meta version meta tag.');
       this.state.hasError = true;
     }
+  }
+
+  getVersionFromMetaTag(){
+    var tag = document.getElementsByName('version')
+    return tag[0].getAttribute('content');
   }
 
   getVersionMetaPathFromDOM(){
@@ -38,7 +62,7 @@ class VersionSelector extends React.Component {
     newState.latestVersion = data.latestVersion;
     newState.otherVersions = data.otherVersions;
     newState.versionMetaTimestamp = data.versionMetaTimestamp;
-    newState.hasCollapsable = true;
+    newState.hasCollapsible = true;
     return newState;
   }
 
@@ -106,29 +130,35 @@ class VersionSelector extends React.Component {
   }
 
   otherVersions(){
-    if (! this.state.hasCollapsable) return;
+    if (! this.state.hasCollapsible) return;
     return (
-        <div className="collapse" id="other_versions">
-          <dl className="version_list">
-            <dt>Latest version:</dt>
-            <dd><a href={this.state.latestVersion.url}>{this.state.latestVersion.name}</a></dd>
-          </dl>
-          <dl className="version_list">
-            <dt>Other versions:</dt>
-            {this.otherVersionListItems()}
-          </dl>
-        </div>
+      <div className="collapse" id="other_versions">
+        <dl className="version_list">
+          <dt>Latest version:</dt>
+          <dd><a href={this.state.latestVersion.url}>{this.state.latestVersion.name}</a></dd>
+        </dl>
+        <dl className="version_list">
+          <dt>Other versions:</dt>
+          {this.otherVersionListItems()}
+        </dl>
+      </div>
+    )
+  }
+
+  currentVersion(){
+    return (
+      <span id="current_version">
+        Version: <span id="current_version_str">{this.state.currentVersion}</span>
+      </span>
     )
   }
 
   versionSelectorType(){
-    if (this.state.hasCollapsable){
+    if (this.state.hasCollapsible){
       return (
         <div id="version_div" data-toggle="collapse" data-target="#other_versions"
             aria-expanded="false" aria-controls="other_versions">
-            <span id="current_version">
-              Version: <u id="current_version_str">{this.state.currentVersion}</u>
-            </span>
+            {this.currentVersion()}
             <span id="version_arrow_wrapper">
               <VersionSelectorArrow expanded={false} />
             </span>
@@ -137,9 +167,7 @@ class VersionSelector extends React.Component {
     } else {
       return (
         <div id="version_div">
-            <span id="current_version">
-              Version: <u id="current_version_str">{this.state.currentVersion}</u>
-            </span>
+        {this.currentVersion()}
         </div>
       )
     }
@@ -148,10 +176,10 @@ class VersionSelector extends React.Component {
   render() {
     if ( ! this.state.hasError) {
       return (
-      <div>
-        {this.versionSelectorType()}
-        {this.otherVersions()}
-      </div>
+        <div>
+          {this.versionSelectorType()}
+          {this.otherVersions()}
+        </div>
       );
     } else {
       return (
