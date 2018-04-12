@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-        $('#sidebarCollapse').on('click', function () {
+        $('#sidebarCollapse, #dismiss').on('click', function () {
             $('#sidebar').toggleClass('active');
             $('#content').toggleClass('active');
         });
