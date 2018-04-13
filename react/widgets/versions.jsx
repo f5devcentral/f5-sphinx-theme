@@ -13,11 +13,13 @@ class VersionSelectorArrow extends React.Component {
   }
 
   componentDidMount(){
-    $('#other_versions').on('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+    $('#other_versions')
+      .on('shown.bs.collapse hidden.bs.collapse', this.handleCollapsibleEventBind);
   }
 
   componentWillUnmount(){
-    $('#other_versions').off('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+    $('#other_versions')
+      .off('shown.bs.collapse hidden.bs.collapse', this.handleCollapsibleEventBind);
   }
 
   render (){
