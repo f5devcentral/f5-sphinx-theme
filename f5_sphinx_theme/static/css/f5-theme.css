@@ -912,10 +912,19 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     max-width: 100%;
     overflow-x: unset;
   }
+<<<<<<< HEAD
+
   #sidebar {
     margin-left: -100%;
     margin-right: 0px;
   }
+
+=======
+  #sidebar {
+    margin-left: -100%;
+    margin-right: 0px;
+  }
+>>>>>>> Moving button
   #content {
     margin-left: 0px;
   }
@@ -936,6 +945,21 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
   .site-article-inner {
     width: 100%;
   }
+<<<<<<< HEAD
+}
+
+/* Older mobile phones with 320px screen */
+@media (max-width: 330px) {
+  #sidebar {
+    max-width: 300px;
+  }
+  .corp-header ul {
+    width: 90%;
+    margin: auto;
+    padding-left: 0;
+  }
+=======
+>>>>>>> Moving button
 }
 
 /* Older mobile phones with 320px screen */
