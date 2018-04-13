@@ -76,7 +76,7 @@ source_parsers = {
 master_doc = 'index'
 
 # General information about the project.
-project = u'F5 Sphinx Theme Test Docs'
+project = u'F5 Sphinx Theme Test/Dev Docs'
 copyright = u'%s, F5 Networks' % copyright_year
 author = u'F5 Networks'
 
@@ -147,6 +147,7 @@ html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','rel
 #                                                     )
 html_context = {
     'version_meta_path': 'versions.json',
+    'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

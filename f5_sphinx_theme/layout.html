@@ -10,9 +10,9 @@
     "_static/css/custom.css",
     "https://use.fontawesome.com/21fb8a09c3.css" ] %}
 
-{% set script_files = script_files + [
+{#% set script_files = script_files + [
   "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
-  ]%}
+  ]%#}
 
 
 
@@ -28,6 +28,7 @@
     <meta name="kb_doc_type" content="User Guide"/>
     <meta name="title" content="{{ title|striptags|e }}"/>
     <meta name="product" content="{{ project|striptags|e }}"/>
+    <meta name="product_safe" content="{{ project_safe|striptags|e }}"/>
     <meta name="version" content="{{ release|striptags|e }}"/>
     <meta name="updated_date"  content="{{ last_updated|e }}"/>
     <meta name="archived" content="Archived documents excluded"/>

@@ -13,18 +13,18 @@ class VersionSelectorArrow extends React.Component {
   }
 
   componentDidMount(){
-    $("#other_versions").on('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+    $('#other_versions').on('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
   }
 
   componentWillUnmount(){
-    $("#other_versions").off('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
+    $('#other_versions').off('shown.bs.collapse hide.bs.collapse', this.handleCollapsibleEventBind);
   }
 
   render (){
     if (this.state.expanded)
-      return  <span id="version_arrow" className="fa fa-sort-asc fa-2x"></span>
+      return  (<span id="version_arrow" className="fa fa-sort-asc fa-2x"></span>);
     else
-      return  <span id="version_arrow" className="fa fa-sort-desc fa-2x"></span>
+      return  (<span id="version_arrow" className="fa fa-sort-desc fa-2x"></span>);
   }
 }
 
@@ -33,7 +33,7 @@ class VersionSelector extends React.Component {
     super(props);
     // Dont bother to render if there is not currentVersion defined
     this.hasBrowserStorage = Boolean(window.sessionStorage); // Check for web storage support
-    this.versionMetaString = 'versionMeta';
+    this.versionMetaString = this.getProjectSafeFromMetaTag();
     this.versionMetaPath = this.getVersionMetaPathFromDOM();
     let currentVersion = this.getVersionFromMetaTag();
     this.state = {
@@ -45,20 +45,30 @@ class VersionSelector extends React.Component {
       console.error('Current version not available from meta version meta tag.');
       this.state.hasError = true;
     }
+    if (! this.versionMetaString.length) {
+      console.error('Project name not available from project_safe meta tag.');
+      this.state.hasError = true;
+    }
+  }
+
+  getProjectSafeFromMetaTag(){
+    var tag = document.getElementsByName('product_safe');
+    let project = tag[0].getAttribute('content');
+    return (project) ? project + 'VersionMeta' : '';
   }
 
   getVersionFromMetaTag(){
-    var tag = document.getElementsByName('version')
+    var tag = document.getElementsByName('version');
     return tag[0].getAttribute('content');
   }
 
   getVersionMetaPathFromDOM(){
-    var tag = document.getElementsByName('version_meta_path')
+    var tag = document.getElementsByName('version_meta_path');
     return tag[0].getAttribute('content');
   }
 
   createNewState(data){
-    let newState = Object.assign({}, this.state)
+    let newState = Object.assign({}, this.state);
     newState.latestVersion = data.latestVersion;
     newState.otherVersions = data.otherVersions;
     newState.versionMetaTimestamp = data.versionMetaTimestamp;
@@ -81,7 +91,7 @@ class VersionSelector extends React.Component {
       try {
         return JSON.parse(versionMeta);
       } catch (error) {
-        console.error('Error with JSON parse from storage - ', info, error);
+        console.error('Error with JSON parse from storage - ', error);
         return null;
       }
   }
@@ -98,7 +108,7 @@ class VersionSelector extends React.Component {
       })
       .catch((error) => {
         console.error('Error with AJAX GET -', error);
-    })
+      });
   }
 
   componentDidMount(){
@@ -123,9 +133,9 @@ class VersionSelector extends React.Component {
     if (this.state.otherVersions.length) {
       return (this.state.otherVersions.map((version) =>
         <dd key={version.name}><a href={version.url}>{version.name}</a></dd>
-      ))
+      ));
     } else {
-      return <dd>None</dd>
+      return (<dd>None</dd>);
     }
   }
 
@@ -142,7 +152,7 @@ class VersionSelector extends React.Component {
           {this.otherVersionListItems()}
         </dl>
       </div>
-    )
+    );
   }
 
   currentVersion(){
@@ -150,26 +160,26 @@ class VersionSelector extends React.Component {
       <span id="current_version">
         Version: <span id="current_version_str">{this.state.currentVersion}</span>
       </span>
-    )
+    );
   }
 
   versionSelectorType(){
     if (this.state.hasCollapsible){
       return (
         <div id="version_div" data-toggle="collapse" data-target="#other_versions"
-            aria-expanded="false" aria-controls="other_versions">
-            {this.currentVersion()}
-            <span id="version_arrow_wrapper">
-              <VersionSelectorArrow expanded={false} />
-            </span>
+          aria-expanded="false" aria-controls="other_versions">
+          {this.currentVersion()}
+          <span id="version_arrow_wrapper">
+            <VersionSelectorArrow expanded={false} />
+          </span>
         </div>
-      )
+      );
     } else {
       return (
         <div id="version_div">
-        {this.currentVersion()}
+          {this.currentVersion()}
         </div>
-      )
+      );
     }
   }
 
@@ -186,7 +196,7 @@ class VersionSelector extends React.Component {
         <div id="version_div">
           <span id="current_version" style={{color: 'red'}}>Error generating versions</span>
         </div>
-      )
+      );
     }
   }
 }
