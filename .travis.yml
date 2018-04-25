@@ -6,6 +6,7 @@ env:
   - DIST_REPO="f5-sphinx-theme"
   - USER_REPO=$(echo $TRAVIS_REPO_SLUG | cut -f -1 -d / )
   - BUILD_HTML_DIR=$TRAVIS_BUILD_DIR/test-deploy/docs/_build/html
+  - UPLOAD_DIR=${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BUILD_NUMBER}
   # Get this from travis env
   # - S3_DIST_URL="http://d12ecz1n19ym1p.cloudfront.net"
 
@@ -21,6 +22,7 @@ install:
 - npm install -g broken-link-checker
 - pip install -r requirements_test.txt
 - pip install twine
+- pip install git+https://github.com/nerdoftech/s3_index_generator.git
 
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
@@ -38,7 +40,7 @@ deploy:
   bucket: $ARTIFACTS_BUCKET
   skip_cleanup: true
   local_dir: $TRAVIS_BUILD_DIR/html
-  upload-dir: ${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BUILD_NUMBER}
+  upload-dir: $UPLOAD_DIR
   on:
     all_branches: true
     tags: false
@@ -49,3 +51,6 @@ deploy:
     condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+.*
   script:
   - ./scripts/deploy.sh
+
+after_deploy:
+  script: s3-index-generator -b $ARTIFACTS_BUCKET -t $UPLOAD_DIR -r / -i 'index.html'
