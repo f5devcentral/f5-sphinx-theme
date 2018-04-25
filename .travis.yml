@@ -53,4 +53,4 @@ deploy:
   - ./scripts/deploy.sh
 
 after_deploy:
-  script: s3-index-generator -b $ARTIFACTS_BUCKET -t $UPLOAD_DIR -r / -i 'index.html'
+- s3-index-generator -b $ARTIFACTS_BUCKET -t $UPLOAD_DIR -r / -i 'index.html'
