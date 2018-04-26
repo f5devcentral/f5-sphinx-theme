@@ -9,4 +9,4 @@ set -e
 git clone $TEST_DOCS_REPO $TRAVIS_BUILD_DIR/test-deploy
 
 # build some test docs
-make -C test-deploy/docs/ html && mv test-deploy/docs/_build/html $TRAVIS_BUILD_DIR/html
+make -C $TEST_DOCS_DIR html && mv test-deploy/docs/_build/html $TRAVIS_BUILD_DIR/html
