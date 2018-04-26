@@ -51,6 +51,6 @@ deploy:
   script:
   - ./scripts/deploy.sh
 
-after_deploy:
-- AWS_ACCESS_KEY_ID=$ARTIFACTS_KEY AWS_SECRET_ACCESS_KEY=$ARTIFACTS_SECRET
-    s3-index-generator -b $ARTIFACTS_BUCKET -t $UPLOAD_DIR -r / -i 'index.html'
+# after_deploy:
+# - AWS_ACCESS_KEY_ID=$ARTIFACTS_KEY AWS_SECRET_ACCESS_KEY=$ARTIFACTS_SECRET
+#     s3-index-generator -b $ARTIFACTS_BUCKET -t $UPLOAD_DIR -r / -i 'index.html'
