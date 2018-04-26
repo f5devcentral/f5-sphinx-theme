@@ -38,7 +38,6 @@ script:
 
 before_deploy:
   - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
-  - find $TRAVIS_BUILD_DIR
 deploy:
   - provider: s3
     access_key_id: $ARTIFACTS_KEY
