@@ -19,14 +19,11 @@ notifications:
 language: python
 python:
   - '2.7'
-before_install:
-  - git config --global user.email "OpenStack_TravisCI@f5.com"
-  - git config --global user.name "Travis F5"
 install:
   - gem install html-proofer
   - npm install -g css-validator
   - npm install -g broken-link-checker
-  # - npm install --prefix  --no-optional
+  - npm install --no-optional
   - pip install -r requirements_test.txt
   - pip install twine
   - pip install git+https://github.com/nerdoftech/s3_index_generator.git
