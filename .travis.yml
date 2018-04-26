@@ -31,6 +31,8 @@ install:
 
 
 script:
+  - echo $PATH
+  - ls $(pwd)/node_modules/
   - webpack
   - css-validator f5_sphinx_theme/static/css/custom.css
   - ./scripts/theme-test.sh
