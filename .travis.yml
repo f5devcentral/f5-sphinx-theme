@@ -9,7 +9,6 @@ env:
     - BRANCH_DIR=${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BRANCH}/
     - UPLOAD_DIR=${BRANCH_DIR}/$(date +%F)-${TRAVIS_BUILD_NUMBER}
     - COMMITTER_EMAIL=$(git log -1 $TRAVIS_COMMIT --pretty="%cE")
-    - PATH=$(export PATH="$PATH:$(pwd)/node_modules/.bin")
 
 notifications:
   email:
@@ -31,8 +30,7 @@ install:
 
 
 script:
-  - echo $PATH
-  - ls $(pwd)/node_modules/
+  - export PATH="$PATH:$(pwd)/node_modules/.bin")
   - webpack
   - css-validator f5_sphinx_theme/static/css/custom.css
   - ./scripts/theme-test.sh
