@@ -47,7 +47,7 @@ deploy:
 - provider: script
   script:
     - AWS_ACCESS_KEY_ID=$ARTIFACTS_KEY AWS_SECRET_ACCESS_KEY=$ARTIFACTS_SECRET
-        s3-index-generator -b $ARTIFACTS_BUCKET -t $BRANCH_DIR -r '/' -i 'index.html'
+        s3-index-generator -b $ARTIFACTS_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
   on:
     all_branches: true
     tags: false
