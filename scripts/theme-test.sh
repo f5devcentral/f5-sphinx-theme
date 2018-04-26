@@ -19,4 +19,4 @@ if [[ -v TEST_DOCS_REPO ]]; then
 fi
 
 # build some test docs
-make $TEST_DIR_ARG html && mv ${TEST_DOCS_DIR}/_build/html $TRAVIS_BUILD_DIR/html
+make $TEST_DIR_ARG html && mv ${TEST_BUILD_DIR}/_build/html $TRAVIS_BUILD_DIR/html
