@@ -7,6 +7,24 @@
   <script src="https://assets.adobedtm.com/50164577268f481934e5d57dbfb78f929164cd0d/satelliteLib-ea775cfabef5fca8b04e9392f20c986c0724a7c3.js"></script>
   {%- endblock %}
 
+  {%- block metadata %}
+  {# METADATA #}
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="kb_doc_type" content="Manual"/>
+  <meta name="kb_doc_type" content="User Guide"/>
+  <meta name="title" content="{{ title|striptags|e }}"/>
+  <meta name="product" content="{{ project|striptags|e }}"/>
+  <meta name="version" content="{{ release|striptags|e }}"/>
+  <meta name="updated_date"  content="{{ last_updated|e }}"/>
+  <meta name="archived" content="Archived documents excluded"/>
+
+  {{ metatags }}
+
+  {%- endblock %}
 
   {%- block htmltitle %}
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>

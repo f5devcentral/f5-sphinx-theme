@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# ilxdocs documentation build configuration file, created by
+# testdocs documentation build configuration file, created by
 # sphinx-quickstart on Thu Nov  9 03:15:40 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -284,7 +284,7 @@ linkcheck_anchors = False
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 # man_pages = [
-#     (master_doc, 'ilxdocs', u'ilxdocs Documentation',
+#     (master_doc, 'testdocs', u'testdocs Documentation',
 #      [author], 1)
 # ]
 
@@ -295,8 +295,8 @@ linkcheck_anchors = False
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 # texinfo_documents = [
-#     (master_doc, 'ilxdocs', u'ilxdocs Documentation',
-#      author, 'ilxdocs', 'One line description of project.',
+#     (master_doc, 'testdocs', u'testdocs Documentation',
+#      author, 'testdocs', 'One line description of project.',
 #      'Miscellaneous'),
 # ]
 
