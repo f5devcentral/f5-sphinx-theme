@@ -9,6 +9,7 @@ env:
   - BUILD_HTML_DIR=${TRAVIS_BUILD_DIR}/test-deploy/docs/_build/html
   - BRANCH_DIR=${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BRANCH}/
   - UPLOAD_DIR="${BRANCH_DIR}$(date +%F)-${TRAVIS_BUILD_NUMBER}"
+  - AWS_S3_BUCKET=${ARTIFACTS_BUCKET}
 
 language: python
 python:
@@ -23,18 +24,38 @@ install:
 - npm install -g broken-link-checker
 - pip install -r requirements_test.txt
 - pip install twine
+- pip install git+https://github.com/nerdoftech/s3_index_generator.git
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
 - htmlhint f5_sphinx_theme
+- export PATH="$PATH:$(pwd)/node_modules/.bin"
+- webpack
 - "./scripts/test-docs-docker.sh"
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'; fi
-after_success:
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
+
+before_deploy:
+  - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
+
 deploy:
-- provider: script
-  on:
-    repo: f5devcentral/f5-sphinx-theme
-    branch: master
-    condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+.*"
-  script:
-  - "./scripts/deploy.sh"
+  - provider: script
+    on:
+      repo: f5devcentral/f5-sphinx-theme
+      branch: master
+      condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+.*"
+    script:
+    - "./scripts/deploy.sh"
+  - provider: s3
+      access_key_id: $AWS_ACCESS_KEY_ID
+      secret_access_key: $AWS_SECRET_ACCESS_KEY
+      bucket: $ARTIFACTS_BUCKET
+      skip_cleanup: true
+      local_dir: $TRAVIS_BUILD_DIR/html
+      upload-dir: $UPLOAD_DIR
+      on:
+        all_branches: true
+        tags: false
+  - provider: script
+    script:
+      - s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
+    on:
+      all_branches: true
+      tags: false  

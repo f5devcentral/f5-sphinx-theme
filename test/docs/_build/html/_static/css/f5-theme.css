@@ -124,6 +124,10 @@ a.headerlink:hover {
   padding: 0 15px 15px 15px
 }
 
+span.nav-sidebartoc {
+  padding-bottom: 0;
+}
+
 @media (max-width: 1024px) {
     #sidebar {
         margin-left: -75%;
