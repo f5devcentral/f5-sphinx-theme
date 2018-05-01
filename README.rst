@@ -25,6 +25,47 @@ Setup and Configuration
 
 Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
 
+Version Selector Div
+--------------------
+
+You can add a version selector div to the navbar.  Here is an example screenshot:
+
+.. image:: https://raw.github.com/f5devcentral/f5-sphinx-theme/master/screenshots/version.png
+
+The version selector is not enabled by default. You can enable it with the follow settings:
+
+.. code-block::
+
+   project = u'Your Docs Project'
+   release = u'1.0'
+
+   html_theme_options = {
+     'version_selector': True,
+   }
+
+   html_context = {
+     'version_meta_path': 'uri/of/your/json/versions/file.json',
+     'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
+   }
+
+The versions display are generated from a JSON file fetched with an AJAX call, so only one file needs to be updated to make the change across all versions. Generating the JSON is left up to the implementor but it can be incorporated into a CI/CD process. Ideally the JSON should be at the root of the project directory with versions being in subfolders as shown here:
+
+.. code-block::
+
+   project_root
+     |
+     +---versions.json
+     |
+     +---latest
+     |   \--- <docs_html>
+     |
+     +---v1.0.1
+     |   \--- <docs_html>
+     |
+     +---v1.0.0
+         \--- <docs_html>
+
+
 
 Usage
 -----
