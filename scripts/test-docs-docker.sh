@@ -20,7 +20,7 @@ RUN_ARGS=( \
   --env-file=.env_travis
 )
 
-printf "Starting Docker container..."
+printf "Starting Docker container..."\n
 
 set -x
 
@@ -39,8 +39,11 @@ git clone https://github.com/jputrino/test-deploy.git
 # build some test docs
 make -C test-deploy/docs/ html 
 
-# deploy test docs to S3
-aws s3 sync test-deploy/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
+# deploy test docs to S3 if we're not in a pull request build
+if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
+   aws s3 sync test-deploy/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
+   else printf "Skipping deployment because a pull request triggered this build."
+fi
 
 # clean up
 rm -rf .env_travis
