@@ -29,7 +29,7 @@ script:
 - "./scripts/test-docs-docker.sh"
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'; fi
 after_success:
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}"; fi
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 deploy:
 - provider: script
   on:
