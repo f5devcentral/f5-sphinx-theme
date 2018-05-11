@@ -6,7 +6,7 @@ Reference the `#<issueid>`. If your PR does not correspond to an existing Issue,
 
 Fixes:
 
-### Describe the problem / feature to which this change applies
+### Describe the problem/feature to which this change applies
 
 
 ### Describe the change(s) made and why
