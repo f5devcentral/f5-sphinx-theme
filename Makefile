@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = F5 Theme Test Docs
-DEVDIR        = devpage
+DEVDIR        = test
 SOURCEDIR     = $(DEVDIR)/docs
 BUILDDIR      = $(DEVDIR)/docs/_build
 

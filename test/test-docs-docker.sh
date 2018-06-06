@@ -34,10 +34,10 @@ set -e
 pip install --user --upgrade .
 
 # build some test docs
-./theme-test.sh
+./test/theme-test.sh
 
 # deploy test docs to S3
-aws s3 sync test-deploy/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
+aws s3 sync test/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
 
 # create and upload indices
 s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'

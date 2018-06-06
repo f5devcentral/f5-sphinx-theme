@@ -5,15 +5,10 @@
 set -x
 set -e
 
-# Clone a test docs repo
-if [[ -v TEST_DOCS_REPO ]]; then
-  git clone $TEST_DOCS_REPO $TRAVIS_BUILD_DIR/test-deploy
-fi
+# Default to test docs in repo
+TEST_BUILD_DIR="/docs"
 
-# Default to in repo devpage test docs
-TEST_BUILD_DIR="devpage/docs"
-
-if [[ -v TEST_DOCS_REPO ]]; then
+if -v TEST_DOCS_REPO ; then
   TEST_DIR_ARG="-C $TEST_DOCS_DIR"
   TEST_BUILD_DIR=${TEST_BUILD_DIR}
 fi
