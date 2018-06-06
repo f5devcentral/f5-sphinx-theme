@@ -22,8 +22,6 @@ RUN_ARGS=( \
 
 printf "Starting Docker container..."\n
 
-set -x
-
 # Run the container using the provided args
 # DO NOT SET -x BEFORE THIS, WE NEED TO KEEP THE CREDENTIALS OUT OF THE LOGS
 docker run "${RUN_ARGS[@]}" ${DOC_IMG} /bin/bash -s <<EOF
@@ -34,7 +32,7 @@ set -e
 pip install --user --upgrade .
 
 # build some test docs
-./test/theme-test.sh
+make -C test/docs html
 
 # deploy test docs to S3
 aws s3 sync test/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
@@ -42,7 +40,8 @@ aws s3 sync test/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
 # create and upload indices
 s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
 
-printf "View the test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html";
+printf "View the test documentation at:"\n
+printf "${S3_DIST_URL}/${UPLOAD_DIR}/index.html"\n;
 
 # clean up
 rm -rf .env_travis

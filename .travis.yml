@@ -35,4 +35,4 @@ deploy:
     tags: true
     condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+.*"
   script:
-  - "./scripts/deploy.sh"
+  - "./test/deploy.sh"
