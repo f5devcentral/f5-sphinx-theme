@@ -1,11 +1,10 @@
-###########
 Test Page 2
-###########
+===========
 
 This is another test page.
 
 Test Section 2.1
-****************
+----------------
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis risus suscipit, luctus ante non, cursus erat. Vivamus tellus nisi, eleifend at laoreet sed, malesuada sed justo. Ut vitae nunc ac magna rhoncus consectetur. Suspendisse potenti. Nam vestibulum, justo nec porta tempus, risus odio sodales lacus, nec aliquet arcu mauris sit amet erat. Praesent dapibus sollicitudin sollicitudin. Cras vitae ipsum justo. Donec egestas nibh mauris, eu dignissim ipsum convallis sit amet. Sed purus tellus, dignissim eget consequat a, pretium id lorem. Mauris mollis nunc ac nisi aliquam fermentum. Nulla lacus risus, facilisis non dignissim id, facilisis in justo. Morbi fringilla, ante id varius ornare, nulla est gravida felis, at finibus augue elit in leo. Ut id metus quis urna pharetra dapibus et eu dolor. In finibus lacus elit, ut dignissim turpis consequat ac. Praesent semper posuere nulla, at pharetra nisl porttitor non. Nunc elementum commodo ex, tincidunt luctus mauris accumsan in.
 
@@ -18,7 +17,7 @@ Sed sed laoreet sapien, quis tempor risus. Nulla vel diam porttitor, suscipit do
 Nulla eu eleifend nisl, sed facilisis risus. Sed venenatis libero sit amet nisl tempor, vitae mollis nulla lacinia. Fusce sit amet ligula ac libero lobortis molestie. Donec nec odio vel arcu imperdiet laoreet nec eget felis. Donec mattis porta lacus ac rhoncus. Maecenas ac aliquam ligula. Curabitur eget felis rutrum, volutpat enim varius, interdum dolor.
 
 Test Section 2.2
-****************
+----------------
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis risus suscipit, luctus ante non, cursus erat. Vivamus tellus nisi, eleifend at laoreet sed, malesuada sed justo. Ut vitae nunc ac magna rhoncus consectetur. Suspendisse potenti. Nam vestibulum, justo nec porta tempus, risus odio sodales lacus, nec aliquet arcu mauris sit amet erat. Praesent dapibus sollicitudin sollicitudin. Cras vitae ipsum justo. Donec egestas nibh mauris, eu dignissim ipsum convallis sit amet. Sed purus tellus, dignissim eget consequat a, pretium id lorem. Mauris mollis nunc ac nisi aliquam fermentum. Nulla lacus risus, facilisis non dignissim id, facilisis in justo. Morbi fringilla, ante id varius ornare, nulla est gravida felis, at finibus augue elit in leo. Ut id metus quis urna pharetra dapibus et eu dolor. In finibus lacus elit, ut dignissim turpis consequat ac. Praesent semper posuere nulla, at pharetra nisl porttitor non. Nunc elementum commodo ex, tincidunt luctus mauris accumsan in.
 

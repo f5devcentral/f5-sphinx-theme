@@ -30,7 +30,7 @@ script:
 - htmlhint f5_sphinx_theme
 - export PATH="$PATH:$(pwd)/node_modules/.bin"
 - webpack
-- "./scripts/test-docs-docker.sh"
+- "./test/test-docs-docker.sh"
 
 before_deploy:
   - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
@@ -59,3 +59,4 @@ deploy:
     on:
       all_branches: true
       tags: false  
+

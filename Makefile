@@ -5,7 +5,7 @@
 SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = F5 Theme Test Docs
-DEVDIR        = devpage
+DEVDIR        = test
 SOURCEDIR     = $(DEVDIR)/docs
 BUILDDIR      = $(DEVDIR)/docs/_build
 
@@ -30,7 +30,7 @@ preview:
 .PHONY: test
 test:
 	rm -rf docs/_build
-	./scripts/test-docs.sh
+	./test/test-docs.sh
 
 .PHONY: html
 html:
@@ -41,4 +41,4 @@ html:
 # one-time html build using a docker container
 .PHONY: docker-html
 docker-html:
-	./scripts/docker-docs.sh make html
+	./test/docker-docs.sh make html

@@ -9,7 +9,7 @@ var config = {
   },
   devServer: {
     publicPath: 'http://localhost:8080/_static/js/',
-    contentBase: path.join(__dirname, '/devpage/docs/_build/html'),
+    contentBase: path.join(__dirname, '/test/docs/_build/html'),
     host: '0.0.0.0',
     inline: true,
     port: 8080
