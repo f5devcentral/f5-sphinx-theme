@@ -33,17 +33,16 @@ set -e
 # Install theme project requirements
 pip install --user --upgrade .
 
-# Clone a test docs repo
-git clone https://github.com/jputrino/test-deploy.git 
-
 # build some test docs
-make -C test-deploy/docs/ html 
+./theme-test.sh
 
-# deploy test docs to S3 if we're not in a pull request build
-if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
-   aws s3 sync test-deploy/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
-   else printf "Skipping deployment because a pull request triggered this build."
-fi
+# deploy test docs to S3
+aws s3 sync test-deploy/docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
+
+# create and upload indices
+s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
+
+printf "View the test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html";
 
 # clean up
 rm -rf .env_travis

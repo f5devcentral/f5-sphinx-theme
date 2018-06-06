@@ -22,24 +22,31 @@ Setup and Configuration
                             'site_name': '<desired site name>',          \\ DEFAULTS TO "CloudDocs home"
                             'next_prev_link': True or False              \\ DEFAULTS TO FALSE
                             'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S' \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
-                            'base_url' = 'http://clouddocs.f5.com'       
+                            # 'base_url' = ''                            \\ DEFAULTS TO '/'
                          }
 
-Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
+   \
 
-Version Selector Div
---------------------
+   The ``base_url`` theme option is intended to allow customization of the root URL.
 
-You can add a version selector div to the navbar.  Here is an example screenshot:
+   For example, you can change the ``base_url`` setting to "https://clouddocs.f5networks.net" when deploying docs to the staging site.
+
+.. note::
+
+   Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
+
+
+Version Selector
+----------------
+
+You can add a version selector to the navbar, like that shown in below:
 
 .. image:: https://raw.github.com/f5devcentral/f5-sphinx-theme/master/screenshots/version.png
 
-The version selector is not enabled by default. You can enable it with the follow settings:
+The version selector is **not enabled** by default.
+To enable it, add the following settings to your docs/conf.py:
 
-.. code-block::
-
-   project = u'Your Docs Project'
-   release = u'1.0'
+.. code-block:: python
 
    html_theme_options = {
      'version_selector': True,
@@ -50,15 +57,19 @@ The version selector is not enabled by default. You can enable it with the follo
      'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
    }
 
-The versions display are generated from a JSON file fetched with an AJAX call, so only one file needs to be updated to make the change across all versions. Generating the JSON is left up to the implementor but it can be incorporated into a CI/CD process. Ideally the JSON should be at the root of the project directory with versions being in subfolders as shown here:
 
-.. code-block::
+The ``'version_meta_path'`` refers to the location of a version.json file in the host S3 bucket.
+The versions displayed in the version selector are generated from this JSON file via an AJAX call. You only need to update one file to make the change across all versions.
+Generating the JSON is left up to the implementor (i.e., you), but it can be incorporated into a CI/CD process.
+Ideally, the JSON should be at the root of the project directory in S3, with versions being in subfolders as shown here:
+
+.. code-block:: text
 
    project_root
      |
      +---versions.json
      |
-     +---latest
+     +---v2.0.0
      |   \--- <docs_html>
      |
      +---v1.0.1
@@ -66,7 +77,6 @@ The versions display are generated from a JSON file fetched with an AJAX call, s
      |
      +---v1.0.0
          \--- <docs_html>
-
 
 
 Usage
@@ -78,7 +88,6 @@ Testing
 -------
 
 This project uses Travis-CI for CI/CD.
-
 
 Copyright
 ---------
