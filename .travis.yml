@@ -26,7 +26,7 @@ install:
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
 - htmlhint f5_sphinx_theme
-- "./scripts/test-docs-docker.sh"
+- "./test/test-docs-docker.sh"
 
 deploy:
 - provider: script
