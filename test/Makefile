@@ -6,8 +6,8 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = F5 Theme Test Docs
 DEVDIR        = test
-SOURCEDIR     = $(DEVDIR)/docs
-BUILDDIR      = $(DEVDIR)/docs/_build
+SOURCEDIR     = docs
+BUILDDIR      = docs/_build
 
 # Put it first so that "make" without argument is like "make help".
 .PHONY: help Makefile
@@ -26,19 +26,15 @@ preview:
 	@echo ""
 	sphinx-autobuild --host 0.0.0.0 -b html $(SOURCEDIR) $(BUILDDIR)/html
 
-# run _docs quality tests locally
-.PHONY: test
-test:
-	rm -rf docs/_build
-	./test/test-docs.sh
-
 .PHONY: html
 html:
-	rm -vrf $(BUILDDIR)/html/* $(BUILDDIR)/doctrees/*
+	rm -vrf $(BUILDDIR)/
 	$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	cp -v $(DEVDIR)/versions.json $(BUILDDIR)/html/
+	cp -v versions.json $(BUILDDIR)/html/
 
 # one-time html build using a docker container
 .PHONY: docker-html
 docker-html:
-	./test/docker-docs.sh make html
+	docker run --rm -i -v $PWD:$PWD --workdir $PWD f5devcentral/containthedocs:latest /bin/bash -s <<EOF
+	make html
+	EOF
