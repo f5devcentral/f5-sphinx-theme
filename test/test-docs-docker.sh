@@ -7,7 +7,7 @@ env | grep -E "^(AWS_)" >> .env_travis
 
 set -e
 
-: ${DOC_IMG:=f5devcentral/containthedocs:latest}
+: ${DOC_IMG:=f5devcentral/containthedocs:eflores1}
 
 RUN_ARGS=( \
   --rm
