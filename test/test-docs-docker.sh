@@ -32,7 +32,7 @@ set -e
 pip install --user --upgrade .
 
 # build some test docs
-make html
+cd test && make html
 
 # deploy test docs to S3
 aws s3 sync docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
