@@ -39,9 +39,9 @@ Setup and Configuration
 Version Selector
 ----------------
 
-You can add a version selector to the navbar, like that shown in below:
+You can add a version selector to the navbar, as shown below:
 
-.. image:: https://raw.github.com/f5devcentral/f5-sphinx-theme/master/screenshots/version.png
+.. image:: /screenshots/version.png
 
 The version selector is **not enabled** by default.
 To enable it, add the following settings to your docs/conf.py:
@@ -78,6 +78,7 @@ Ideally, the JSON should be at the root of the project directory in S3, with ver
      +---v1.0.0
          \--- <docs_html>
 
+See the [test](/test) directory in this repo for a basic example.
 
 Usage
 -----
