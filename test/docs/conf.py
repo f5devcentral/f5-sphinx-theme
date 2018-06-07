@@ -146,7 +146,7 @@ html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','rel
 #                                                     os.environ['CI_COMMIT_REF_NAME']
 #                                                     )
 html_context = {
-    'version_meta_path': 'versions.json',
+    'version_meta_path': '/versions.json',
     'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
 }
 
