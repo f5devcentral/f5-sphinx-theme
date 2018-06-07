@@ -1,6 +1,6 @@
 {
   "name": "f5-sphinx-theme",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "F5 Sphinx Theme",
   "main": "index.js",
   "dependencies": {
@@ -29,7 +29,7 @@
     "type": "git",
     "url": "git+https://github.com/f5devcentral/f5-sphinx-theme.git"
   },
-  "author": "",
+  "author": "F5Networks",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/f5devcentral/f5-sphinx-theme/issues"
