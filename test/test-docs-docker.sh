@@ -20,7 +20,7 @@ RUN_ARGS=( \
   --env-file=.env_travis
 )
 
-printf "Starting Docker container..."\n
+printf "Starting Docker container..." '%b\n'
 
 # Run the container using the provided args
 # DO NOT SET -x BEFORE THIS, WE NEED TO KEEP THE CREDENTIALS OUT OF THE LOGS
@@ -38,10 +38,10 @@ cd test && make html
 aws s3 sync docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
 
 # create and upload indices
-s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
+#s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
 
-printf "View the test documentation at:"\n
-printf "${S3_DIST_URL}/${UPLOAD_DIR}/index.html"\n;
+printf "View the test documentation at:" '%b\n'
+printf "${S3_DIST_URL}/${UPLOAD_DIR}/index.html" '%b\n';
 
 # clean up
 rm -rf .env_travis
