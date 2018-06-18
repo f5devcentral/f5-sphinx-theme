@@ -137,7 +137,7 @@ html_theme_options = {
     # 'site_name': project,
     'next_prev_link': True,
     'version_selector': True,
-    'base_url': 'https://clouddocs.f5networks.net'
+    'base_url': '/'
  }
 html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
 

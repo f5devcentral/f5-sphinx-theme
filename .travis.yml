@@ -19,6 +19,7 @@ before_install:
 - git config --global user.name "Travis F5"
 - docker pull f5devcentral/containthedocs
 install:
+- npm install --no-optional
 - npm install -g htmlhint
 - npm install -g css-validator
 - npm install -g broken-link-checker
@@ -44,15 +45,15 @@ deploy:
     script:
     - "./scripts/deploy.sh"
   - provider: s3
-      access_key_id: $AWS_ACCESS_KEY_ID
-      secret_access_key: $AWS_SECRET_ACCESS_KEY
-      bucket: $ARTIFACTS_BUCKET
-      skip_cleanup: true
-      local_dir: $TRAVIS_BUILD_DIR/html
-      upload-dir: $UPLOAD_DIR
-      on:
-        all_branches: true
-        tags: false
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: $ARTIFACTS_BUCKET
+    skip_cleanup: true
+    local_dir: $TRAVIS_BUILD_DIR/html
+    upload-dir: $UPLOAD_DIR
+    on:
+      all_branches: true
+      tags: false
   - provider: script
     script:
       - s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
