@@ -54,7 +54,7 @@ class VersionSelector extends React.Component {
   }
 
   getProjectSafeFromMetaTag(){
-    var tag = document.getElementsByName('product_safe');
+    var tag = document.getElementsByName('project_safe');
     let project = tag[0].getAttribute('content');
     return (project) ? project + 'VersionMeta' : '';
   }

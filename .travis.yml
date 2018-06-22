@@ -3,13 +3,11 @@ services:
 - docker
 env:
   global:
-  - DIST_REPO="f5-sphinx-theme"
-  - USER_REPO=$(echo $TRAVIS_REPO_SLUG | cut -f -1 -d / )
-  - S3_DIST_URL="http://d3s2z99mfhr69y.cloudfront.net"
-  - BUILD_HTML_DIR=${TRAVIS_BUILD_DIR}/test-deploy/docs/_build/html
-  - BRANCH_DIR=${DIST_REPO}/travis-builds/${USER_REPO}/${TRAVIS_BRANCH}/
   - AWS_S3_BUCKET=${ARTIFACTS_BUCKET}
-  - UPLOAD_DIR="f5-sphinx-theme/$(date +%F)/${TRAVIS_BUILD_NUMBER}"
+  - USER_REPO=$(echo $TRAVIS_REPO_SLUG | cut -f -1 -d / )
+  - PROJECT_UPLOAD_ROOT="under-review/f5-sphinx-theme"
+  - BUILD_UPLOAD_ROOT="${PROJECT_UPLOAD_ROOT}/${USER_REPO}/${TRAVIS_BRANCH}"
+  - UPLOAD_DIR="${BUILD_UPLOAD_ROOT}/$(date +%F)-${TRAVIS_BUILD_NUMBER}"
 
 language: python
 python:
@@ -17,7 +15,7 @@ python:
 before_install:
 - git config --global user.email "OpenStack_TravisCI@f5.com"
 - git config --global user.name "Travis F5"
-- docker pull f5devcentral/containthedocs
+
 install:
 - npm install --no-optional
 - npm install -g htmlhint
@@ -28,13 +26,13 @@ install:
 - pip install git+https://github.com/nerdoftech/s3_index_generator.git
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
-- htmlhint f5_sphinx_theme
+# - htmlhint f5_sphinx_theme
 - export PATH="$PATH:$(pwd)/node_modules/.bin"
 - webpack
-- "./test/test-docs-docker.sh"
+- cd test && make html
 
 before_deploy:
-  - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
+  - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/"
 
 deploy:
   - provider: script
@@ -49,15 +47,15 @@ deploy:
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     bucket: $ARTIFACTS_BUCKET
     skip_cleanup: true
-    local_dir: $TRAVIS_BUILD_DIR/html
+    local_dir: $TRAVIS_BUILD_DIR/test/docs/_build/html
     upload-dir: $UPLOAD_DIR
     on:
       all_branches: true
       tags: false
   - provider: script
     script:
-      - s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
+      - s3-index-generator -b $AWS_S3_BUCKET -t $BUILD_UPLOAD_ROOT -r ${PROJECT_UPLOAD_ROOT} -i 'index.html'
     on:
       all_branches: true
-      tags: false  
+      tags: false
 
