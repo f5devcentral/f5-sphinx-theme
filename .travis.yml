@@ -32,9 +32,9 @@ after_success:
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 deploy:
 - provider: script
-  on:
-    all_branches: true
-    repo: f5devcentral/f5-sphinx-theme
-    condition: "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]*
   script:
   - "./scripts/deploy.sh"
+  on:
+    all_branches: true
+    condition: $TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]*
+    repo: f5devcentral/f5-sphinx-theme  
