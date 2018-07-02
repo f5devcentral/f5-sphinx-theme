@@ -3,7 +3,7 @@ $(document).ready(function () {
     var loc = window.location,
     host = loc.protocol + '//' + loc.host;
     $('#clouddocs-header').load(host + '/header.html');
-    $('#clouddocs-header').load(host + '/footer.html');
+    $('#clouddocs-footer').load(host + '/footer.html');
 });
 
 // collapsible sidebar
