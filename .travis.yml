@@ -36,5 +36,5 @@ deploy:
   - "./scripts/deploy.sh"
   on:
     all_branches: true
-    condition: $TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]*
+    condition: $TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]* || $TRAVIS_BRANCH == *"-stable"
     repo: f5devcentral/f5-sphinx-theme  
