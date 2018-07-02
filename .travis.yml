@@ -33,8 +33,8 @@ after_success:
 deploy:
 - provider: script
   on:
-    repo: f5devcentral/f5-sphinx-theme
     all_branches: true
+    repo: f5devcentral/f5-sphinx-theme
     condition: "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]*
   script:
   - "./scripts/deploy.sh"
