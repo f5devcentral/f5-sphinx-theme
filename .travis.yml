@@ -34,7 +34,7 @@ deploy:
 - provider: script
   on:
     repo: f5devcentral/f5-sphinx-theme
-    branch: master
-    condition: "$TRAVIS_TAG =~ ^v[0-9]+\\.[0-9]+.*"
+    all_branches: true
+    condition: "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]*
   script:
   - "./scripts/deploy.sh"
