@@ -5,7 +5,7 @@ env:
   global:
   - DIST_REPO="f5-sphinx-theme"
   - USER_REPO=$(echo $TRAVIS_REPO_SLUG | cut -f -1 -d / )
-  - S3_DIST_URL="http://d12ecz1n19ym1p.cloudfront.net"
+  - S3_DIST_URL="http://clouddocs.f5networks.net/tools/"
   - BUILD_HTML_DIR=${TRAVIS_BUILD_DIR}/test-deploy/docs/_build/html
   - BRANCH_DIR=${DIST_REPO}/travis-builds/${USER_REPO}_${TRAVIS_BRANCH}/
   - UPLOAD_DIR="${BRANCH_DIR}$(date +%F)-${TRAVIS_BUILD_NUMBER}"
@@ -25,9 +25,9 @@ install:
 - pip install twine
 script:
 - css-validator f5_sphinx_theme/static/css/custom.css
-- htmlhint f5_sphinx_theme
+- htmlhint f5_sphinx_theme || true
 - "./scripts/test-docs-docker.sh"
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'; fi
+#- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'; fi
 after_success:
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 deploy:
