@@ -5,3 +5,14 @@ $(document).ready(function () {
     $('#clouddocs-header').load(host + '/header.html');
     $('#clouddocs-header').load(host + '/footer.html');
 });
+
+// collapsible sidebar
+$(document).ready(function () {
+
+    $('#sidebarCollapse, #dismiss').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $('#content').toggleClass('active');
+    });
+
+  });
+  
