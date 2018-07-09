@@ -38,12 +38,12 @@ make html
 # deploy test docs to S3
 set +x
 
-# printf "Deploying test documentation to: ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
+printf "Deploying test documentation to: ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"
 
-# aws s3 sync docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
+aws s3 sync docs/_build/html s3://${AWS_S3_BUCKET}/${UPLOAD_DIR}
 
 # create and upload indices
-# s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
+s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'
 
 
 # clean up
