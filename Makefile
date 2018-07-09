@@ -6,8 +6,8 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = F5 Theme Test Docs
 DEVDIR        = test
-SOURCEDIR     = docs
-BUILDDIR      = docs/_build
+SOURCEDIR     = test/docs
+BUILDDIR      = test/docs/_build
 
 # Put it first so that "make" without argument is like "make help".
 .PHONY: help Makefile
@@ -30,11 +30,20 @@ preview:
 html:
 	rm -vrf $(BUILDDIR)/
 	$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-	cp -v versions.json $(BUILDDIR)/html/
+	cp -v $(DEVDIR)/versions.json $(BUILDDIR)/html/
+
+# Build webpack bundle
+.PHONY: webpack
+webpack:
+	npm install --no-optional
+	PATH="${PATH}:/wkdir/node_modules/.bin" webpack
+
+# Build webpack bundle
+.PHONY: docker-webpack
+docker-webpack:
+	docker run --rm -i -v ${PWD}:/wkdir f5devcentral/containthedocs:latest make webpack
 
 # one-time html build using a docker container
 .PHONY: docker-html
 docker-html:
-	docker run --rm -i -v $PWD:$PWD --workdir $PWD f5devcentral/containthedocs:latest /bin/bash -s <<EOF
-	make html
-	EOF
+	docker run --rm -i -v ${PWD}:/wkdir f5devcentral/containthedocs:latest make html
