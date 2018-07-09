@@ -5,6 +5,8 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
-    $("#clouddocs-header").load("https://clouddocs.f5networks.net/header.html");
-    $("#clouddocs-footer").load("https://clouddocs.f5networks.net/footer.html");
+  var loc = window.location,
+      host = loc.protocol + '//' + loc.host;
+  $('#clouddocs-header').load(host + '/header.html');
+  $('#clouddocs-footer').load(host + '/footer.html');
 });
