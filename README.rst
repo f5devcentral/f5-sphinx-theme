@@ -22,11 +22,63 @@ Setup and Configuration
                             'site_name': '<desired site name>',          \\ DEFAULTS TO "CloudDocs home"
                             'next_prev_link': True or False              \\ DEFAULTS TO FALSE
                             'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S' \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
-                            'base_url' = 'http://clouddocs.f5.com'       
+                            # 'base_url' = ''                            \\ DEFAULTS TO '/'
                          }
 
-Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
+   \
 
+   The ``base_url`` theme option is intended to allow customization of the root URL.
+
+   For example, you can change the ``base_url`` setting to "https://clouddocs.f5networks.net" when deploying docs to the staging site.
+
+.. note::
+
+   Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
+
+
+Version Selector
+----------------
+
+You can add a version selector to the navbar, as shown below:
+
+.. image:: /screenshots/version.png
+
+The version selector is **not enabled** by default.
+To enable it, add the following settings to your docs/conf.py:
+
+.. code-block:: python
+
+   html_theme_options = {
+     'version_selector': True,
+   }
+
+   html_context = {
+     'version_meta_path': 'uri/of/your/json/versions/file.json',
+     'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
+   }
+
+
+The ``'version_meta_path'`` refers to the location of a version.json file in the host S3 bucket.
+The versions displayed in the version selector are generated from this JSON file via an AJAX call. You only need to update one file to make the change across all versions.
+Generating the JSON is left up to the implementor (i.e., you), but it can be incorporated into a CI/CD process.
+Ideally, the JSON should be at the root of the project directory in S3, with versions being in subfolders as shown here:
+
+.. code-block:: text
+
+   project_root
+     |
+     +---versions.json
+     |
+     +---v2.0.0
+     |   \--- <docs_html>
+     |
+     +---v1.0.1
+     |   \--- <docs_html>
+     |
+     +---v1.0.0
+         \--- <docs_html>
+
+See the [test](/test) directory in this repo for a basic example.
 
 Usage
 -----
@@ -37,7 +89,6 @@ Testing
 -------
 
 This project uses Travis-CI for CI/CD.
-
 
 Copyright
 ---------

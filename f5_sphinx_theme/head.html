@@ -1,5 +1,4 @@
 <head>
-  
   {%- block analytics %}
   {# GoogleAnalytics #}
   <!--STAGING:-->
@@ -11,7 +10,7 @@
   {%- block htmltitle %}
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
   {%- endblock %}
-  
+
   {%- block metadata %}
   {# METADATA #}
 
@@ -26,15 +25,16 @@
   <meta name="version" content="{{ release|striptags|e }}"/>
   <meta name="updated_date"  content="{{ last_updated|e }}"/>
   <meta name="archived" content="Archived documents excluded"/>
-
+{% if (theme_version_selector != 'False') %}
+  <!-- Version selector meta tags-->
+  <meta name="version_meta_path" content="{{ version_meta_path }}">
+  <meta name="project_safe" content="{{ project_safe }}">
+{%- endif %}
   {{ metatags }}
-  
+
   {%- endblock %}
-  
+
   {# FAVICON #}
   <link href="https://cdn.f5.com/favicon.ico" rel="icon">
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text"> jQuery.noConflict(true)</script>
 
 </head>

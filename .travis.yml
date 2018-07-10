@@ -3,38 +3,41 @@ services:
 - docker
 env:
   global:
-  - DIST_REPO="f5-sphinx-theme"
   - USER_REPO=$(echo $TRAVIS_REPO_SLUG | cut -f -1 -d / )
-  - S3_DIST_URL="http://clouddocs.f5networks.net/tools/"
-  - BUILD_HTML_DIR=${TRAVIS_BUILD_DIR}/test-deploy/docs/_build/html
-  - BRANCH_DIR=${DIST_REPO}/travis-builds/${USER_REPO}_${TRAVIS_BRANCH}/
-  - UPLOAD_DIR="${BRANCH_DIR}$(date +%F)-${TRAVIS_BUILD_NUMBER}"
+  - PROJECT_UPLOAD_ROOT="tools/f5-sphinx-theme"
+  - BUILD_UPLOAD_ROOT="${PROJECT_UPLOAD_ROOT}/${USER_REPO}_${TRAVIS_BRANCH}"
+  - UPLOAD_DIR="${BUILD_UPLOAD_ROOT}/$(date +%F)-${TRAVIS_BUILD_NUMBER}"
+  - S3_DIST_URL="http://clouddocs.f5networks.net/"
 
 language: python
 python:
-- '2.7'
+  - '2.7'
 before_install:
-- git config --global user.email "OpenStack_TravisCI@f5.com"
-- git config --global user.name "Travis F5"
-- docker pull f5devcentral/containthedocs
+  - git config --global user.email "OpenStack_TravisCI@f5.com"
+  - git config --global user.name "Travis F5"
+
 install:
-- npm install -g htmlhint
-- npm install -g css-validator
-- npm install -g broken-link-checker
-- pip install -r requirements_test.txt
-- pip install twine
+  - npm install -g htmlhint
+  - npm install -g css-validator
+  - npm install -g broken-link-checker
+  - pip install -r requirements_test.txt
+  - pip install twine
 script:
-- css-validator f5_sphinx_theme/static/css/custom.css
-- htmlhint f5_sphinx_theme || true
-- "./scripts/test-docs-docker.sh"
-#- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then s3-index-generator -b $AWS_S3_BUCKET -t $BRANCH_DIR -r ${DIST_REPO} -i 'index.html'; fi
+  - css-validator f5_sphinx_theme/static/css/custom.css
+  - htmlhint f5_sphinx_theme || true
+  - "./scripts/test-docs-docker.sh"
+
+before_deploy:
+  - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/"
+
 after_success:
-- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
+
 deploy:
-- provider: script
-  script:
-  - "./scripts/deploy.sh"
-  on:
-    all_branches: true
+  - provider: script
+    on:
+      repo: f5devcentral/f5-sphinx-theme
+      branch: master
     condition: $TRAVIS_BRANCH =~ ^v[0-9]+\.[0-9]+\.[0-9]* || $TRAVIS_BRANCH == *"-stable"
-    repo: f5devcentral/f5-sphinx-theme  
+    script:
+    - "./scripts/deploy.sh"

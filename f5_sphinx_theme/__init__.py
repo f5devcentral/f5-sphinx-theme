@@ -15,7 +15,7 @@
 import os
 from os import path
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 def get_html_theme_path():
     """Return the html theme path for this template library.
@@ -27,8 +27,8 @@ def get_html_theme_path():
 
 def setup(app):
     """Set up the theme for distribution as a python package
-    
+
     :return: Adds f5-sphinx-theme to the html_themes path in Sphinx
     """
     app.add_html_theme('f5_sphinx_theme', path.abspath(path.dirname(__file__)))
-    
+
