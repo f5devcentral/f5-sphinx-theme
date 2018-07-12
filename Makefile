@@ -36,7 +36,7 @@ html:
 .PHONY: webpack
 webpack:
 	npm install --no-optional
-	PATH="${PATH}:/$(pwd)/node_modules/.bin" webpack
+	PATH="${PATH}:$(pwd)/node_modules/.bin" webpack
 
 # Build webpack bundle
 .PHONY: docker-webpack
