@@ -2,7 +2,8 @@
 # Build some test docs in a container using the theme updates
 
 # create env file to pass variables to container
-env > .env_file
+env | grep -E "^(PATH=)" > .env_travis
+env | grep -E "^(AWS_)" >> .env_travis
 
 set -e
 
@@ -14,7 +15,7 @@ RUN_ARGS=( \
   -v $PWD:/wkdir
   ${DOCKER_RUN_ARGS}
   -e "LOCAL_USER_ID=$(id -u)"
-  --env-file=.env_file
+  --env-file=.env_travis
 )
 
 printf "Starting Docker container..."\n
@@ -43,5 +44,5 @@ if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
 fi
 
 # clean up
-rm -rf .env_file
+rm -rf .env_travis
 EOF
