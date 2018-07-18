@@ -3,4 +3,3 @@ recommonmark
 sphinxjp.themes.basicstrap
 cloud_sptheme
 -e .
-git+https://github.com/nerdoftech/s3_index_generator.git

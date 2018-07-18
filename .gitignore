@@ -25,6 +25,9 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+node_modules
+package-lock.json
+.env_*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -63,7 +66,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+test/docs/_build/
 
 # PyBuilder
 target/
@@ -136,3 +139,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+# ignore webpack bundle, will be built in container image pipeline
+f5_sphinx_theme/static/js/index.js
