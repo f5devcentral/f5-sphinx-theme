@@ -4,6 +4,8 @@
 # create env file to pass variables to container
 env | grep -E "^(PATH=)" > .env_travis
 env | grep -E "^(AWS_)" >> .env_travis
+env | grep -E "^(USER_REPO)|^([a-zA-Z]*_UPLOAD_ROOT)|^(S3.*)$" >> .env_travis
+
 
 set -e
 
