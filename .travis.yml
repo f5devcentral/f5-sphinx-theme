@@ -25,7 +25,7 @@ install:
 script:
   - css-validator f5_sphinx_theme/static/css/custom.css
   - htmlhint f5_sphinx_theme || true
-  - "./scripts/test-docs-docker.sh"
+  - "./test/test-docs-docker.sh"
   - python setup.py sdist bdist_wheel
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
