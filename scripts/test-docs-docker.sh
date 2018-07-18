@@ -23,7 +23,7 @@ set -x
 
 # Run the container using the provided args
 # DO NOT SET -x BEFORE THIS, WE NEED TO KEEP THE CREDENTIALS OUT OF THE LOGS
-docker run "${RUN_ARGS[@]}" ${DOC_IMG} /bin/bash -s <<EOF
+docker run "${RUN_ARGS[@]}" ${DOC_IMG} /bin/sh -s <<EOF
 set -x
 set -e
 
