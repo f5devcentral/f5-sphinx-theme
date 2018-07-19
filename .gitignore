@@ -141,3 +141,6 @@ fabric.properties
 
 # ignore webpack bundle, will be built in container image pipeline
 f5_sphinx_theme/static/js/index.js
+
+# ignore virtual env
+venv*

@@ -25,11 +25,8 @@ install:
 script:
   - css-validator f5_sphinx_theme/static/css/custom.css
   - htmlhint f5_sphinx_theme || true
-  - "./scripts/test-docs-docker.sh"
-
-before_deploy:
-  - echo "Deploying to ${S3_DIST_URL}/${UPLOAD_DIR}/"
-
+  - "./test/test-docs-docker.sh"
+  - python setup.py sdist bdist_wheel
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 
@@ -41,3 +38,12 @@ deploy:
       condition: $TRAVIS_BRANCH =~ ^v[0-9]+\.[0-9]+\.[0-9]* || $TRAVIS_BRANCH == *"-stable" || $TRAVIS_BRANCH == "master" 
     script:
     - "./scripts/deploy.sh"
+  - provider: pypi
+    user: ${PYPI_USER}
+    password: ${PYPI_PASSWORD}
+    skip_cleanup: true
+    distributions: "sdist bdist_wheel"
+    on:
+      repo: f5devcentral/f5-sphinx-theme
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^v[0-9]+\.[0-9]+\.[0-9]*|^.*-stable$|master 
