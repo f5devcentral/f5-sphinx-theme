@@ -2,7 +2,6 @@
 {% extends "basic/layout.html" %}
   {{ super() }}
 
-
 {% set css_files = css_files +
   [ "_static/css/bootstrap.min.css",
     "_static/css/f5.css",
@@ -14,15 +13,9 @@
   "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
   ]%#}
 
-
-
 {% include "head.html" %}
 
-
 {%- block extrahead %}
-{%- endblock %}
-
-
 {# OPENSEARCH #}
   {% if not embedded %}
     {% if use_opensearch %}
@@ -32,6 +25,11 @@
     {% endif %}
 
   {% endif %}
+{%- endblock %}
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 {# Do not create the standard relbars and sidebars #}
 {%- block relbar1 %}{% endblock %}
