@@ -1031,3 +1031,44 @@ table.docutils.footnote, table.docutils.footnote > tbody, table.docutils.footnot
     padding-left: 0;
   }
 }
+
+/* Version menu */
+#version_div {
+  height: 30px;
+  background-color: #4c4e52;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+#version_div #current_version {
+  line-height: 20px;
+  font-weight: 600;
+}
+#version_arrow {
+  float:right;
+}
+#version_arrow.fa-sort-desc {
+  line-height: 10px;
+}
+ #version_arrow.fa-sort-asc {
+  line-height: inherit;
+}
+#other_versions {
+  padding: 10px;
+  background-color: #d5d3dc;
+}
+.version_list {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+.version_list dt{
+  color: black;
+}
+.version_list dd {
+  display: inline;
+}
+.version_list dd a {
+    padding: 0;
+    padding-right: 8px;
+    color: black;
+}
