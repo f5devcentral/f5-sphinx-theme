@@ -29,8 +29,7 @@ Setup and Configuration
 
    The ``base_url`` theme option is intended to allow customization of the root URL.
 
-   For example, you can change the ``base_url`` setting to "https://clouddocs.f5networks.net" when deploying docs to the staging site.
-
+  
 .. note::
 
    Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
