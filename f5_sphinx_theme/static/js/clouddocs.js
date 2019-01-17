@@ -29,41 +29,65 @@ $(document).ready(function () {
 
 });
 
-//Resize sidebar if the footer covers it
+// Function to resize the sidebar if the footer covers it
+function resizeScrollbar() {
+  //Set the max heigh as either the content max height or the css max-height property
+  var contentHeight = 0;
+  if ($(".nav-sidebartoc").height() < parseInt($("#sidebar").css('max-height'))) {
+    contentHeight = $(".nav-sidebartoc").height();
+  }else {
+    contentHeight = $("#sidebar").css('max-height');
+  }
+  contentHeight = parseInt(contentHeight);
+
+  //get the sidebar bottom offset and the footer top offset
+  var sidebarBottom = $("#sidebar").offset().top + $("#sidebar").outerHeight(true) - 25;
+  var footerTop = $("#clouddocs-footer").offset().top;
+
+  //if checks if there is a collision, if so then shrink the sidebar
+  if (sidebarBottom >= footerTop) {
+    var shorterNewHeight = $("#sidebar").height() - (sidebarBottom - footerTop) - 40;
+    $("#sidebar").height(shorterNewHeight);
+
+  //checks if the footer has moved away, so the sidebar needs to grow back
+  }else if($("#sidebar").height() < contentHeight) {
+    var tallerNewHeight = $("#sidebar").height() + (footerTop - sidebarBottom) - 40;
+    if (tallerNewHeight > contentHeight) {
+      $("#sidebar").height(contentHeight + 40);
+    }else {
+      $("#sidebar").height(tallerNewHeight);
+    }
+  }
+
+  if($("#sidebar").height() < 140) {
+    console.log("height is too short!");
+    $("#sidebar").height(160);
+  }
+}
+
+//Calls sidebar resize function on page load and when there is scrolling
 $(document).ready(function () {
+
+  /* JavaScript Media Queries, check if mobile view and do not resize TOC */
+  if (matchMedia) {
+  	const mq = window.matchMedia("(max-width: 768px)");
+  	mq.addListener(WidthChange);
+  	WidthChange(mq);
+  }
+
+  // Checks if resize TOC should be called when page is resized
+  function WidthChange(mq) {
+  	if (!mq.matches) {
+      console.log("im resizing the TOC");
+  	  resizeScrollbar();
+  	}
+  }
 
   //Throttle for scroll
   $(window).scroll(function() {
   clearTimeout($.data(this, 'scrollTimer'));
     $.data(this, 'scrollTimer', setTimeout(function() {
-
-    //Set the max heigh as either the content max height or the css max-height property
-    var contentHeight = 0;
-    if ($(".nav-sidebartoc").height() < parseInt($("#sidebar").css('max-height'))) {
-      contentHeight = $(".nav-sidebartoc").height();
-    }else {
-      contentHeight = $("#sidebar").css('max-height');
-    }
-    contentHeight = parseInt(contentHeight);
-
-    //get the sidebar bottom offset and the footer top offset
-    var sidebarBottom = $("#sidebar").offset().top + $("#sidebar").outerHeight(true) - 25;
-    var footerTop = $("#clouddocs-footer").offset().top;
-
-    //if checks if there is a collision, if so then shrink the sidebar
-    if (sidebarBottom >= footerTop) {
-      var shorterNewHeight = $("#sidebar").height() - (sidebarBottom - footerTop) - 40;
-      $("#sidebar").height(shorterNewHeight);
-
-    //checks if the footer has moved away, so the sidebar needs to grow back
-    }else if($("#sidebar").height() < contentHeight) {
-      var tallerNewHeight = $("#sidebar").height() + (footerTop - sidebarBottom) - 40;
-      if (tallerNewHeight > contentHeight) {
-        $("#sidebar").height(contentHeight + 40);
-      }else {
-        $("#sidebar").height(tallerNewHeight);
-      }
-    }
+      resizeScrollbar();
   }, 250));
   });
 });

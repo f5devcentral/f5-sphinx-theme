@@ -22,17 +22,22 @@
   display: flex;
 }
 
-
 body {
   padding: 0 0 0 0;
   width: 100%;
+}
+
+a.copybtn {
+    width: 28px;
+    height: 28px;
+    padding: 8px;
 }
 
 #clouddocs-header {
   position: fixed;
   width: 100%;
   background-color: white;
-  padding-bottom: 20px;
+  z-index: 20;
 }
 
 #clouddocs-footer {
@@ -41,7 +46,7 @@ body {
 
 #content {
   padding: 20px;
-  padding-top: 140px;
+  padding-top: 132px;
   transition: all 0.3s;
 }
 
@@ -52,9 +57,10 @@ body {
 @media (min-width: 1025px) {
     #content {
       margin-left: 0;
+      min-height: 728px;
     }
     #content.active {
-      margin-left: 325px;
+      margin-left: 315px;
     }
 }
 
@@ -130,7 +136,7 @@ a.headerlink:hover {
 
 .nav-sidebartoc a {
   display: table-cell;
-  color: #212121;
+  color: #000;
 }
 
 .nav-sidebartoc a:hover {
@@ -162,21 +168,21 @@ a.headerlink:hover {
 }
 
 #sidebar, .section-nav {
+  width: 320px;
+  margin-right: 20px;
   position: fixed;
   top: 106px;
-  min-width: 256px;
-  max-width: 325px;
   max-height: 80vh;
   transition: all 0.3s;
-  background-color: #f7f7f7;
+  background-color: #fff;
   float: left;
-  margin-right: 40px;
-  margin-top: 22px;
+  /* margin-top: 22px; */
   margin-left: 12px;
   overflow-x: auto;
   overflow-y: scroll;
-  padding: 16px 12px 16px 16px;
-  font-size: 13px;
+  padding: 10px 12px 16px 16px;
+  font-size: 14px;
+  margin-top: 10px;
 }
 
 #sidebar.active {
@@ -191,7 +197,8 @@ a.headerlink:hover {
 }
 
 .nav-sidebartoc > h5 {
-  font-size: 13px;
+  font-size: 14px;
+  color: #000;
 }
 
 @media (max-width: 1024px) {
@@ -364,10 +371,14 @@ ul.site-breadcrumb-list {
     margin: 0;
 }
 
+ul li p {
+  margin-bottom: 0;
+}
+
 .sidebar {
   /*position: fixed;
   right: 0; */
-  width: 35%;
+  width: 300px;
   float: right;
   display: block;
   margin-left: 25px;
@@ -408,10 +419,18 @@ ul.site-breadcrumb-list {
 
 .admonition {
   border-radius: 4px;
-  background-color: white;
+  background-color: #504F4F;
   margin-bottom: 20px;
-  margin-top: 10px;
-  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+  margin-top: 20px;
+  box-shadow: 0 0 0 0, 0 0 1px #504F4F;
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.admonition > .admonition-title {
+  font-weight: 600;
+  color: #504F4F;
+  padding: 6px;
 }
 
 div.sidebar ~ div.container.admonition {
@@ -426,39 +445,32 @@ div.sidebar ~ div.container.admonition {
 
 .caution>.admonition-title {
   background-color: #FFF200;
-  color: black;
-  padding: 6px;
 }
 
 /* F5 Orange: Attention, Warning */
 .attention, .warning {
-  border: 1px #f66e41 solid;
   background-color: #FFF;
 }
 
 .attention>.admonition-title,
 .warning>.admonition-title {
-  background-color: #f66e41;
-  color: white;
-  padding: 6px;
+  background-color: #e6e7e8;
+  border-bottom: 2px solid #E4002B;
 }
 
 /* F5 Red */
 .danger, .error {
-  border: 1px #e4002b solid;
   background-color: #FFF;
 }
 
 .danger>.admonition-title, .error>.admonition-title {
-  background-color: #e4002b;
-  color: white;
-  padding: 6px;
+  background-color: #e6e7e8;
+  border-bottom: 2px solid #E4002B;
 }
 
 /* Green */
 .hint,
 .admonition-tmsh {
-  border: 1px #51af4a solid;
   background-color: #FFF;
 }
 
@@ -468,37 +480,32 @@ div.sidebar ~ div.container.admonition {
 
 .hint>.admonition-title,
 .admonition-tmsh>.admonition-title {
-  background-color: #51af4a;
-  color: white;
-  padding: 6px;
+  background-color: #e6e7e8;
+  border-bottom: 2px solid #8547AD;
 }
 
 /* F5 Purple */
 .tip,
 .note {
-  border: 1px #8547AD solid;
   background-color: #FFF;
 }
 
 .tip>.admonition-title, .note>.admonition-title {
-  background-color: #8547AD;
-  color: white;
-  padding: 6px;
+  background-color: #e6e7e8;
+  border-bottom: 2px solid #00A1E4;
 }
 
 
 /* F5 Blue */
 .important,
 .seealso {
-  border: 1px #00A1E4 solid;
   background-color: #FFF;
 }
 
 .important>.admonition-title,
 .seealso>.admonition-title {
-  color: #fff;
-  background-color: #00A1E4;
-  padding: 6px;
+  background-color: #e6e7e8;
+  border-bottom: 2px solid #F3704B;
 }
 
 .attention>.last,
@@ -523,8 +530,8 @@ div.sidebar ~ div.container.admonition {
   font-weight: normal;
   line-height: 1;
   text-decoration: inherit;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 .attention>.admonition-title:before,
 .caution>.admonition-title:before,
@@ -587,11 +594,13 @@ div.sidebar ~ div.container.admonition {
 
 .admonition p.first {
   margin-left: 0px;
+  margin-bottom: 0;
 }
 
 .admonition p {
-  margin-left: 6px;
+  margin-left: 2px;
   padding: 6px;
+  margin-bottom: 0;
 }
 /* End fix */
 
@@ -641,21 +650,13 @@ th.stub {
 */
 .guilabel {
     border: none;
-    background: #ededed;
-    font-size:90%;
     font-weight:700;
     border-radius:4px;
-    padding:2.4px 6px;
-    margin:auto 2px
 }
 .menuselection {
     border: none;
-    background: #ededed;
-    font-size:90%;
     font-weight:700;
     border-radius:4px;
-    padding:2.4px 6px;
-    margin:auto 2px
 }
 
 /*end elements from sphinx-rtd-theme*/
@@ -670,29 +671,30 @@ h1,
 h2,
 h3,
 .nav-sidebartoc > h5  {
-  font-family: 'TabletGothicSemiBold', 'Colaborate', Arial, sans-serif;
-  font-weight: normal !important;
-  color: #333;
+  font-family: Proxima,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-weight: 400;
+  color: #000;
 }
 h4 {
-  font-family: Arial, sans-serif;
   font-weight: normal !important;
   color: #000;
 }
 h1 {
-  font-size: 25px;
+  font-size: 34px;
+  margin-bottom: 18px;
+
 }
 h2 {
-  font-size: 22px;
-  line-height: 26px;
-  margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 18px;
   width: 100%;
 }
 h3 {
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 16px;
 }
 h4 {
-  font-size: 18px;
+  font-size: 16px;
   margin: 18px 0 10px 0;
   width: 100%;
 }
@@ -720,6 +722,10 @@ caption {
 
 ol.arabic {
   padding-left: 20px;
+}
+
+ol > li {
+  margin-bottom: 11px;
 }
 
 /*
@@ -751,26 +757,22 @@ formatting for using sidebar class with admonitions
 table {
   width: auto;
   overflow: scroll;
-  border: 1px solid #00A1E4;
   border-spacing: 0;
-  margin-bottom: 22px;
-  margin-top: 16px;
+  margin-bottom: 12px;
+  margin-top: 0px;
   border-collapse: collapse;
   border-radius: 4px;
-  box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
+  border: 1px solid #94a4b5;
   word-wrap: break-word;
 }
 
 table thead th {
-  background: #00A1E4;
-  border: none;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
+  background: #D9D5D5;
+  color: #504F4F;
+  font-weight: 600;
   line-height: 24px;
-  padding: 8px 24px;
+  padding: 3px 10px;
   text-align: left;
-  text-transform: uppercase;
 }
 
 table tbody tr {
@@ -778,8 +780,7 @@ table tbody tr {
 }
 
 table tbody td {
-  border: 1px solid rgba(207,216,220,.24);
-  padding: 8px 24px;
+  padding: 3px 10px;
   text-align: left;
 }
 
@@ -787,7 +788,6 @@ tr,
 tbody tr:nth-child(odd),
 tbody tr:nth-child(even) {
   background: #FFF;
-  border-top: 1px solid #9c9aa3;
 }
 
 img {
@@ -819,7 +819,7 @@ code,
   border-radius: 0;
   color: #000;
   border: 0;
-  background: rgba(0,0,0,0);
+  background: #e4e4e4;
 }
 
 div[class^='highlight'] > table {
@@ -869,6 +869,7 @@ pre,
   border: 0;
   background: #e4e4e4;
   padding: 10px;
+  padding-right: 28px;
 }
 
 .literal-block-wrapper + .docutils + .container {
@@ -923,7 +924,7 @@ dl > dd > table > tbody > tr:nth-child(odd) > td.field-body > ul {
 
 .pageHeader {
   height: 60px;
-  border-bottom: 10px solid #2270B3;
+  border-bottom: 4px solid #2270B3;
   padding-top: 4px;
 }
 
