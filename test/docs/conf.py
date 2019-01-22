@@ -23,7 +23,6 @@ import datetime
 import string
 import re
 #import f5_sphinx_theme
-import recommonmark
 
 
 start_year = '2017'
@@ -70,10 +69,6 @@ source_suffix = {
   '.rst': 'restructuredtext',
   '.txt': 'markdown',
   '.md': 'markdown',
-}
-
-source_parsers = {
-    '.md': CommonMarkParser,
 }
 
 # The master toctree document.
