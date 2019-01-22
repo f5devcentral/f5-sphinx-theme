@@ -24,9 +24,7 @@ import string
 import re
 #import f5_sphinx_theme
 import recommonmark
-import CommonMark
 
-from recommonmark.parser import CommonMarkParser
 
 start_year = '2017'
 current_year = datetime.date.today().strftime('%Y')
@@ -57,6 +55,7 @@ extensions = [
   'sphinx.ext.ifconfig',
   'sphinx.ext.doctest',
   'cloud_sptheme.ext.table_styling',
+  'recommonmark',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,7 +65,12 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = ['.rst']
+
+source_suffix = {
+  '.rst': 'restructuredtext',
+  '.txt': 'markdown',
+  '.md': 'markdown',
+}
 
 source_parsers = {
     '.md': CommonMarkParser,
