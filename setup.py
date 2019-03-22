@@ -50,7 +50,7 @@ setup(
     classifiers=[
         'Framework :: Sphinx',
         'Framework :: Sphinx :: Theme',
-        'Development Status :: 5 - Production/Stable',
+        'Development Status ::  4 - Beta',
         'License :: OSI Approved :: Apache Software License',
         'Environment :: Console',
         'Environment :: Web Environment',
