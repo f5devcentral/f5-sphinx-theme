@@ -61,8 +61,14 @@
       </div>
       {%- endif %}
       <nav class="nav-sidebartoc">
-        <h5>{{ docstitle }} {{ release }}</h5>
-          {%- include "searchbox.html" %}
+
+        {% if release %}
+        <h5>{{ project }} {{ release }} </h5>
+        {% else %}
+         <h5>{{ project }} {{ version }} </h5>
+        {% endif %}
+
+        {%- include "searchbox.html" %}
         <hr>
         <h5>Current Page</h5>
         <span class="nav-sidebartoc">
