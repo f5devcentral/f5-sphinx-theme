@@ -2,12 +2,35 @@
 {% extends "basic/layout.html" %}
   {{ super() }}
 
-{% set css_files = css_files +
-  [ "_static/css/bootstrap.min.css",
-    "_static/css/f5.css",
-    "_static/css/f5-theme.css",
-    "_static/css/custom.css",
-    "https://use.fontawesome.com/21fb8a09c3.css" ] %}
+
+{% if env == 'stage'%}
+
+  {% set css_files = css_files +
+    [ "https://clouddocs.f5networks.net/assets/css/bootstrap.min.css",
+      "https://clouddocs.f5networks.net/assets/css/f5.css",
+      "https://clouddocs.f5networks.net/assets/css/f5-theme.css",
+      "https://use.fontawesome.com/21fb8a09c3.css" ] %}
+
+{% elif env == 'production' %}
+
+
+    {% set css_files = css_files +
+    [ "https://clouddocs.f5.com/assets/css/bootstrap.min.css",
+      "https://clouddocs.f5.com/assets/css/f5.css",
+      "https://clouddocs.f5.com/assets/css/f5-theme.css",
+      "https://use.fontawesome.com/21fb8a09c3.css" ] %}
+
+{% else %}
+
+  {% set css_files = css_files +
+    [ "_static/css/bootstrap.min.css",
+      "_static/css/f5.css",
+      "_static/css/f5-theme.css",
+      "_static/css/custom.css",
+      "https://use.fontawesome.com/21fb8a09c3.css" ] %}
+
+{% endif %}
+
 
 {#% set script_files = script_files + [
   "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js",
@@ -124,7 +147,21 @@
 {% if (theme_version_selector != 'False') %}
   <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
 {%- endif %}
+
+{% if env == 'stage'%}
+
+  <script src="https://clouddocs.f5networks.net/assets/js/bootstrap.min.js"></script>
+  <script src="https://clouddocs.f5networks.net/assets/js/clouddocs.js"></script>
+
+{% elif env == 'production' %}
+  <script src="https://clouddocs.f5.com/assets/js/bootstrap.min.js"></script>
+  <script src="https://clouddocs.f5.com/assets/js/clouddocs.js"></script>
+
+{% else %}
+
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   <script src="{{ pathto('_static/js/clouddocs.js', 1) }}"></script>
+
+{% endif %}
 
 {%- endblock %}
