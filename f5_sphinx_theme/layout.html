@@ -93,9 +93,6 @@
       {% include "breadcrumb.html" %}
       {% endblock %}
 
-    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
-    <button type="button" id="export-pdf" class="btn btn-link right">Create PDF</button>
-
     {% block body %}{% endblock %}
     {% if (next or prev) and (theme_next_prev_link != 'False') %}
      <div class="row next-prev-btn-row">
@@ -129,6 +126,5 @@
 {%- endif %}
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   <script src="{{ pathto('_static/js/clouddocs.js', 1) }}"></script>
-  <script src="{{ pathto('_static/js/printThis.js', 1) }}"></script>
 
 {%- endblock %}
