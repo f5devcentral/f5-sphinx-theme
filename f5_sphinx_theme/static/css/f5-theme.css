@@ -388,11 +388,7 @@ ul li p {
   box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
 }
 
-#export-pdf{
-    font-size:small;
-    font-color: #1d9cd3;
 
-}
 /* disable underline for hover event */
 .btn-link:hover{
    text-decoration:none;
@@ -400,6 +396,14 @@ ul li p {
 
 a:hover{
     text-decoration:none;
+}
+
+.loweralpha {
+    list-style-type: lower-alpha;
+}
+
+.lowerroman {
+    list-style-type: lower-roman;
 }
 
 @media (max-width: 1024px) {
