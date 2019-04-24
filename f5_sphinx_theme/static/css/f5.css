@@ -6,6 +6,7 @@
   justify-content: center;
 }
 
+
 .panel-body > .list-group .btn {
   white-space: normal;
 }
@@ -598,7 +599,7 @@ a.mysupport:hover {
 }
 .footer p,
 footer p a {
-  font-size: 11px;
+  font-size: 1px;
   color: #ABA9A9;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
