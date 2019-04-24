@@ -6,8 +6,32 @@ $(document).ready(function () {
     $('#clouddocs-footer').load(host + '/footer.html');
 });
 
+// Export PDF
+
+function exportPdf(){
+
+
+        var pathes = document.location.pathname.split("/");
+        pathes.pop();
+
+        $("#content").printThis({
+            importCSS : true,
+            importStyle : true,
+            base: '//' + document.location.host + pathes.join("/") + "/",
+            removeScripts: true,
+            beforePrint : function() { $("#export-pdf").hide(); $(".row, .next-prev-btn-row").hide(); },
+            afterPrint : function() { $("#export-pdf").show(); $(".row, .next-prev-btn-row").show(); },
+            printDelay : 600
+        });
+
+}
+
 // collapsible sidebar
 $(document).ready(function () {
+
+
+    // PDF Export
+    $("#export-pdf").click(exportPdf);
 
     $('#sidebarCollapse, #dismiss').on('click', function () {
         $('#sidebar').toggleClass('active');
