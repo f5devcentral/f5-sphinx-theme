@@ -422,12 +422,22 @@ ul li p {
     color: #38313d;
 }
 
+/* disable underline for hover event */
+
+.btn-link:hover{
+   text-decoration:none;
+}
+
+a:hover{
+    text-decoration:none;
+}
+
 .loweralpha {
-     list-style-type: lower-alpha;
+    list-style-type: lower-alpha;
 }
 
 .lowerroman {
-     list-style-type: lower-roman;
+    list-style-type: lower-roman;
 }
 
 #right-sidebar{

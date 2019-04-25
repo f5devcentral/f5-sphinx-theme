@@ -57,7 +57,7 @@
       </button>
     </div>
     <div id="sidebar" class="section-nav">
-      {% if (theme_version_selector != 'False') %}
+      {% if (theme_version_selector) %}
       <!--  version selector ------------------>
       <div id="version_selector_wrapper">
       </div>
@@ -106,8 +106,15 @@
       {% endblock %}
 
 
+
+    <div class="alert alert-danger" role="alert" id="enviroment-warning" style="display: none;">
+      <p class="first sidebar-title">
+	  <span class="icon fa fa-exclamation-circle fa-lg"></span> Warning:</p>
+	  <p class="last">This is draft content. See <a href="https://clouddocs.f5.com">clouddocs.f5.com</a> for content released to the public.</p>
+    </div>
+
     {% block body %}{% endblock %}
-    {% if (next or prev) and (theme_next_prev_link != 'False') %}
+    {% if (next or prev) and (theme_next_prev_link) %}
      <div class="row next-prev-btn-row">
        <div class="col-lg-12">
        {% if prev %}
@@ -134,7 +141,7 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-{% if (theme_version_selector != 'False') %}
+{% if (theme_version_selector) %}
   <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
 {%- endif %}
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
