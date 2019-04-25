@@ -2,6 +2,8 @@
 {% extends "basic/layout.html" %}
   {{ super() }}
 
+
+
 {% set css_files = css_files +
   [ "_static/css/bootstrap.min.css",
     "_static/css/f5.css",
@@ -70,28 +72,39 @@
 
         {%- include "searchbox.html" %}
         <hr>
-        <h5>Current Page</h5>
-        <span class="nav-sidebartoc">
-            {{ toc }}
-         </span>
-        <hr>
-        <h5>Site Contents</h5>
         <span class="nav-sidebartoc">
             {{ toctree(includehidden=True, collapse=True) }}
         </span>
       {%- include "extralinks.html" %}
       </nav>
     </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            {{ toc }}
+         </span>
+      </nav>
+    </div>
+
+
     {%- endblock %}
   {%- endif %}
 
+
+
+
+
   {% block main %}
-  <div class="main active" id="content">
+  <div class="main active" id="content" >
     <article class="docs-container site-article-inner">
 
       {%- block breadcrumb %}
       {% include "breadcrumb.html" %}
       {% endblock %}
+
 
 
     <div class="alert alert-danger" role="alert" id="enviroment-warning" style="display: none;">
@@ -133,5 +146,6 @@
 {%- endif %}
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   <script src="{{ pathto('_static/js/clouddocs.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/jquery.appear.js', 1) }}"></script>
 
 {%- endblock %}
