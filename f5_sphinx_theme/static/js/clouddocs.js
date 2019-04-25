@@ -10,7 +10,13 @@ $(document).ready(function () {
 // collapsible sidebar
 $(document).ready(function () {
 
+    // Verify enviroment and render banner
+    if(document.location.host != "clouddocs.f5.com"){
 
+        $("#enviroment-warning").show();
+
+    }
+  
 
     $('#sidebarCollapse, #dismiss').on('click', function () {
         $('#sidebar').toggleClass('active');
