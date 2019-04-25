@@ -403,6 +403,14 @@ a:hover{
     text-decoration:none;
 }
 
+.loweralpha {
+    list-style-type: lower-alpha;
+}
+
+.lowerroman {
+    list-style-type: lower-roman;
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 100%;

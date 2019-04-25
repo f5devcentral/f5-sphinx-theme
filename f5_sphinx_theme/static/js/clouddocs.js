@@ -6,6 +6,7 @@ $(document).ready(function () {
     $('#clouddocs-footer').load(host + '/footer.html');
 });
 
+
 // collapsible sidebar
 $(document).ready(function () {
 
@@ -15,6 +16,7 @@ $(document).ready(function () {
         $("#enviroment-warning").show();
 
     }
+  
 
     $('#sidebarCollapse, #dismiss').on('click', function () {
         $('#sidebar').toggleClass('active');
