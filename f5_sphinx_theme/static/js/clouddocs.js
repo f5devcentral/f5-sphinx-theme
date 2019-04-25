@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 // collapsible sidebar
 $(document).ready(function () {
-
+   
     $(window).resize(function(evt) {
 
         if(evt.target.innerWidth > 1271 && $("#sidebar").hasClass("active") && !$("#content").hasClass("active")){
@@ -20,7 +20,13 @@ $(document).ready(function () {
         }
 
     });
+  
+    // Verify enviroment and render banner
+    if(document.location.host != "clouddocs.f5.com"){
 
+        $("#enviroment-warning").show();
+
+    }
 
     $('#sidebarCollapse, #dismiss').on('click', function () {
         $('#sidebar').toggleClass('active');

@@ -389,6 +389,12 @@ ul li p {
 }
 
 
+#enviroment-warning{
+    margin-top: 25px;
+    color: #38313d;
+}
+
+
 /* disable underline for hover event */
 .btn-link:hover{
    text-decoration:none;
