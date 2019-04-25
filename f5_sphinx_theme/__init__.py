@@ -15,7 +15,8 @@
 import os
 from os import path
 
-__version__ = "1.0.9"
+__version__ = "2.0.0b1"
+
 
 def get_html_theme_path():
     """Return the html theme path for this template library.
