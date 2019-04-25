@@ -9,7 +9,18 @@ $(document).ready(function () {
 
 // collapsible sidebar
 $(document).ready(function () {
+   
+    $(window).resize(function(evt) {
 
+        if(evt.target.innerWidth > 1271 && $("#sidebar").hasClass("active") && !$("#content").hasClass("active")){
+
+            $("#content").toggleClass("active")
+            $("#sidebar").toggleClass("active")
+
+        }
+
+    });
+  
     // Verify enviroment and render banner
     if(document.location.host != "clouddocs.f5.com"){
 
