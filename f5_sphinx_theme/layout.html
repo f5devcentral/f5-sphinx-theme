@@ -55,7 +55,7 @@
       </button>
     </div>
     <div id="sidebar" class="section-nav">
-      {% if (theme_version_selector != 'False') %}
+      {% if (theme_version_selector) %}
       <!--  version selector ------------------>
       <div id="version_selector_wrapper">
       </div>
@@ -101,7 +101,7 @@
 
 
     {% block body %}{% endblock %}
-    {% if (next or prev) and (theme_next_prev_link != 'False') %}
+    {% if (next or prev) and (theme_next_prev_link) %}
      <div class="row next-prev-btn-row">
        <div class="col-lg-12">
        {% if prev %}
@@ -128,7 +128,7 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-{% if (theme_version_selector != 'False') %}
+{% if (theme_version_selector) %}
   <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
 {%- endif %}
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
