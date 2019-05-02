@@ -327,16 +327,11 @@ a[aria-expanded="true"]::before {
  */
 
 #version-warning{
-    width: 30%;
+    width: 20%;
     float: right;
     margin-top: 30px;
-    background-color:  #1d9cd3;
     font-color: #0c5c8d;
 
-}
-
-#latestVersionLink{
-    color: #e4002b;
 }
 
 
@@ -422,22 +417,12 @@ ul li p {
     color: #38313d;
 }
 
-/* disable underline for hover event */
-
-.btn-link:hover{
-   text-decoration:none;
-}
-
-a:hover{
-    text-decoration:none;
-}
-
 .loweralpha {
-    list-style-type: lower-alpha;
+     list-style-type: lower-alpha;
 }
 
 .lowerroman {
-    list-style-type: lower-roman;
+     list-style-type: lower-roman;
 }
 
 #right-sidebar{

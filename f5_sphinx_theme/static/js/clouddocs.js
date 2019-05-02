@@ -9,6 +9,61 @@ $(document).ready(function () {
 
 
 
+//Version Warning Banner
+
+function renderVersionWarning(){
+
+    $.getJSON( "../../versions.json", function(vesrionsJson) {
+
+        var pathes = document.location.pathname.split("/");
+        pathes.pop();
+
+        var versionUrlPathes = vesrionsJson.latestVersion.url.split("/");
+        versionUrlPathes.pop();
+
+        var currentPath = pathes.slice(0, versionUrlPathes.length).join("/") + "/";
+
+        if(currentPath != vesrionsJson.latestVersion.url){
+
+            for (var index in vesrionsJson.otherVersions){
+
+                if(vesrionsJson.otherVersions[index].url == currentPath){
+
+                    $("#version-warning").show();
+                    $("#currentVersion").text("This content applies to " + vesrionsJson.otherVersions[index].name);
+
+                }
+
+            }
+
+        }
+
+
+    });
+}
+
+// Export PDF
+
+function exportPdf(){
+
+
+        var pathes = document.location.pathname.split("/");
+        pathes.pop();
+
+        $("#content").printThis({
+            importCSS : true,
+            importStyle : true,
+            base: '//' + document.location.host + pathes.join("/") + "/",
+            removeScripts: true,
+            beforePrint : function() { $("#export-pdf").hide(); $(".row, .next-prev-btn-row").hide(); },
+            afterPrint : function() { $("#export-pdf").show(); $(".row, .next-prev-btn-row").show(); },
+            printDelay : 600
+        });
+
+}
+
+
+
 // Right sidebar related items
 
 var navBars_hrefs = []
@@ -128,13 +183,18 @@ function resizeRightScrollbar() {
 
 // collapsible sidebar
 $(document).ready(function () {
-   
+
+
+    //Right Sidebar related items
+    $("#version-warning").hide();
+
+
     $(window).resize(function(evt) {
 
         if(evt.target.innerWidth > 1271 && $("#sidebar").hasClass("active") && !$("#content").hasClass("active")){
 
-            $("#content").toggleClass("active")
-            $("#sidebar").toggleClass("active")
+            $("#content").toggleClass("active");
+            $("#sidebar").toggleClass("active");
 
         }
 
@@ -201,9 +261,6 @@ $(document).ready(function () {
     });
 
 
-
-
-
     //OnScroll event listener
     $(window).scroll(function(){
 
@@ -249,6 +306,23 @@ $(document).ready(function () {
          console.log("%cException got caught on triggerSideBarHighlighting call: " + err, "color:red");
 
     }
+
+    try {
+
+        if($("#version_selector_wrapper").length){
+
+             renderVersionWarning();
+
+        }
+
+    }catch(err){
+
+         console.log("%cException got caught on renderVersionWarning call: " + err, "color:red");
+
+    }
+
+    // PDF Export
+    $("#export-pdf").click(exportPdf);
 
 
     $('#sidebarCollapse, #dismiss').on('click', function () {
