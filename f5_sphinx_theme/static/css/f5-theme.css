@@ -62,7 +62,7 @@ a.copybtn {
     }
     #content.active {
       margin-left: 315px;
-      margin-right: 315px
+      margin-right: 337px
     }
 }
 
@@ -141,7 +141,15 @@ a.headerlink:hover {
   color: #000;
 }
 
+/* disable underline for hover event */
 
+.btn-link:hover{
+   text-decoration:none;
+}
+
+a:hover{
+    text-decoration:none;
+}
 
 .nav-sidebartoc a:hover {
   color: #0c5c8d;
@@ -327,16 +335,11 @@ a[aria-expanded="true"]::before {
  */
 
 #version-warning{
-    width: 30%;
+    width: 20%;
     float: right;
     margin-top: 30px;
-    background-color:  #1d9cd3;
     font-color: #0c5c8d;
 
-}
-
-#latestVersionLink{
-    color: #e4002b;
 }
 
 
@@ -422,22 +425,12 @@ ul li p {
     color: #38313d;
 }
 
-/* disable underline for hover event */
-
-.btn-link:hover{
-   text-decoration:none;
-}
-
-a:hover{
-    text-decoration:none;
-}
-
 .loweralpha {
-    list-style-type: lower-alpha;
+     list-style-type: lower-alpha;
 }
 
 .lowerroman {
-    list-style-type: lower-roman;
+     list-style-type: lower-roman;
 }
 
 #right-sidebar{
@@ -464,7 +457,7 @@ a:hover{
   transition: all 0.3s;
   float: left;
   /* margin-top: 22px; */
-  margin-left: 12px;
+  margin-left: 20px;
   overflow-x: auto;
   overflow-y: scroll;
   padding: 10px 10px 16px 16px;

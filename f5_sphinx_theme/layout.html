@@ -113,6 +113,22 @@
 	  <p class="last">This is draft content. See <a href="https://clouddocs.f5.com">clouddocs.f5.com</a> for content released to the public.</p>
     </div>
 
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">Export PDF</button>
+
+
+    {% if (theme_version_selector) %}
+     {% if (theme_enable_version_warning_banner) %}
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+     {%- endif %}
+    {%- endif %}
+
+
     {% block body %}{% endblock %}
     {% if (next or prev) and (theme_next_prev_link) %}
      <div class="row next-prev-btn-row">
@@ -147,5 +163,6 @@
   <script src="{{ pathto('_static/js/bootstrap.min.js', 1) }}"></script>
   <script src="{{ pathto('_static/js/clouddocs.js', 1) }}"></script>
   <script src="{{ pathto('_static/js/jquery.appear.js', 1) }}"></script>
+  <script src="{{ pathto('_static/js/printThis.js', 1) }}"></script>
 
 {%- endblock %}
