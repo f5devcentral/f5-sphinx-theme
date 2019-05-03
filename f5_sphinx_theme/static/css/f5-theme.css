@@ -141,7 +141,15 @@ a.headerlink:hover {
   color: #000;
 }
 
+/* disable underline for hover event */
 
+.btn-link:hover{
+   text-decoration:none;
+}
+
+a:hover{
+    text-decoration:none;
+}
 
 .nav-sidebartoc a:hover {
   color: #0c5c8d;
