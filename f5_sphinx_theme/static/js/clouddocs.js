@@ -13,24 +13,24 @@ $(document).ready(function () {
 
 function renderVersionWarning(){
 
-    $.getJSON( "../../versions.json", function(vesrionsJson) {
+    $.getJSON( "../../versions.json", function(versionsJson) {
 
         var pathes = document.location.pathname.split("/");
         pathes.pop();
 
-        var versionUrlPathes = vesrionsJson.latestVersion.url.split("/");
+        var versionUrlPathes = versionsJson.latestVersion.url.split("/");
         versionUrlPathes.pop();
 
         var currentPath = pathes.slice(0, versionUrlPathes.length).join("/") + "/";
 
-        if(currentPath != vesrionsJson.latestVersion.url){
+        if(currentPath != versionsJson.latestVersion.url){
 
-            for (var index in vesrionsJson.otherVersions){
+            for (var index in versionsJson.otherVersions){
 
-                if(vesrionsJson.otherVersions[index].url == currentPath){
+                if(versionsJson.otherVersions[index].url == currentPath){
 
                     $("#version-warning").show();
-                    $("#currentVersion").text("This content applies to " + vesrionsJson.otherVersions[index].name);
+                    $("#currentVersion").text("This content applies to " + versionsJson.otherVersions[index].name);
 
                 }
 
