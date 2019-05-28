@@ -797,6 +797,16 @@ h4 {
 }
 
 
+@media (max-width: 500px) {
+
+   /* padding list items with whitespaces to make list Mobile Friendly */
+
+    li {
+        margin: 10px 0 10px 0;
+    }
+
+}
+
 @media (min-width: 1271px) {
 
     h1 {
