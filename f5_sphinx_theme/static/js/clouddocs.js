@@ -199,14 +199,6 @@ $(document).ready(function () {
         }
 
     });
-  
-    // Verify enviroment and render banner
-    if(document.location.host != "clouddocs.f5.com"){
-
-        $("#enviroment-warning").show();
-
-    }
-  
 
     // Collect all href value
     navBars_hrefs = []
