@@ -657,18 +657,24 @@ footer p a {
   background: #efefef;
 }
 #MainMenu > li {
-  margin-top: 10px;
-  height: 42px;
+  height: 40px;
+  padding-top: 10px;
+}
+#MainMenu > li:first-of-type {
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
 }
 #MainMenu > li:hover::after {
   content: " ";
   display: block;
-  border-bottom: 3px solid #e21d38;
+  border-top: 3px solid #e21d38;
+  height: 20px;
 }
 .main-menu {
   float: left;
-  margin: 8px 0 0 0;
-  padding: 0 0 0 20px;
+  margin: 0 0 0 0;
+  padding: 0;
+  padding-top: 10px;
   margin-left: 10px;
 }
 .main-menu .message {
@@ -702,12 +708,12 @@ footer p a {
   margin: 0px 26px 0 4px;
   line-height: 21px;
   vertical-align: text-top;
-  font-size: 18px !important;
+  font-size: 18px;
 }
 .main-menu li a {
-  color: #000;
-  font-size: 16px;
-  text-transform: uppercase;
+  color: #555;
+  font-weight: 700;
+  padding-top: 10px;
   text-decoration: none;
 }
 .main-menu li a:hover {
@@ -738,7 +744,7 @@ footer p a {
 }
 .main-menu li .arrow-up {
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
   left: 45%;
   width: 0;
   height: 0;
@@ -816,6 +822,7 @@ footer p a {
   text-transform: none;
   line-height: 16px;
   padding-bottom: 4px;
+  padding-top: 4px;
 }
 .main-menu .submenu a .current {
   font-weight: bold;
@@ -860,7 +867,7 @@ footer p a {
 }
 .pageHeader {
   height: 80px;
-  border-bottom: 4px solid #2270B3;
+  border-bottom: 14px solid #0186be;
 }
 .section {
   width: 100%;
@@ -871,7 +878,7 @@ footer p a {
   margin-bottom: 24px;
 }
 img.logo {
-  margin: 12px 0 0 0;
+  margin: 8px 0 0 0;
   float: left;
   width: 45px;
   height: 42px;
@@ -885,7 +892,8 @@ img.logo.support {
 }
 /* ---------- corporate menu ----------  */
 .corp-header {
-  height: 46px;
+  height: 40px;
+  background-color: #ebebeb;
 }
 .corp-header .corp-menu li:before {
   content: "|";
@@ -905,8 +913,10 @@ img.logo.support {
 }
 .corp-header ul li a {
   padding: 0;
-  color: #808285;
-  font-size: 14px;
+  color: #000;
+  opacity: 0.7;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
   transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
@@ -919,7 +929,7 @@ img.logo.support {
 .corp-header ul li {
   float: left;
   display: inline;
-  margin: 10px 6px 0 3px;
+  margin: 6px 6px 0 3px;
 }
 .corp-header ul li a:hover {
   opacity: 1;
