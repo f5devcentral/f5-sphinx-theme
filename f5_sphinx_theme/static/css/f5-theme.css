@@ -46,7 +46,7 @@ a.copybtn {
 
 #content {
   padding: 20px;
-  padding-top: 132px;
+  padding-top: 152px;
   transition: all 0.3s;
 }
 
@@ -126,6 +126,10 @@ a.headerlink:hover {
   padding-right: 5px;
 }
 
+.main-menu {
+  margin-top: 8px;
+}
+
 .nestedList > ul > li:not(.nestedList), .nav-sidebartoc li:not(.nestedList) {
   margin-left: 14px;
 }
@@ -180,7 +184,7 @@ a.headerlink:hover {
   margin-left: 12px;
   overflow-x: auto;
   overflow-y: scroll;
-  padding: 10px 12px 16px 16px;
+  padding: 24px 12px 16px 16px;
   font-size: 14px;
   margin-top: 10px;
 }
@@ -797,7 +801,7 @@ img {
 }
 
 img.logo {
-  margin: 0 12px 12px 12px;
+  margin: 8px 0 12px 0;
 }
 
 ul.simple {
@@ -923,9 +927,8 @@ dl > dd > table > tbody > tr:nth-child(odd) > td.field-body > ul {
 }
 
 .pageHeader {
-  height: 60px;
-  border-bottom: 4px solid #2270B3;
-  padding-top: 4px;
+  height: 80px;
+  border-bottom: 14px solid #0186be;
 }
 
 @media (max-width: 768px) {
