@@ -25,6 +25,7 @@
 body {
   padding: 0 0 0 0;
   width: 100%;
+  scroll-padding-top: 28px;
 }
 
 a.copybtn {
@@ -392,6 +393,7 @@ ul.site-breadcrumb-list {
   word-wrap: break-word;
   word-break: break-word;
   font-size: 13px;
+  padding-bottom: 10px;
 }
 
 

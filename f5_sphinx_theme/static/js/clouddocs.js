@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 function renderVersionWarning(){
 
-    $.getJSON( "../../versions.json", function(versionsJson) {
+    $.getJSON( "../versions.json", function(versionsJson) {
 
         var pathes = document.location.pathname.split("/");
         pathes.pop();
