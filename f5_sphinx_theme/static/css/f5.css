@@ -6,6 +6,7 @@
   justify-content: center;
 }
 
+
 .panel-body > .list-group .btn {
   white-space: normal;
 }
@@ -864,9 +865,32 @@ footer p a {
     width: 28%;
   }
 }
-.pageHeader {
-  height: 80px;
-  border-bottom: 14px solid #0186be;
+@media (max-width: 767px) {
+
+  .corp-header {
+    height: 40px;
+    background-color: #ebebeb;
+    border-bottom: 14px solid #0186be;
+  }
+
+    .pageHeader {
+      height: 80px;
+    }
+
+}
+
+@media (min-width: 768px) {
+
+  .corp-header {
+    height: 40px;
+    background-color: #ebebeb;
+  }
+
+   .pageHeader {
+      height: 80px;
+      border-bottom: 14px solid #0186be;
+   }
+
 }
 .section {
   width: 100%;
@@ -5614,9 +5638,9 @@ body {
   height: 40px !important;
 }
 
-#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input .magic-box-underlay, 
-#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input>input, 
-#search-container .CoveoSearchbox .CoveoQuerybox .magic-box-input .magic-box-underlay, 
+#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input .magic-box-underlay,
+#search-container .CoveoSearchbox .CoveoOmnibox .magic-box-input>input,
+#search-container .CoveoSearchbox .CoveoQuerybox .magic-box-input .magic-box-underlay,
 #search-container .CoveoSearchbox .CoveoQuerybox .magic-box-input>input {
   height: 38px;
   line-height: 10px;
