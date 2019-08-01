@@ -18,18 +18,6 @@
 
 {% include "head.html" %}
 
-{%- block extrahead %}
-{# OPENSEARCH #}
-  {% if not embedded %}
-    {% if use_opensearch %}
-      <link rel="search" type="application/opensearchdescription+xml"
-            title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-            href="{{ pathto('_static/opensearch.xml', 1) }}"/>
-    {% endif %}
-
-  {% endif %}
-{%- endblock %}
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
