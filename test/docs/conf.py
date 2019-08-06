@@ -138,7 +138,7 @@ html_theme_options = {
     'version_selector': True,
     'base_url': '/'
  }
-html_sidebars = {['**': 'localtoc.html', 'globaltoc.html','relations.html']}
+html_sidebars = {'**': ['localtoc.html', 'globaltoc.html','relations.html']}
 
 html_theme_options = {
   'version_selector': True,
