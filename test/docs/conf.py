@@ -138,14 +138,14 @@ html_theme_options = {
     'version_selector': True,
     'base_url': '/'
  }
-html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
+html_sidebars = {'**': 'localtoc.html', 'globaltoc.html','relations.html']}
 
-# version_path = '/under-review/%s/%s/versions.json' % (
-#                                                     os.environ['CI_PROJECT_PATH_SLUG'],
-#                                                     os.environ['CI_COMMIT_REF_NAME']
-#                                                     )
+html_theme_options = {
+  'version_selector': True,
+}
+
 html_context = {
-    'version_meta_path': 'versions.json',
+    'version_meta_path': './versions.json',
     'project_safe': re.sub('[^A-Za-z0-9]+', '', project)
 }
 
