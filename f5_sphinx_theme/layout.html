@@ -54,6 +54,7 @@
          <h5>{{ project }} {{ version }} </h5>
         {% endif %}
 
+        {%- include "searchbox.html" %}
         <hr>
         <span class="nav-sidebartoc">
             {{ toctree(includehidden=True, collapse=True) }}
