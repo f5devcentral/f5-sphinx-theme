@@ -41,6 +41,17 @@
   {%- if sidebars != None %}
     {%- block f5sidebar %}
     <div id="sidebar" class="section-nav">
+      <!-- javascript code to maintain the sidebar scroll positon when loaded -->
+      <script type="text/javascript">
+        $(function() {
+          if (localStorage.tempScrollTop) {
+            $('#sidebar').scrollTop(localStorage.tempScrollTop);
+          }
+        });
+        $('#sidebar').on("scroll", function() {
+          localStorage.setItem("tempScrollTop", $('#sidebar').scrollTop());
+        });
+      </script>
       {% if (theme_version_selector) %}
       <!--  version selector ------------------>
       <div id="version_selector_wrapper">
