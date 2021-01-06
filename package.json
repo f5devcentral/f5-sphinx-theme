@@ -4,7 +4,7 @@
   "description": "F5 Sphinx Theme",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
