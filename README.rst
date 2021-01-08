@@ -1,5 +1,5 @@
 F5 Sphinx Theme
-================
+===============
 
 .. image:: https://travis-ci.org/f5devcentral/f5-sphinx-theme.svg?branch=master
    :target: https://travis-ci.org/f5devcentral/f5-sphinx-theme
