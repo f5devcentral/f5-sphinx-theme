@@ -9,7 +9,7 @@ env | grep -E "^(USER_REPO)|^([a-zA-Z]*_UPLOAD_ROOT)|^(S3.*)$" >> .env_travis
 
 set -e
 
-: ${DOC_IMG:=f5devcentral/containthedocs:latest}
+: ${DOC_IMG:=f5devcentral/containthedocs:v2.0.2-beta}
 
 RUN_ARGS=( \
   --rm
