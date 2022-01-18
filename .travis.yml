@@ -12,6 +12,8 @@ env:
 language: python
 python:
   - '2.7'
+  - '3.5'
+  - '3.6'
 before_install:
   - git config --global user.email "OpenStack_TravisCI@f5.com"
   - git config --global user.name "Travis F5"
@@ -31,11 +33,6 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 
-before_deploy:
-  - curl -O https://bootstrap.pypa.io/pip/2.7/get-pip.py
-  - python get-pip.py
-  - python -m pip install --upgrade "pip < 21.0"
-
 deploy:
   #- provider: script
   #  on:
@@ -52,4 +49,5 @@ deploy:
     on:
       repo: f5devcentral/f5-sphinx-theme
       tags: true
-      condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]*|^.*-stable$|master 
+      condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]*|^.*-stable$|master
+      python: '3.6'
