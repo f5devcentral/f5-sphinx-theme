@@ -30,6 +30,11 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 
+before_deploy:
+  # Workaround https://github.com/travis-ci/dpl/issues/1235
+  - python3 -m venv ~/venv
+  - source ~/venv/bin/activate
+
 deploy:
   #- provider: script
   #  on:
