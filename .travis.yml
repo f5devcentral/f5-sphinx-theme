@@ -27,14 +27,12 @@ script:
   - htmlhint f5_sphinx_theme || true
   - "./test/test-docs-docker.sh"
   - python setup.py sdist bdist_wheel
+  - curl -O https://bootstrap.pypa.io/pip/2.7/get-pip.py
+  - python get-pip.py
+  - python -m pip install --upgrade "pip < 21.0"
+  
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
-
-before_deploy:
-  # Workaround https://github.com/travis-ci/dpl/issues/1235
-  - sudo apt-get update && sudo apt-get install -y python3-venv
-  - python3 -m venv ~/venv
-  - source ~/venv/bin/activate
 
 deploy:
   #- provider: script
