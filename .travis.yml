@@ -12,7 +12,6 @@ env:
 language: python
 python:
   - '2.7'
-  - '3.6'
 before_install:
   - git config --global user.email "OpenStack_TravisCI@f5.com"
   - git config --global user.name "Travis F5"
@@ -32,6 +31,12 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 
+before_deploy:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      python3 -m venv ~/venv;
+      source ~/venv/bin/activate;
+    fi
+
 deploy:
   #- provider: script
   #  on:
@@ -40,7 +45,9 @@ deploy:
   #    condition: $TRAVIS_BRANCH =~ ^v[0-9]+\.[0-9]+\.[0-9]* || $TRAVIS_BRANCH == *"-stable" || $TRAVIS_BRANCH == "master" 
   #  script:
   #  - "./scripts/deploy.sh"
-  - provider: pypi
+  - os: osx
+    osx_image: xcode9.4
+    provider: pypi
     user: ${PYPI_USER}
     password: ${PYPI_PASSWORD}
     skip_cleanup: true
@@ -49,4 +56,4 @@ deploy:
       repo: f5devcentral/f5-sphinx-theme
       tags: true
       condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]*|^.*-stable$|master
-      python: '3.6'
+      python: '2.7'
