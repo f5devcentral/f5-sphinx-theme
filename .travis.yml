@@ -20,8 +20,8 @@ install:
   - npm install -g htmlhint
   - npm install -g css-validator
   - npm install -g broken-link-checker
-  - pip install -r requirements_test.txt
-  - pip install twine
+  - pip3 install -r requirements_test.txt
+  - pip3 install twine
 script:
   - css-validator f5_sphinx_theme/static/css/custom.css
   - htmlhint f5_sphinx_theme || true
