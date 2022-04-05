@@ -20,7 +20,7 @@ install:
   - npm install -g htmlhint
   - npm install -g css-validator
   - npm install -g broken-link-checker
-  - pip install ez_setup
+  - easy_install -U setuptools
   - pip install -r requirements_test.txt
   - pip install twine
 script:
