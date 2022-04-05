@@ -19,10 +19,11 @@ Setup and Configuration
 3. (Optional) Set the ``html_theme_options{}`` dictionary. Supported options are shown below. ::
 
     html_theme_options = {
-                            'site_name': '<desired site name>',          \\ DEFAULTS TO "CloudDocs home"
-                            'next_prev_link': True or False              \\ DEFAULTS TO FALSE
-                            'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S' \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
-                            # 'base_url' = ''                            \\ DEFAULTS TO '/'
+                            'site_name': '<desired site name>',           \\ DEFAULTS TO "CloudDocs home"
+                            'next_prev_link': True or False,              \\ DEFAULTS TO FALSE
+                            'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S', \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
+                            # 'surveymonkey_url' = '',                    \\ DEFAULTS TO ""
+                            # 'base_url' = ''                             \\ DEFAULTS TO '/'
                          }
 
    \
