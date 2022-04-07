@@ -11,7 +11,8 @@ env:
 
 language: python
 python:
-  - '3.7'
+  - '2.7'
+  - '3.6'
 before_install:
   - git config --global user.email "OpenStack_TravisCI@f5.com"
   - git config --global user.name "Travis F5"
@@ -49,4 +50,4 @@ deploy:
       repo: f5devcentral/f5-sphinx-theme
       tags: true
       condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]*|^.*-stable$|master
-      python: '3.7'
+      python: '3.6'
