@@ -20,9 +20,6 @@ install:
   - npm install -g htmlhint
   - npm install -g css-validator
   - npm install -g broken-link-checker
-  - wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
-  - python3 get-pip.py
-  - rm get-pip.py
   - pip install -r requirements_test.txt
   - pip install twine
 script:
@@ -33,6 +30,11 @@ script:
 
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
+
+before_deploy:
+  - wget https://bootstrap.pypa.io/pip/3.6/get-pip.py
+  - python3 get-pip.py
+  - rm get-pip.py
 
 deploy:
   #- provider: script
