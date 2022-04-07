@@ -21,7 +21,6 @@ install:
   - npm install -g htmlhint
   - npm install -g css-validator
   - npm install -g broken-link-checker
-  - pip install -I https://github.com/pypa/pip/archive/master.zip#egg=pip
   - pip install -r requirements_test.txt
   - pip install twine
 script:
