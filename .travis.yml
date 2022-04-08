@@ -33,7 +33,7 @@ after_success:
 
 before_deploy:
   # Workaround https://github.com/travis-ci/dpl/issues/1235
-  - sudo apt-get update && sudo apt-get install -y python3.7-venv
+  - sudo apt-get update && sudo apt-get install -y python3.7 python3-venv python3.7-venv
   - python3.7 -m venv ~/venv
   - source ~/venv/bin/activate
 
