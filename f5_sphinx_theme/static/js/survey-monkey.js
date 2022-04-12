@@ -38,7 +38,7 @@ $(document).ready(function () {
     } else if (urlPathNames.length == 2) {
       surveyMonkey.searchParams.append(surveyMonkeyVariableSite, urlPathNames[urlPathNames.length - 2]);
       surveyMonkey.searchParams.append(surveyMonkeyVariablePage, urlPathNames[urlPathNames.length - 1]);
-    } else if (urlPathNames.length == 3) {
+    } else if (urlPathNames.length >= 3) {
       surveyMonkey.searchParams.append(surveyMonkeyVariableSite, urlPathNames[urlPathNames.length - 3]);
       surveyMonkey.searchParams.append(surveyMonkeyVariableVersion, urlPathNames[urlPathNames.length - 2]);
       surveyMonkey.searchParams.append(surveyMonkeyVariablePage, urlPathNames[urlPathNames.length - 1]);
