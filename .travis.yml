@@ -11,6 +11,8 @@ env:
   - S3_DIST_URL="http://clouddocs.f5networks.net/"
 
 language: python
+python:
+  - "3.7"
 
 before_install:
   - git config --global user.email "OpenStack_TravisCI@f5.com"
