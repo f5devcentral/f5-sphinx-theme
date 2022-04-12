@@ -33,8 +33,10 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then printf "View test documentation at ${S3_DIST_URL}/${UPLOAD_DIR}/index.html"; fi
 before_deploy:
-  - curl https://bootstrap.pypa.io/pip/3.6/get-pip.py --output test.py
-  - python3 test.py
+  - pwd
+  - curl https://bootstrap.pypa.io/pip/3.6/get-pip.py --output $PWD/test.py
+  - python $PWD/test.py
+
 deploy:
   #- provider: script
   #  on:
