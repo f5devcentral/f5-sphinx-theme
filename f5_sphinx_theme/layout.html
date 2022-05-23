@@ -135,8 +135,15 @@
           </div>
         </div>
         {% endif %}
-        {% if surveymonkey_url %}
-        <div id="survey-sm-div" survey-sm-url="{{ surveymonkey_url }}">
+        {% if theme_medallia_embed_url %}
+        <hr>
+        <div id="{{ theme_medallia_id }}" class="medallia_survey">
+        </div>
+        <script type="text/javascript" src="{{ theme_medallia_embed_url }}" async></script>
+        {% endif %}
+        {% if theme_surveymonkey_url %}
+        <hr>
+        <div id="survey-sm-div" survey-sm-url="{{ theme_surveymonkey_url }}">
           <a id="survey-sm" target="_blank" rel="noopener noreferrer">Click here to provide feedback</a>
         </div>
         {% endif %}
@@ -158,8 +165,8 @@
 {% if (theme_version_selector) %}
 <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
 {%- endif %}
-{% if (surveymonkey_url) %}
-<script src="{{ pathto('_static/js/survey-monkey.js', 1) }}"></script>
+{% if (theme_surveymonkey_url or theme_medallia_embed_url) %}
+<script src="{{ pathto('_static/js/feedback.js', 1) }}"></script>
 {%- endif %}
 <script src="{{ pathto('_static/js/jquery.appear.js', 1) }}"></script>
 <script src="{{ pathto('_static/js/printThis.js', 1) }}"></script>

@@ -23,6 +23,8 @@ Setup and Configuration
                             'next_prev_link': True or False,              \\ DEFAULTS TO FALSE
                             'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S', \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
                             # 'surveymonkey_url' = '',                    \\ DEFAULTS TO ""
+                            # 'medallia_embed_url' = '',                  \\ DEFAULTS TO ""
+                            # 'medallia_id' = '',                         \\ DEFAULTS TO "medallia_inline_survey"
                             # 'base_url' = ''                             \\ DEFAULTS TO '/'
                          }
 
