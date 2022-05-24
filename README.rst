@@ -25,6 +25,7 @@ Setup and Configuration
                             # 'surveymonkey_url' = '',                    \\ DEFAULTS TO ""
                             # 'medallia_embed_url' = '',                  \\ DEFAULTS TO ""
                             # 'medallia_id' = '',                         \\ DEFAULTS TO "medallia_inline_survey"
+                            # 'feedback_exclude_pages': ['page.html'],    \\ DEFAULTS TO ['index.html', 'search.html'], THE TABLE OF CONTENTS AND SEARCH PAGE
                             # 'base_url' = ''                             \\ DEFAULTS TO '/'
                          }
 
