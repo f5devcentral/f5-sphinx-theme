@@ -16,7 +16,6 @@ const surveyMonkeyAId = "survey-sm";
 const surveyMonkeyUrlAttr = 'survey-sm-url';
 
 const htmlString = ".html";
-const htmlDefaultIndex = "index.html";
 
 // 'window' is a global variable. Define 'medalliaData' global variable here.
 var medalliaData = {};
@@ -49,16 +48,8 @@ function renderSM(smDiv) {
   const url = new URL(window.location.href);
   const urlPathNames = url.pathname.split('/').filter(Boolean);
 
-  // If this is an 'index.html' or isn't even an html page, hide the SurveyMonkey link.
-  if (url.pathname.trim().endsWith(htmlDefaultIndex) || !url.pathname.endsWith(htmlString)) {
-    console.debug('This page need to hide SurveyMonkey link')
-    // Hide the SurveyMonkey Div because this pages doesn't need it.
-    if (smDiv != null) {
-      $("#" + surveyMonkeyDivId).hide();
-    }
-  }
   // Otherwise determine the custom variables for SurveyMonkey.
-  else if (urlPathNames[urlPathNames.length - 1].endsWith(htmlString)) {
+  if (urlPathNames[urlPathNames.length - 1].endsWith(htmlString)) {
     if (urlPathNames.length == 1) {
       surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
     } else if (urlPathNames.length == 2) {
