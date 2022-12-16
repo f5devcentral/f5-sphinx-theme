@@ -537,7 +537,7 @@ ul li p {
 
 .admonition {
   border-radius: 4px;
-  background-color: #504F4F;
+  background-color: #e6e7e8;
   margin-bottom: 20px;
   margin-top: 20px;
   box-shadow: 0 0 0 0, 0 0 1px #504F4F;
@@ -549,6 +549,7 @@ ul li p {
   font-weight: 600;
   color: #504F4F;
   padding: 6px;
+  border-bottom: 2px solid #00A1E4;
 }
 
 div.sidebar~div.container.admonition {
