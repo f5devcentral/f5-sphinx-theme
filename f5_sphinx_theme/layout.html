@@ -69,7 +69,7 @@
         {%- include "searchbox.html" %}
         <hr>
         <span class="nav-sidebartoc">
-          {{ toctree(includehidden=True, collapse=True) }}
+          {{ toctree(includehidden=True, collapse=True, maxdepth=theme_sidebar_toc_maxdepth|int) }}
         </span>
         {%- include "extralinks.html" %}
       </nav>
