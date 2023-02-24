@@ -56,7 +56,7 @@ function renderSM(smDiv) {
       surveyMonkey.searchParams.append(data.surveyMonkey.site, urlPathNames[urlPathNames.length - 2]);
       surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
     } else if (urlPathNames.length >= 3) {
-      surveyMonkey.searchParams.append(data.surveyMonkey.site, urlPathNames[urlPathNames.length - 3]);
+      surveyMonkey.searchParams.append(data.surveyMonkey.site, urlPathNames[0]); // Assume first field is the project/subsite
       surveyMonkey.searchParams.append(data.surveyMonkey.version, urlPathNames[urlPathNames.length - 2]);
       surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
     }
@@ -84,7 +84,7 @@ function renderMedallia() {
     medalliaDataSite = urlPathNames[urlPathNames.length - 2];
     medalliaDataPage = urlPathNames[urlPathNames.length - 1];
   } else if (urlPathNames.length >= 3) {
-    medalliaDataSite = urlPathNames[urlPathNames.length - 3];
+    medalliaDataSite = urlPathNames[0]; // Assume first field is the project/subsite
     medalliaDataVersion = urlPathNames[urlPathNames.length - 2];
     medalliaDataPage = urlPathNames[urlPathNames.length - 1];
   }
