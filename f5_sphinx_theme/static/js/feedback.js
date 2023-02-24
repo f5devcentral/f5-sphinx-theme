@@ -50,16 +50,18 @@ function renderSM(smDiv) {
 
   // Otherwise determine the custom variables for SurveyMonkey.
   if (urlPathNames[urlPathNames.length - 1].endsWith(htmlString)) {
-    if (urlPathNames.length == 1) {
-      surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
-    } else if (urlPathNames.length == 2) {
-      surveyMonkey.searchParams.append(data.surveyMonkey.site, urlPathNames[urlPathNames.length - 2]);
-      surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
-    } else if (urlPathNames.length >= 3) {
-      surveyMonkey.searchParams.append(data.surveyMonkey.site, urlPathNames[0]); // Assume first field is the project/subsite
-      surveyMonkey.searchParams.append(data.surveyMonkey.version, urlPathNames[urlPathNames.length - 2]);
+    const smVersion = document.querySelector('meta[name="version"]').content;
+    surveyMonkey.searchParams.append(data.surveyMonkey.site, document.querySelector('meta[name="product"]').content);
+    surveyMonkey.searchParams.append(data.surveyMonkey.site, smVersion);
+
+    if (urlPathNames.length >= 1) {
       surveyMonkey.searchParams.append(data.surveyMonkey.page, urlPathNames[urlPathNames.length - 1]);
     }
+
+    if (!smVersion && urlPathNames.length >= 3) {
+      surveyMonkey.searchParams.append(data.surveyMonkey.version, urlPathNames[urlPathNames.length - 2]);
+    }
+
     // Modify SurveyMonkey href.
     var surveyMonkeyLink = document.getElementById(surveyMonkeyAId);
     if (surveyMonkeyLink != null) {
@@ -78,15 +80,17 @@ function renderMedallia() {
   const urlPathNames = url.pathname.split('/').filter(Boolean);
 
   // Assign subsite, page, and version information.
-  if (urlPathNames.length == 1) {
+  medalliaDataSite = document.querySelector('meta[name="product"]').content
+  medalliaDataVersion = document.querySelector('meta[name="version"]').content
+
+  // The medalliaDataPage is set by looking at the URL. It will be the last element.
+  if (urlPathNames.length >= 1) {
     medalliaDataPage = urlPathNames[urlPathNames.length - 1];
-  } else if (urlPathNames.length == 2) {
-    medalliaDataSite = urlPathNames[urlPathNames.length - 2];
-    medalliaDataPage = urlPathNames[urlPathNames.length - 1];
-  } else if (urlPathNames.length >= 3) {
-    medalliaDataSite = urlPathNames[0]; // Assume first field is the project/subsite
+  }
+
+  // If the medalliaDataVersion isn't set, try to set it by looking at the URL on the second to last element.
+  if (!medalliaDataVersion && urlPathNames.length >= 3) {
     medalliaDataVersion = urlPathNames[urlPathNames.length - 2];
-    medalliaDataPage = urlPathNames[urlPathNames.length - 1];
   }
 
   // Set HTML global variable medalliaData.
