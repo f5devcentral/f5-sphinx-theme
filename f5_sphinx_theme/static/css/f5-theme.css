@@ -62,9 +62,13 @@ a.copybtn {
     min-height: 728px;
   }
 
-  #content.active {
+  #content.active:not([hide-right-menu]) {
     margin-left: 315px;
     margin-right: 275px
+  }
+
+  #content.active[hide-right-menu] {
+    margin-left: 315px;
   }
 }
 
