@@ -28,6 +28,7 @@ Setup and Configuration
                             # 'feedback_exclude_pages': ['page.html'],    \\ DEFAULTS TO ['index.html', 'search.html'], THE TABLE OF CONTENTS AND SEARCH PAGE
                             # 'base_url' = ''                             \\ DEFAULTS TO '/',
                             # 'sidebar_toc_maxdepth' = ''                 \\ DEFAULTS TO '', Override 'maxdepth' behavior on sidebar toc in layout.html. This is an integer value.
+                            # 'hide_right_menu': True or False,           \\ DEFAULTS TO FALSE
                          }
 
    \
