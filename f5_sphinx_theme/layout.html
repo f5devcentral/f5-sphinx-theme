@@ -75,7 +75,7 @@
       </nav>
     </div>
 
-
+    {%- if not theme_hide_right_menu %}
     <div id="right-sidebar">
       <h7 style="font-weight:normal">On this page:</h7>
       <nav class="nav-sidebartoc">
@@ -84,7 +84,7 @@
         </span>
       </nav>
     </div>
-
+    {%- endif %}
 
     {%- endblock %}
     {%- endif %}
@@ -94,7 +94,9 @@
 
 
     {% block main %}
-    <div class="main active" id="content">
+
+    <div class="main active" id="content" {% if theme_hide_right_menu %}hide-right-menu{% endif %}>
+
       <article class="docs-container site-article-inner">
 
         {%- block breadcrumb %}
