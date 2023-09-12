@@ -144,3 +144,6 @@ f5_sphinx_theme/static/js/index.js
 
 # ignore virtual env
 venv*
+
+# Ignore Mac temp file
+**/.DS_Store
