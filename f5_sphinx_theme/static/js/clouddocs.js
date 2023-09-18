@@ -148,7 +148,7 @@ var originalRightSideBarHeight = $("#right-sidebar").innerHeight() - 80;
 function resizeRightScrollbar() {
   //Check if right-sidebar element id exists
   var rightScrollBarExists = document.getElementById("right-sidebar");
-  if (rightScrollBarExists == false) {
+  if (rightScrollBarExists == null) {
     return;
   }
 
