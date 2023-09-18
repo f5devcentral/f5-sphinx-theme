@@ -5,7 +5,7 @@ $(document).ready(function () {
   $('#clouddocs-header').load(host + '/header.html', loadCoveoComponents);
   $('#clouddocs-footer').load(host + '/footer.html');
 
-  Coveo.SearchEndpoint.configureCloudV2Endpoint('', 'xx564559b1-0045-48e1-953c-3addd1ee4457');
+  Coveo.SearchEndpoint.configureCloudV2Endpoint('', 'xx50d4604d-f4c3-4863-9556-7a820d73a8fc');
 
 });
 
@@ -40,6 +40,15 @@ function showSearchBar() {
   var searchContainer = document.getElementById('search-container');
   searchContainer.style.overflow = 'visible';
   searchContainer.style.height = 'auto';
+
+  var sidebar = document.getElementById('sidebar');
+  if (sidebar) {
+    sidebar.style['margin-top'] = '80px';
+  }
+  var rightSidebar = document.getElementById('right-sidebar');
+  if (rightSidebar) {
+    rightSidebar.style['margin-top'] = '80px';
+  }
 }
 
 // Hide Coveo search bar
@@ -47,6 +56,15 @@ function hideSearchBar() {
   var searchContainer = document.getElementById('search-container');
   searchContainer.style.overflow = 'hidden';
   searchContainer.style.height = '0px';
+
+  var sidebar = document.getElementById('sidebar');
+  if (sidebar) {
+    sidebar.style['margin-top'] = '15px';
+  }
+  var rightSidebar = document.getElementById('right-sidebar');
+  if (rightSidebar) {
+    rightSidebar.style['margin-top'] = '15px';
+  }
 }
 
 // Hide search toggle button in the header
