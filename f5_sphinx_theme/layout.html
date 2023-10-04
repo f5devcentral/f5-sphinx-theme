@@ -126,7 +126,10 @@
           {%- endif %}
           {% block body %}{% endblock %}
         </div>
-        {% if (next or prev) and (theme_next_prev_link) %}
+        {% set pagename_list = pagename.split('/') %}
+        {% if (next or prev) and
+        (theme_next_prev_link) and
+        not (theme_next_prev_link_skip_index and 'index' in pagename_list ) %}
         <div class="row next-prev-btn-row">
           <div class="col-lg-12">
             {% if prev %}

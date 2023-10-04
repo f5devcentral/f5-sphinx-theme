@@ -29,13 +29,14 @@ Setup and Configuration
                             # 'base_url' = ''                             \\ DEFAULTS TO '/',
                             # 'sidebar_toc_maxdepth' = ''                 \\ DEFAULTS TO '', Override 'maxdepth' behavior on sidebar toc in layout.html. This is an integer value.
                             # 'hide_right_menu': True or False,           \\ DEFAULTS TO FALSE
+                            # 'next_prev_link_skip_index': True or False, \\ DEFAULTS TO FALSE. Hide Next and Previous buttons from all 'index' pages?
                          }
 
    \
 
    The ``base_url`` theme option is intended to allow customization of the root URL.
 
-  
+
 .. note::
 
    Depending on your publication/deployment process, you may have to re-build your documentation for the changes to take effect.
