@@ -60,10 +60,23 @@
       {%- endif %}
       <nav class="nav-sidebartoc">
 
+        {% if theme_show_project %}
         {% if release %}
         <h5>{{ project }} {{ release }} </h5>
         {% else %}
         <h5>{{ project }} {{ version }} </h5>
+        {% endif %}
+        {% endif %}
+
+        {% if theme_dropdown | length != 0 %}
+        <div class="dropdown">
+          <button class="dropbtn">{{ theme_dropdown["name"] }}</button>
+          <div class="dropdown-content">
+            {% for name, link in theme_dropdown["links"].items() %}
+            <a href={{link}}>{{name}}</a>
+            {% endfor %}
+          </div>
+        </div>
         {% endif %}
 
         {%- include "searchbox.html" %}
