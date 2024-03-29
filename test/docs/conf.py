@@ -139,14 +139,6 @@ html_theme_options = {
     'base_url': '/',
     'sidebar_toc_maxdepth': "2",
     'hide_right_menu': True,
-    'show_project': False,
-    'dropdown': {
-        'name': 'SPK v1.9.1',
-        'links': {
-            'SPK v1.9.0': 'https://clouddocs.f5.com/service-proxy/1.9.0/intro.html',
-            'SPK v1.8.2': 'https://clouddocs.f5.com/service-proxy/1.8.2/intro.html'
-        }
-    }
 }
 html_sidebars = {'**': ['searchbox.html',
                         'localtoc.html', 'globaltoc.html', 'relations.html']}
