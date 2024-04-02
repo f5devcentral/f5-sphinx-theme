@@ -30,6 +30,12 @@ jobs:
           npm install -g broken-link-checker
           pip install -r requirements_test.txt
           pip install twine
+      - name: Test
+        run: |
+          css-validator f5_sphinx_theme/static/css/custom.css
+          htmlhint f5_sphinx_theme || true
+          "./test/test-docs-docker.sh"
+          python setup.py sdist bdist_wheel
       - name: Build a binary wheel and a source tarball
         run: python3 -m build
       - name: Store the distribution packages
