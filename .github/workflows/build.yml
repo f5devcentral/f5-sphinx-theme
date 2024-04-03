@@ -35,9 +35,8 @@ jobs:
           css-validator f5_sphinx_theme/static/css/custom.css
           htmlhint f5_sphinx_theme || true
           "./test/test-docs-docker.sh"
-          python3 setup.py sdist bdist_wheel
       - name: Build a binary wheel and a source tarball
-        run: python3 -m build
+        run: python3 setup.py sdist bdist_wheel
       - name: Store the distribution packages
         uses: actions/upload-artifact@v3
         with:
