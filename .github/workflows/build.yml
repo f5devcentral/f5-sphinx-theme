@@ -62,7 +62,8 @@ jobs:
           path: dist/
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        # with:
-        #   password: pypi-AgEIcHlwaS5vcmcCJDNjYjY3ZDBhLWUyMzctNDE0Ni1iZDhiLWI4Y2NjNjk1YTQ1YQACKlszLCJmNTY2OGRiOC0yZDBhLTRmNDctODJiZS1iNzI0NDg3Y2VlODkiXQAABiAItTwNYFNWUHi1adwekVHdoihOQWgI0NzgkJ6PJWOCnA
+        with:
+          verbose: true
+          password: pypi-AgEIcHlwaS5vcmcCJDNjYjY3ZDBhLWUyMzctNDE0Ni1iZDhiLWI4Y2NjNjk1YTQ1YQACKlszLCJmNTY2OGRiOC0yZDBhLTRmNDctODJiZS1iNzI0NDg3Y2VlODkiXQAABiAItTwNYFNWUHi1adwekVHdoihOQWgI0NzgkJ6PJWOCnA
           # user: jswongF5
           # password: femwu7-haVpoq-xawbug
