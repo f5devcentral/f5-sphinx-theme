@@ -25,6 +25,7 @@ jobs:
           --user
       - name: Installing pre-prerequisites
         run: |
+          env
           npm install -g htmlhint
           npm install -g css-validator
           npm install -g broken-link-checker
