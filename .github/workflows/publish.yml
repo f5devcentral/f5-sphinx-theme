@@ -1,9 +1,8 @@
 name: Publish Python Package
 on:
-  push:
-    tags:
-      - '^v[0-9]+\.[0-9]+\.[0-9]*'
-      - '^.*-stable$'
+  release:
+    types:
+      - published
 jobs:
   build:
     strategy:
@@ -23,7 +22,7 @@ jobs:
           pip install
           build
           --user
-      - name: Installing pre-prerequisites
+      - name: Installing prerequisites
         run: |
           npm install -g htmlhint
           npm install -g css-validator
