@@ -1,0 +1,39 @@
+name: Python package
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
+        os: ["ubuntu-22.04", "ubuntu-20.04"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      # You can test your matrix by printing the current Python version
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install pypa/build
+        run: >-
+          python3 -m
+          pip install
+          build
+          --user
+      - name: Installing pre-prerequisites
+        run: |
+          npm install -g htmlhint
+          npm install -g css-validator
+          npm install -g broken-link-checker
+          pip install -r requirements_test.txt
+          pip install twine wheel
+      - name: Test
+        run: |
+          css-validator f5_sphinx_theme/static/css/custom.css
+          htmlhint f5_sphinx_theme || true
+          "./test/test-docs-docker.sh"
+      - name: Build a binary wheel and a source tarball
+        run: python3 setup.py sdist bdist_wheel

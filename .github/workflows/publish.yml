@@ -1,12 +1,15 @@
-name: Python package
-on: [push]
-
+name: Publish Python Package
+on:
+  push:
+    tags:
+      - '^v[0-9]+\.[0-9]+\.[0-9]*'
+      - '^.*-stable$'
 jobs:
   build:
     strategy:
       matrix:
-        python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
-        os: ["ubuntu-22.04", "ubuntu-20.04"]
+        python-version: ["3.11"]
+        os: ["ubuntu-22.04"]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -14,9 +17,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      # You can test your matrix by printing the current Python version
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
       - name: Install pypa/build
         run: >-
           python3 -m
@@ -30,13 +30,8 @@ jobs:
           npm install -g broken-link-checker
           pip install -r requirements_test.txt
           pip install twine wheel
-      - name: Test
-        run: |
-          css-validator f5_sphinx_theme/static/css/custom.css
-          htmlhint f5_sphinx_theme || true
-          "./test/test-docs-docker.sh"
       - name: Build a binary wheel and a source tarball
-        run: python3 setup.py sdist bdist_wheel
+        run: python3 -m build
       - name: Store the distribution packages
         uses: actions/upload-artifact@v3
         with:
@@ -45,15 +40,12 @@ jobs:
   publish-to-pypi:
     name: >-
       Publish Python 🐍 distribution 📦 to PyPI
-    # if: startsWith(github.ref, 'refs/tags/')  # only publish to PyPI on tag pushes
     needs:
       - build
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/jwong-test  # Replace <package-name> with your PyPI project name
-    permissions:
-      id-token: write
+      url: https://pypi.org/p/f5-sphinx-theme
     steps:
       - name: Download all the dists
         uses: actions/download-artifact@v3
@@ -64,6 +56,5 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           verbose: true
-          password: pypi-AgEIcHlwaS5vcmcCJDNjYjY3ZDBhLWUyMzctNDE0Ni1iZDhiLWI4Y2NjNjk1YTQ1YQACKlszLCJmNTY2OGRiOC0yZDBhLTRmNDctODJiZS1iNzI0NDg3Y2VlODkiXQAABiAItTwNYFNWUHi1adwekVHdoihOQWgI0NzgkJ6PJWOCnA
-          # user: jswongF5
-          # password: femwu7-haVpoq-xawbug
+          user: ${PYPI_USER}
+          password: ${PYPI_PASSWORD}
