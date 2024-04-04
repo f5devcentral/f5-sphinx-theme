@@ -8,27 +8,20 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.7"]
-        os: ["ubuntu-20.04"]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install pypa/build
-        run: >-
-          python3 -m
-          pip install
-          build
-          --user
-      - name: Installing prerequisites
+      - name: Install pypa/build and prerequisites
         run: |
+          pip install -r requirements_test.txt
+          python3 -m pip install twine wheel build --user
           npm install -g htmlhint
           npm install -g css-validator
           npm install -g broken-link-checker
-          pip install -r requirements_test.txt
-          pip install twine wheel
       - name: Build a binary wheel and a source tarball
         run: python3 -m build
       - name: Store the distribution packages
@@ -41,7 +34,7 @@ jobs:
       Publish Python 🐍 distribution 📦 to PyPI
     needs:
       - build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     environment:
       name: pypi
       url: https://pypi.org/p/f5-sphinx-theme
