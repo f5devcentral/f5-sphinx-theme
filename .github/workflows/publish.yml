@@ -38,6 +38,8 @@ jobs:
     environment:
       name: pypi
       url: https://pypi.org/p/f5-sphinx-theme
+    permissions:
+        id-token: write
     steps:
       - name: Download all the dists
         uses: actions/download-artifact@v3
@@ -46,7 +48,3 @@ jobs:
           path: dist/
       - name: Publish distribution 📦 to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          verbose: true
-          user: ${PYPI_USER}
-          password: ${PYPI_PASSWORD}

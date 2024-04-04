@@ -1,8 +1,7 @@
 F5 Sphinx Theme
 ===============
 
-.. image:: https://travis-ci.org/f5devcentral/f5-sphinx-theme.svg?branch=master
-   :target: https://travis-ci.org/f5devcentral/f5-sphinx-theme
+.. image:: https://github.com/f5devcentral/f5-sphinx-theme/actions/workflows/test.yml/badge.svg
 
 The f5-sphinx-theme provides F5 Networks styling and layouts for projects built with `Sphinx <http://www.sphinx-doc.org/en/stable/index.html>`_. This theme should not be used without modification for any project that doesn't publish documentation to `clouddocs.f5.com <http://clouddocs.f5.com>`_.
 
@@ -94,7 +93,7 @@ See the `project wiki <https://github.com/f5devcentral/f5-sphinx-theme/wiki>`_ f
 Testing
 -------
 
-This project uses Travis-CI for CI/CD.
+This project uses GitHub Actions for CI/CD.
 
 Copyright
 ---------
