@@ -22,7 +22,7 @@ import os
 import datetime
 import string
 import re
-#import f5_sphinx_theme
+# import f5_sphinx_theme
 
 
 start_year = '2017'
@@ -46,15 +46,15 @@ else:
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-  'sphinxjp.themes.basicstrap',
-  'sphinx.ext.todo',
-  'sphinx.ext.autosectionlabel',
-  'sphinx.ext.intersphinx',
-  'sphinx.ext.coverage',
-  'sphinx.ext.ifconfig',
-  'sphinx.ext.doctest',
-  'cloud_sptheme.ext.table_styling',
-  'recommonmark',
+    'sphinxjp.themes.basicstrap',
+    'sphinx.ext.todo',
+    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.coverage',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.doctest',
+    'cloud_sptheme.ext.table_styling',
+    'recommonmark',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -66,9 +66,9 @@ templates_path = ['_templates']
 # source_suffix = ['.rst', '.md']
 
 source_suffix = {
-  '.rst': 'restructuredtext',
-  '.txt': 'markdown',
-  '.md': 'markdown',
+    '.rst': 'restructuredtext',
+    '.txt': 'markdown',
+    '.md': 'markdown',
 }
 
 # The master toctree document.
@@ -136,9 +136,12 @@ html_theme_options = {
     # 'site_name': project,
     'next_prev_link': True,
     'version_selector': True,
-    'base_url': '/'
- }
-html_sidebars = {'**': ['searchbox.html', 'localtoc.html', 'globaltoc.html','relations.html']}
+    'base_url': '/',
+    'sidebar_toc_maxdepth': "2",
+    'hide_right_menu': True,
+}
+html_sidebars = {'**': ['searchbox.html',
+                        'localtoc.html', 'globaltoc.html', 'relations.html']}
 
 # version_path = '/under-review/%s/%s/versions.json' % (
 #                                                     os.environ['CI_PROJECT_PATH_SLUG'],
@@ -202,7 +205,7 @@ html_show_copyright = True
 # contain a <link> tag referring to it.  The value of this option must be the
 # base URL from which the finished HTML is served.
 #
-#html_use_opensearch = 'http://clouddocs.f5.com'
+# html_use_opensearch = 'http://clouddocs.f5.com'
 
 # Language to be used for generating the HTML full-text search index.
 # Sphinx supports the following languages:
@@ -230,7 +233,7 @@ htmlhelp_basename = 'f5_theme_docs'
 
 # -- Options for linkcheck ------------------------------------------------
 # A list of regular expressions that match URIs that should not be checked when doing a linkcheck build. Example:
-#linkcheck_ignore = [r'http://localhost:\d+/']
+# linkcheck_ignore = [r'http://localhost:\d+/']
 
 # The number of times the linkcheck builder will attempt to check a URL before declaring it broken. Defaults to 1 attempt.
 linkcheck_retries = 2
@@ -300,7 +303,6 @@ linkcheck_anchors = False
 # ]
 
 
-
 # -- Options for Epub output ----------------------------------------------
 
 # Bibliographic Dublin Core info.
@@ -320,5 +322,3 @@ linkcheck_anchors = False
 
 # A list of files that should not be packed into the epub file.
 # epub_exclude_files = ['search.html']
-
-

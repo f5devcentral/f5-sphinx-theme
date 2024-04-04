@@ -29,6 +29,14 @@ Setup and Configuration
                             # 'sidebar_toc_maxdepth' = ''                 \\ DEFAULTS TO '', Override 'maxdepth' behavior on sidebar toc in layout.html. This is an integer value.
                             # 'hide_right_menu': True or False,           \\ DEFAULTS TO FALSE
                             # 'next_prev_link_skip_index': True or False, \\ DEFAULTS TO FALSE. Hide Next and Previous buttons from all 'index' pages?
+                            # 'show_project': True,                       \\ DEFAULTS TO TRUE. Show project and version in left menu
+                            # 'dropdown': {                               \\ DEFAULTS TO ''. Enable dropdown menu
+                            #   'name': 'SPK v1.9.1',
+                            #   'links': {
+                            #     'SPK v1.9.0': '/service-proxy/1.9.0/intro.html',
+                            #     'SPK v1.8.2': '/service-proxy/1.8.2/intro.html'
+                            #   }
+    }
                          }
 
    \
