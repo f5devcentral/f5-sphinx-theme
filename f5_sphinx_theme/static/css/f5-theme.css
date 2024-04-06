@@ -50,7 +50,6 @@ a.copybtn {
 
 #content {
   padding: 20px;
-  padding-top: 152px;
   transition: all 0.3s;
 }
 
@@ -1313,6 +1312,10 @@ table.docutils.footnote>tbody>tr>td {
   padding-right: 8px;
   color: black;
 }
+
+/*********************************************************
+This section here is the css styling for the dropdown menu
+**********************************************************/
 
 /* Dropdown Button */
 .dropbtn {
