@@ -5593,6 +5593,8 @@ h4 .label-default {
 
 .content-fluid {
   width: 100%;
+  text-align: center;
+  margin-top: 30px;
 }
 
 .container-fluid.well {
@@ -6762,6 +6764,11 @@ body {
 #search-container .CoveoSearchbox .magic-box {
   border: thin solid #bcc3ca;
   border-radius: 2px;
+}
+
+.magic-box .magic-box-clear {
+  height: 38px !important;
+  line-height: 38px !important;
 }
 
 #search-container .search-tips {
