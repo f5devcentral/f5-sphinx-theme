@@ -112,6 +112,12 @@
 
       <article class="docs-container site-article-inner">
 
+        {%- if theme_banner_msg %}
+        <div class="clouddocs-banner">
+          <p>{{ theme_banner_msg }}</p>
+        </div>
+        {%- endif %}
+
         {%- block breadcrumb %}
         {% include "breadcrumb.html" %}
         {% endblock %}

@@ -1368,3 +1368,11 @@ This section here is the css styling for the dropdown menu
 .dropdown:hover .dropbtn {
   background-color: #002e63;
 }
+
+.clouddocs-banner {
+  text-align: center;
+  width: 100%;
+  background-color: #ffcc00;
+  color: black;
+  font-weight: bold;
+}
