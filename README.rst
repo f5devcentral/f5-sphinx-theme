@@ -30,6 +30,7 @@ Setup and Configuration
                             # 'hide_right_menu': True or False,           \\ DEFAULTS TO FALSE
                             # 'next_prev_link_skip_index': True or False, \\ DEFAULTS TO FALSE. Hide Next and Previous buttons from all 'index' pages?
                             # 'display_last_updated': False,              \\ DEFAULTS TO FALSE.
+                            # 'banner_msg': '',                           \\ DEFAULTS TO ''
                             # 'show_project': True,                       \\ DEFAULTS TO TRUE. Show project and version in left menu
                             # 'dropdown': {                               \\ DEFAULTS TO ''. Enable dropdown menu
                             #   'name': 'SPK v1.9.1',
