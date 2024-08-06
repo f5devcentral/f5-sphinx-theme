@@ -70,7 +70,7 @@
 
         {% if theme_dropdown | length != 0 %}
         <div class="dropdown">
-          <button class="dropbtn">{{ theme_dropdown["name"] }}</button>
+          <button class="dropbtn">{{ theme_dropdown["name"] }}<span class="downarrow"> &#8250;</span></button>
           <div class="dropdown-content">
             {% for name, link in theme_dropdown["links"].items() %}
             <a href={{link}}>{{name}}</a>
@@ -88,7 +88,7 @@
       </nav>
     </div>
 
-    {%- if not theme_hide_right_menu %}
+    {%- if not theme_hide_right_menu and not (theme_hide_right_menu_home and pagename == 'index') %}
     <div id="right-sidebar">
       <h7 style="font-weight:normal">On this page:</h7>
       <nav class="nav-sidebartoc">

@@ -1369,10 +1369,30 @@ This section here is the css styling for the dropdown menu
   background-color: #002e63;
 }
 
+.dropbtn .downarrow {
+  /* Align vertically to the middle of the text */
+  display: inline-block;
+  vertical-align: middle;
+  /* Adjust the left margin for spacing */
+  margin-left: 8px;
+  transform: rotate(90deg);
+
+  /* Add more styles as needed */
+  color: lightgray;
+  /* Set the font size */
+  font-size: 30px;
+  /* Make the element an inline block */
+  display: inline-block;
+}
+
+/*********************************************************
+This section here is the css styling for the banner message
+**********************************************************/
+
 .clouddocs-banner {
   text-align: center;
   width: 100%;
-  background-color: #ffcc00;
+  background-color: #e4d07f;
   color: black;
   font-weight: bold;
 }
