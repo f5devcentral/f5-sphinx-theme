@@ -1379,8 +1379,6 @@ This section here is the css styling for the dropdown menu
 
   /* Add more styles as needed */
   color: lightgray;
-  /* Set the font size */
-  font-size: 30px;
   /* Make the element an inline block */
   display: inline-block;
 }
