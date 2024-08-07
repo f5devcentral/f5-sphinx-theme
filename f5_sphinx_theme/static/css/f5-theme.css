@@ -1394,3 +1394,24 @@ This section here is the css styling for the banner message
   color: black;
   font-weight: bold;
 }
+
+/*********************************************************
+This section here is the css styling for the Qualtrics survey
+**********************************************************/
+
+#logo-container {
+  margin-bottom: 0px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.Skin #Plug,
+#plug {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+.Skin #Plug a,
+#plug a {
+  opacity: 0 !important;
+}
