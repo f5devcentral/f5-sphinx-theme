@@ -23,11 +23,14 @@ Setup and Configuration
                             'html_last_updated_fmt': '%Y-%m-%d %H:%M:%S', \\ REQUIRED FOR FEDERATED SEARCH, DO NOT CHANGE
                             # 'surveymonkey_url' = '',                    \\ DEFAULTS TO ''
                             # 'medallia_embed_url' = '',                  \\ DEFAULTS TO ''
+                            # 'qualtric_id' = '',                         \\ DEFAULTS TO ''
+                            # 'qualtrics_url' = '',                       \\ DEFAULTS TO ''
                             # 'medallia_id' = '',                         \\ DEFAULTS TO "medallia_inline_survey"
                             # 'feedback_exclude_pages': ['page.html'],    \\ DEFAULTS TO ['index.html', 'search.html'], THE TABLE OF CONTENTS AND SEARCH PAGE
                             # 'base_url' = ''                             \\ DEFAULTS TO '/',
                             # 'sidebar_toc_maxdepth' = ''                 \\ DEFAULTS TO '', Override 'maxdepth' behavior on sidebar toc in layout.html. This is an integer value.
                             # 'hide_right_menu': True or False,           \\ DEFAULTS TO FALSE
+                            # 'hide_right_menu_home': True or False       \\ DEFAULTS TO FALSE, Only hide right menu on main home page
                             # 'next_prev_link_skip_index': True or False, \\ DEFAULTS TO FALSE. Hide Next and Previous buttons from all 'index' pages?
                             # 'display_last_updated': False,              \\ DEFAULTS TO FALSE.
                             # 'banner_msg': '',                           \\ DEFAULTS TO ''
