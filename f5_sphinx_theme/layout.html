@@ -223,7 +223,7 @@ theme_feedback_exclude_pages %}
       this.start = function () { var t = this; "complete" !== document.readyState ? window.addEventListener ? window.addEventListener("load", function () { t.go() }, !1) : window.attachEvent && window.attachEvent("onload", function () { t.go() }) : t.go() };
     };
 
-    try { (new g(100, "r", "QSI_S_{{theme_qualtrics_id}}", "{{theme_qualtrics_url}}}?Q_ZID={{theme_qualtrics_id}}")).start() } catch (i) { }
+    try { (new g(100, "r", "QSI_S_{{theme_qualtrics_id}}", "{{theme_qualtrics_url}}")).start() } catch (i) { }
   })();
 </script>
 
