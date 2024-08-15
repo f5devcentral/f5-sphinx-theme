@@ -162,24 +162,26 @@
           </div>
         </div>
         {% endif %}
-        {% if theme_medallia_embed_url and (pagename+file_suffix) not in theme_feedback_exclude_pages %}
+        {% if theme_medallia_embed_url and not ((pagename+file_suffix) in theme_feedback_exclude_pages) %}
         <hr>
         <div id="{{ theme_medallia_id }}" class="medallia_survey">
         </div>
         <script type="text/javascript" src="{{ theme_medallia_embed_url }}" async></script>
         {% endif %}
-        {% if theme_surveymonkey_url and (pagename+file_suffix) not in theme_feedback_exclude_pages %}
+        {% if theme_surveymonkey_url and not ((pagename+file_suffix) in theme_feedback_exclude_pages) %}
         <hr>
         <div id="survey-sm-div" survey-sm-url="{{ theme_surveymonkey_url }}">
           <a id="survey-sm" target="_blank" rel="noopener noreferrer">Click here to provide feedback</a>
         </div>
         {% endif %}
-        {% if theme_qualtrics_id and theme_qualtrics_url %}
-        <!-- Qultrics -->
+        {%- if theme_qualtrics_id and theme_qualtrics_url and not ((pagename+file_suffix) in
+        theme_feedback_exclude_pages)
+        %}
+        <!-- Qualtrics -->
         <div id="{{theme_qualtrics_id}}">
           <!--DO NOT REMOVE-CONTENTS PLACED HERE-->
         </div>
-        <!-- Qultrics -->
+        <!-- Qualtrics -->
         {%- endif %}
       </article>
     </div>
@@ -198,8 +200,8 @@
 {% if (theme_version_selector) %}
 <script src="{{ pathto('_static/js/index.js', 1) }}"></script>
 {%- endif %}
-{% if (theme_surveymonkey_url or theme_medallia_embed_url) and (pagename+file_suffix) not in
-theme_feedback_exclude_pages %}
+{% if (theme_surveymonkey_url or theme_medallia_embed_url) and not ((pagename+file_suffix) in
+theme_feedback_exclude_pages) %}
 <script src="{{ pathto('_static/js/feedback.js', 1) }}"></script>
 {%- endif %}
 <script src="{{ pathto('_static/js/jquery.appear.js', 1) }}"></script>
@@ -208,10 +210,9 @@ theme_feedback_exclude_pages %}
 <script src="{{ pathto('/assets/js/clouddocs.js', 1) }}"></script>
 <script src="{{ pathto('/assets/js/CoveoJsSearch.Lazy.min.js', 1) }}"></script>
 
-{% if theme_qualtrics_id and theme_qualtrics_url %}
-<a href="javascript:void(0)" id="qualtrics_popup_survey">Leave Feedback [+]</a>
-
+{%- if theme_qualtrics_id and theme_qualtrics_url and not ((pagename+file_suffix) in theme_feedback_exclude_pages) %}
 <!--BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET-->
+<a href="javascript:void(0)" id="qualtrics_popup_survey">Leave Feedback [+]</a>
 
 <script type="text/javascript">
   (function () {
