@@ -1,13 +1,58 @@
 // Use the header and footer from the current host (clouddocs.f5.com or clouddocs.f5networks.net)
-$(document).ready(function () {
+$(document).ready(async () => {
   var loc = window.location,
     host = loc.protocol + '//' + loc.host;
   $('#clouddocs-header').load(host + '/header.html', loadCoveoComponents);
   $('#clouddocs-footer').load(host + '/footer.html');
 
-  Coveo.SearchEndpoint.configureCloudV2Endpoint('', 'xx50d4604d-f4c3-4863-9556-7a820d73a8fc');
-
+  const { organizationId, accessToken } = await getCoveoToken()
+  Coveo.SearchEndpoint.configureCloudV2Endpoint(organizationId, accessToken);
 });
+
+function isJwtExpired(token) {
+  const parts = token.split('.');
+  if (parts.length !== 3) {
+    return true;
+  }
+
+  const [_, payload] = parts;
+  const decodedPayload = atob(payload);
+  const payloadObj = JSON.parse(decodedPayload);
+
+  const currentTime = Math.floor(Date.now() / 1000);
+  const expTime = payloadObj.exp;
+  return currentTime >= expTime;
+}
+
+async function getsearchObj() {
+  const response = await fetch(
+    "https://docs.nginx.com/api/v1/auth/search_token"
+  );
+  return response.json();
+}
+
+
+async function getCoveoToken() {
+  const accessToken = localStorage.getItem('coveo_jwt');
+  const organizationId = localStorage.getItem('coveo_org_id');
+
+  const needsFetch = !accessToken || !organizationId || isJwtExpired(accessToken);
+
+  if (needsFetch) {
+    const { sphinx_theme_token, org_id } = await getsearchObj();
+    localStorage.setItem('coveo_jwt_v1', sphinx_theme_token);
+    localStorage.setItem('coveo_org_id_v1', org_id);
+    return {
+      accessToken: sphinx_theme_token,
+      organizationId: org_id,
+    };
+  }
+
+  return {
+    accessToken,
+    organizationId,
+  };
+}
 
 // Callback function that runs after loading the header component into the page
 function loadCoveoComponents() {
