@@ -1,12 +1,13 @@
 // Use the header and footer from the current host (clouddocs.f5.com or clouddocs.f5networks.net)
-$(document).ready(async () => {
-  var loc = window.location,
-    host = loc.protocol + '//' + loc.host;
-  $('#clouddocs-header').load(host + '/header.html', loadCoveoComponents);
-  $('#clouddocs-footer').load(host + '/footer.html');
+$(document).ready(function () {
+  getCoveoToken().then(function ({ organizationId, accessToken }) {
+      Coveo.SearchEndpoint.configureCloudV2Endpoint(organizationId, accessToken, `https://${organizationId}.org.coveo.com/rest/search`);
 
-  const { organizationId, accessToken } = await getCoveoToken()
-  Coveo.SearchEndpoint.configureCloudV2Endpoint(organizationId, accessToken);
+      var loc = window.location,
+        host = loc.protocol + '//' + loc.host;
+      $('#clouddocs-header').load(host + '/header.html', loadCoveoComponents);
+      $('#clouddocs-footer').load(host + '/footer.html');
+    });
 });
 
 function isJwtExpired(token) {
